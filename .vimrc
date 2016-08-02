@@ -34,3 +34,4 @@ nmap <F7> :NERDTreeToggle<CR>
 set backupdir=/tmp
 set directory=/tmp
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
