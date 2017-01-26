@@ -1,19 +1,9 @@
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
-fi
+autoload -Uz compinit promptinit
+compinit
+promptinit
 
-xhost +local:root > /dev/null 2>&1
-
-complete -cf sudo
-
-shopt -s cdspell
-shopt -s checkwinsize
-shopt -s cmdhist
-shopt -s dotglob
-shopt -s expand_aliases
-shopt -s extglob
-shopt -s histappend
-shopt -s hostcomplete
+# This will set the default prompt to the walters theme
+prompt adam2
 
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
@@ -65,4 +55,5 @@ ex ()
 }
 
 # prompt
-PS1='┌[\[\e[32m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]]-[\[\e[33m\]\w\[\e[m\]]\\$\n└> '
+# PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
+# RPROMPT='[%F{yellow}%?%f]'

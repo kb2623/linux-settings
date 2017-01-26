@@ -1,8 +1,21 @@
-execute pathogen#infect()
+call plug#begin()
+
+Plug 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'cohama/lexima.vim'
+Plug 'alvan/vim-closetag'
+Plug 'lervag/vimtex'
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
 set number
 syntax on
 filetype indent plugin on
-set background=dark
+filetype plugin on
 set ruler
 set wrap
 set breakindent
@@ -15,13 +28,13 @@ set t_Co=256
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 if has("gui_running")
-	colorscheme solarized
+	colorscheme base16-atelier-heath
 	set guioptions-=m
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+		set guifont=Literation\ Mono\ Powerline\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
