@@ -8,7 +8,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
-Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/VimClojure'
+Plug 'tfnico/vim-gradle'
+Plug 'pangloss/vim-javascript'
+Plug 'nono/jquery.vim'
 
 call plug#end()
 
