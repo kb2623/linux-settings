@@ -1,7 +1,9 @@
 # linux-settings
 Nastavitve za linux programe.
 
-# Navodila za nastavitev git repozitorija v delujocega direktorija
+# Navodila
+
+## Navodila za nastavitev git repozitorija v delujocega direktorija
 ```
 cd <localDir>
 git init
@@ -10,6 +12,13 @@ git pull <url> master
 git commit -m "message"
 git remote add origin <url>
 git push
+```
+
+## Git ukaz za podmodule
+```
+git submodule foreach git pull origin master
+git submodule update --recursive --remote
+git submodule update --init --recursive
 ```
 
 # Programi

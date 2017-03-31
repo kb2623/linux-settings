@@ -1,3 +1,6 @@
 [submodule ".vim/autoload"]
 	path = .vim/autoload
 	url = https://github.com/junegunn/vim-plug
+[submodule ".config/awesome"]
+	path = .config/awesome
+	url = https://github.com/kb2623/awesome-copycats
