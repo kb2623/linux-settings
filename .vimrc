@@ -29,8 +29,8 @@ set autoindent
 set laststatus=2
 set t_Co=256
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
 if has("gui_running")
+	let g:airline_powerline_fonts=1
 	colorscheme base16-atelier-heath
 	set guioptions-=m
 	set guioptions-=T
