@@ -1,6 +1,17 @@
 # linux-settings
 Nastavitve za linux programe.
 
+# Navodila za nastavitev git repozitorija v delujocega direktorija
+```
+cd <localDir>
+git init
+git add -A .
+git pull <url> master
+git commit -m "message"
+git remote add origin <url>
+git push
+```
+
 # Programi
 ```
 nvim 
