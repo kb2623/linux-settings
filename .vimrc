@@ -31,7 +31,7 @@ set t_Co=256
 let g:airline#extensions#tabline#enabled=1
 if has("gui_running")
 	let g:airline_powerline_fonts=1
-	colorscheme base16-atelier-heath
+	colorscheme base16-irblack
 	set guioptions-=m
 	set guioptions-=T
 	set guioptions-=r
