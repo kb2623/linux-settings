@@ -8,10 +8,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
-Plug 'vim-scripts/VimClojure'
-Plug 'tfnico/vim-gradle'
-Plug 'pangloss/vim-javascript'
-Plug 'nono/jquery.vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -37,7 +34,7 @@ if has("gui_running")
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=Literation\ Mono\ Powerline\ 10
+		set guifont=Literation\ Mono\ Powerline\ 9
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
