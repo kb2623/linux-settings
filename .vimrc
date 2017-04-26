@@ -9,6 +9,7 @@ Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
+Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
 
@@ -28,13 +29,13 @@ set t_Co=256
 let g:airline#extensions#tabline#enabled=1
 if has("gui_running")
 	let g:airline_powerline_fonts=1
-	colorscheme base16-irblack
+	colorscheme gotham256
 	set guioptions-=m
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=Literation\ Mono\ Powerline\ 9
+		set guifont=Literation\ Mono\ Powerline\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
