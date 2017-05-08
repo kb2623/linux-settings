@@ -13,25 +13,25 @@ Xft.dpi: 96
 Xcursor.size:  0
 Xft.rgba: rgb
 
-! Base16 IR Black
-! Scheme: Timothée Poisot (http://timotheepoisot.fr)
+! Base16 3024
+! Scheme: Jan T. Sott (http://github.com/idleberg)
 
-#define base00 #000000
-#define base01 #242422
-#define base02 #484844
-#define base03 #6c6c66
-#define base04 #918f88
-#define base05 #b5b3aa
-#define base06 #d9d7cc
-#define base07 #fdfbee
-#define base08 #ff6c60
-#define base09 #e9c062
-#define base0A #ffffb6
-#define base0B #a8ff60
-#define base0C #c6c5fe
-#define base0D #96cbfe
-#define base0E #ff73fd
-#define base0F #b18a3d
+#define base00 #090300
+#define base01 #3a3432
+#define base02 #4a4543
+#define base03 #5c5855
+#define base04 #807d7c
+#define base05 #a5a2a2
+#define base06 #d6d5d4
+#define base07 #f7f7f7
+#define base08 #db2d20
+#define base09 #e8bbd0
+#define base0A #fded02
+#define base0B #01a252
+#define base0C #b5e4f4
+#define base0D #01a0e4
+#define base0E #a16a94
+#define base0F #cdab53
 
 *.foreground:   base05
 #ifdef background_opacity
@@ -66,7 +66,7 @@ Xft.rgba: rgb
 *.color18:      base01
 *.color19:      base02
 *.color20:      base04
-*.color21:      base06
+*.color21: base06
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:                  true

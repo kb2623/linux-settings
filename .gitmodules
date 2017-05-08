@@ -7,3 +7,6 @@
 [submodule "/home/klemen/.emacs.d"]
 	path = .emacs.d
 	url = https://github.com/syl20bnr/spacemacs
+[submodule ".jupyter/custom"]
+	path = .jupyter/custom
+	url = https://github.com/powerpak/jupyter-dark-theme
