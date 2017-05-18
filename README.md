@@ -1,7 +1,16 @@
 # linux-settings
 Nastavitve za linux programe.
 
+# Programi
+zsh xterm universal-ctags-git grml-zsh-config powerline-fonts-git archdroid-icon-theme
+
 # Navodila
+```
+git init
+git remote add origin https://github.com/kb2623/linux-settings/blob/master/README.md
+git submodule update --init --recursive
+git pull origin master
+```
 ## Command line instructions
 ### Git global setup
 ```
