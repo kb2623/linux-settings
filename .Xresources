@@ -1,11 +1,11 @@
-URxvt.font: xft:Literation Mono Powerline-10
+URxvt.font: xft:Liberation Mono Powerline-10
 URxvt*termName: rxvt-unicode-256color 
 URxvt.depth: 32
 URxvt*scrollBar:                      false
 URxvt*mouseWheelScrollPage:           false
 URxvt*saveLines:                      5000
 
-XTerm*faceName: DejaVu Sans Mono for Powerline
+XTerm*faceName: Liberation Mono Powerline
 XTerm*faceSize: 10
 XTerm*termName: xterm-256color
 
