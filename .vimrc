@@ -28,20 +28,21 @@ set laststatus=2
 set t_Co=256
 let g:airline#extensions#tabline#enabled=1
 if has("gui_running")
-	let g:airline_powerline_fonts=1
-	colorscheme gotham256
+	" let g:airline_powerline_fonts=1
+	colorscheme base16-default-dark
 	set guioptions-=m
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=Liberation\ Mono\ for\ Powerline\ Regular\ 10
+		set guifont=Liberation\ Mono\ Regular\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
 	set guicursor+=n-v-c:blinkon0
 	hi NonText guifg=bg
 else
+	let g:airline_theme='base16_google'
 endif
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
