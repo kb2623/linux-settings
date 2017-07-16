@@ -52,3 +52,12 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 let g:tagbar_compact=1
 let g:tagbar_indent=1
+
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'Css',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 's:selectors',
+        \ 'i:identities'
+    \ ]
+\ }
