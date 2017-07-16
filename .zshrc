@@ -1,3 +1,7 @@
+if [ -f ~/.zshrcadd ]; then
+    source ~/.zshrcadd
+fi
+
 autoload -Uz compinit promptinit
 compinit
 promptinit
@@ -9,7 +13,7 @@ export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 export JAVA_FONTS=/usr/share/fonts/TTF
-_JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
