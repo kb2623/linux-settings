@@ -58,7 +58,3 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-
-# prompt
-# PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
-# RPROMPT='[%F{yellow}%?%f]'
