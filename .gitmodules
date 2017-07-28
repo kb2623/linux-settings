@@ -1,9 +1,6 @@
 [submodule ".vim/autoload"]
 	path = .vim/autoload
 	url = https://github.com/junegunn/vim-plug
-[submodule ".config/awesome"]
-	path = .config/awesome
-	url = https://github.com/kb2623/awesome-copycats
 [submodule "/home/klemen/.emacs.d"]
 	path = .emacs.d
 	url = https://github.com/syl20bnr/spacemacs
