@@ -34,6 +34,7 @@ alias comp='nano $HOME/.config/compton.conf'
 alias inst='sudo pacman -S'
 alias mirrors='sudo pacman-mirrors -g'
 alias printer='system-config-printer'
+alias keyboard-awesome='setxkbmap -layout \"us,si\"'
 
 # ex - archive extractor
 # usage: ex <file>
