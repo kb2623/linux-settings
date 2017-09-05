@@ -1,6 +1,5 @@
 call plug#begin()
 
-Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'bling/vim-airline'
@@ -10,7 +9,7 @@ Plug 'alvan/vim-closetag'
 Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 Plug 'whatyouhide/vim-gotham'
-Plug 'mtscout6/vim-tagbar-css'
+Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 
@@ -30,13 +29,13 @@ set t_Co=256
 let g:airline#extensions#tabline#enabled=1
 if has("gui_running")
 	" let g:airline_powerline_fonts=1
-	colorscheme gotham256
+	colorscheme Tomorrow-Night-Bright
 	set guioptions-=m
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=Liberation\ Mono\ Regular\ 10
+		set guifont=DejaVu\ Sans\ Mono\ Regular\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
@@ -51,5 +50,6 @@ set backupdir=/tmp
 set directory=/tmp
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-let g:tagbar_compact=1
-let g:tagbar_indent=1
+let g:tagbar_compact = 1
+let g:tagbar_indent = 1
+let python_highlight_all = 1
