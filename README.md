@@ -62,9 +62,6 @@ git submodule update --recursive --remote
 git submodule update --init --recursive
 ```
 
-```
-```
-
 # Dodatne nastavitve
 ## Nvim
 ```
