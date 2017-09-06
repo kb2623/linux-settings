@@ -2,7 +2,9 @@
 Nastavitve za linux programe.
 
 # Programi
-zsh xterm universal-ctags-git grml-zsh-config powerline-fonts-git archdroid-icon-theme
+```
+zsh xterm universal-ctags-git grml-zsh-config powerline-fonts-git archdroid-icon-theme nvim gvim spacefm
+```
 
 # Navodila
 ```
@@ -60,11 +62,7 @@ git submodule update --recursive --remote
 git submodule update --init --recursive
 ```
 
-# Programi
 ```
-nvim 
-gvim 
-spacefm
 ```
 
 # Dodatne nastavitve
