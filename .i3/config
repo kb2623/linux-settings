@@ -302,7 +302,7 @@ bar {
 
 	colors {
 #       background $transparent
-        background #2B2C2B
+        background #000000
         statusline #F9FAF9
         separator  #454947
 
