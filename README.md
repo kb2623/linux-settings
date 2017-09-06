@@ -74,6 +74,30 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
+
+## Firefox
+userChrome.css
+```
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+#TabsToolbar { height:25px!important; margin-top:-1px!important; margin-bottom:1px!important; }
+#tabbrowser-tabs { height:25px!important; min-height:25px!important; }
+
+.tab-background-start[selected=true]::after,
+.tab-background-start[selected=true]::before,
+.tab-background-start,
+.tab-background-end,
+.tab-background-end[selected=true]::after,
+.tab-background-end[selected=true]::before {
+  min-height:25px!important;
+}
+
+#VimFxMarkersContainer .marker {
+  font-size: 15px !important; /* Specific font size. */
+  text-transform: uppercase !important; 
+}
+```
+
 # tmux cheatsheet
 
 As configured in [my dotfiles](https://github.com/henrik/dotfiles/blob/master/tmux.conf).
