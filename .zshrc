@@ -35,6 +35,7 @@ alias inst='sudo pacman -S'
 alias mirrors='sudo pacman-mirrors -g'
 alias printer='system-config-printer'
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
+alias lockui='i3lock -c 000000'
 
 # ex - archive extractor
 # usage: ex <file>

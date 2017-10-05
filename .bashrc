@@ -39,6 +39,7 @@ alias comp='nano $HOME/.config/compton.conf'
 alias inst='sudo pacman -S'
 alias mirrors='sudo pacman-mirrors -g'
 alias printer='system-config-printer'
+alias lockui='i3lock -c 000000'
 
 # ex - archive extractor
 # usage: ex <file>
