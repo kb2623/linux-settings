@@ -8,6 +8,7 @@ URxvt*saveLines:                      5000
 XTerm*faceName: Liberation Mono
 XTerm*faceSize: 10
 XTerm*termName: xterm-256color
+XTerm*selectToClipboard: true
 
 Xft.dpi: 96
 Xcursor.size:  0
