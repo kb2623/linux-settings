@@ -1,0 +1,9 @@
+{
+  "Editor": {
+    "codemirror_options": {
+      "indentUnit": 2,
+      "vimMode": false, 
+      "keyMap": "default"
+    }
+  }
+} 

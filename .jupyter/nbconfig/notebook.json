@@ -1,0 +1,13 @@
+{
+  "Notebook": {
+    "Header": false,
+    "Toolbar": false
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": true,
+      "lineWrapping": true,
+      "indentUnit:": 2
+    }
+  }
+}
