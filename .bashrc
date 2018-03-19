@@ -40,6 +40,9 @@ alias inst='sudo pacman -S'
 alias mirrors='sudo pacman-mirrors -g'
 alias printer='system-config-printer'
 alias lockui='i3lock -c 000000'
+alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
+alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
+
 
 # ex - archive extractor
 # usage: ex <file>

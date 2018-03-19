@@ -36,7 +36,8 @@ alias mirrors='sudo pacman-mirrors -g'
 alias printer='system-config-printer'
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
 alias lockui='i3lock -c 000000'
-alias vncserver0x='x0vncserver -PassWordFile=~/.vnc/passwd'
+alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
+alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
 
 # ex - archive extractor
 # usage: ex <file>
