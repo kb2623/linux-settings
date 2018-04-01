@@ -18,7 +18,8 @@ Xft.rgba: rgb
 *.background:   #0a0f14
 *.cursorColor:  #98d1ce
 
-*.color0:       #0a0f14
+! *.color0:       #0a0f14
+*.color0:       #000000
 *.color8:       #10151b
 
 *.color1:       #c33027
@@ -31,7 +32,7 @@ Xft.rgba: rgb
 *.color11:      #245361
 
 *.color4:       #195465
-*.color12:      #093748
+*.color12:      #2aa889
 
 *.color5:       #4e5165
 *.color13:      #888ba5
@@ -40,7 +41,7 @@ Xft.rgba: rgb
 *.color14:      #599caa
 
 *.color7:       #98d1ce
-*.color15: #d3ebe9
+*.color15:      #d3ebe9
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:                  true
