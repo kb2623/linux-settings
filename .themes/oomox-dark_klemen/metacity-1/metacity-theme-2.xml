@@ -9,16 +9,15 @@
 </info>
 
 <!-- ::: CONSTANTS ::: -->
-<constant name="C_titlebar_focused" value="#ECE9D8" />
-<constant name="C_titlebar_unfocused" value="#ECE9D8" />
-<constant name="C_border_focused" value="#3169C6" />
-<constant name="C_border_unfocused" value="#ECE9D8" />
-<constant name="C_title_focused" value="#000000" />
-<constant name="C_title_unfocused" value="blend/#000000/#ECE9D8/0.4" />
-<constant name="C_icons_focused" value="#000000" />
+<constant name="C_titlebar" value="#000000" />
+<constant name="C_border_focused" value="#126d7a" />
+<constant name="C_border_unfocused" value="#000000" />
+<constant name="C_title_focused" value="#dcdcdc" />
+<constant name="C_title_unfocused" value="#a5a5a5" />
+<constant name="C_icons_focused" value="#dcdcdc" />
 <constant name="C_icons_focused_prelight" value="gtk:bg[SELECTED])" />
 <constant name="C_icons_focused_pressed" value="shade/gtk:bg[SELECTED]/0.8" />
-<constant name="C_icons_unfocused" value="blend/#000000/#ECE9D8/0.4" />
+<constant name="C_icons_unfocused" value="#a5a5a5" />
 <constant name="C_icons_unfocused_prelight" value="gtk:bg[SELECTED])" />
 <constant name="C_icons_unfocused_pressed" value="shade/gtk:bg[SELECTED]/0.8" />
 
@@ -103,51 +102,35 @@
 
 <!-- ::: WINDOW DECORATIONS ::: -->
 <draw_ops name="entire_background_focused">
-	<rectangle color="C_titlebar_focused" x="0" y="0" width="width" height="height" filled="true" />
+	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="entire_background_unfocused">
-	<rectangle color="C_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true" />
+	<include name="entire_background_focused" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_focused">
+	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
+</draw_ops>
+
+<draw_ops name="titlebar_fill_attached_focused">
 	<include name="entire_background_focused" />
 </draw_ops>
 
 <draw_ops name="titlebar_fill_unfocused">
-	<include name="entire_background_unfocused" />
-</draw_ops>
-
-<draw_ops name="titlebar_fill_attached_focused">
-	<include name="titlebar_fill_focused" />
-</draw_ops>
-
-<draw_ops name="titlebar_fill_attached_unfocused">
-	<include name="titlebar_fill_unfocused" />
+	<rectangle color="C_titlebar" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="titlebar_focused">
 	<include name="titlebar_fill_focused" />
 </draw_ops>
 
-<draw_ops name="titlebar_unfocused">
-	<include name="titlebar_fill_unfocused" />
-</draw_ops>
-
 <draw_ops name="titlebar_attached_focused"> <!-- titlebar for attached and modal dialogs -->
 	<include name="titlebar_fill_attached_focused" />
 </draw_ops>
 
-<draw_ops name="titlebar_attached_unfocused"> <!-- titlebar for attached and modal dialogs -->
-	<include name="titlebar_fill_attached_unfocused" />
-</draw_ops>
-
 <draw_ops name="rounded_titlebar_focused">
 	<include name="titlebar_fill_focused" />
-</draw_ops>
-
-<draw_ops name="rounded_titlebar_unfocused">
-	<include name="titlebar_fill_unfocused" />
 </draw_ops>
 
 <draw_ops name="border_focused">
