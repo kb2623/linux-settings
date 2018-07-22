@@ -2,6 +2,7 @@ URxvt.font: xft:Liberation Mono-10
 URxvt*termName: rxvt-unicode-256color 
 URxvt.depth: 32
 URxvt*scrollBar:                      true
+URxvt*scrollstyle: plain
 URxvt*scrollBar_right: true
 URxvt*mouseWheelScrollPage:           false
 URxvt*saveLines:                      5000
