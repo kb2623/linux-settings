@@ -138,7 +138,7 @@ local taglist_buttons = gears.table.join(
 	end),
 	awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
 	awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-	)
+)
 
 local tasklist_buttons = gears.table.join(
 	awful.button({ }, 1, function (c)
@@ -334,10 +334,10 @@ globalkeys = gears.table.join(
 		end,
 		{description = "lua execute prompt", group = "awesome"}),
 	-- Menubar
-	awful.key({ modkey }, "p", function() menubar.show() end,
-		{description = "show the menubar", group = "launcher"})
-	awful.key({ "Shift" }, "Alt_L", function ) mykeyboardlayout.next_layout(); end) 
-)
+	awful.key({ modkey }, "p", function () menubar.show() end,
+		{description = "show the menubar", group = "launcher"}),
+	awful.key({ "Shift" }, "Alt_L", function () mykeyboardlayout.next_layout() end,
+		{description = "Change keyboard layout", group = "keyboard"}))
 
 clientkeys = gears.table.join(
 	awful.key({ modkey,           }, "f",
@@ -346,9 +346,9 @@ clientkeys = gears.table.join(
 			c:raise()
 		end,
 		{description = "toggle fullscreen", group = "client"}),
-	awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+	awful.key({ modkey, "Shift"   }, "c", function (c) c:kill() end,
 		{description = "close", group = "client"}),
-	awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
+	awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
 		{description = "toggle floating", group = "client"}),
 	awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
 		{description = "move to master", group = "client"}),
@@ -475,7 +475,7 @@ awful.rules.rules = {
 			"pinentry",
 			"veromix",
 			"xtightvncviewer"
-		}
+		},
 		name = {
 			"Event Tester",  -- xev.
 		},
@@ -566,3 +566,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
+
+
+-- vim: tabstop=3 noexpandtab shiftwidth=3 softtabstop=3
