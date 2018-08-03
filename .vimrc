@@ -29,13 +29,15 @@ set t_Co=256
 let g:airline#extensions#tabline#enabled=1
 if has("gui_running")
 	" let g:airline_powerline_fonts=1
-	colorscheme gotham256
+	" colorscheme gotham256
+	colorscheme spacedark
+	let g:airline_theme='base16_spacemacs'
 	set guioptions-=m
 	set guioptions-=T
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=DejaVu\ Sans\ Mono\ Regular\ 10
+		set guifont=Droid\ Sans\ Mono\ Regular\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
