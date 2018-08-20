@@ -7,3 +7,6 @@
 [submodule ".jupyter/custom"]
 	path = .jupyter/custom
 	url = https://github.com/powerpak/jupyter-dark-theme
+[submodule ".config/vifm/colors"]
+	path = .config/vifm/colors
+	url = https://github.com/vifm/vifm-colors
