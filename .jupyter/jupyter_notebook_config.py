@@ -85,7 +85,7 @@
 #c.NotebookApp.browser = ''
 
 ## The full path to an SSL/TLS certificate file.
-#c.NotebookApp.certfile = ''
+c.NotebookApp.certfile = u'/home/klemen/.jupyter/mycert.pem'
 
 ## The full path to a certificate authority certificate for SSL/TLS client
 #  authentication.
@@ -190,7 +190,7 @@ c.NotebookApp.ip = '*'
 #c.NotebookApp.kernel_spec_manager_class = 'jupyter_client.kernelspec.KernelSpecManager'
 
 ## The full path to a private key file for usage with SSL/TLS.
-#c.NotebookApp.keyfile = ''
+c.NotebookApp.keyfile = u'/home/klemen/.jupyter/mykey.key'
 
 ## The login handler class to use.
 #c.NotebookApp.login_handler_class = 'notebook.auth.login.LoginHandler'
@@ -226,7 +226,7 @@ c.NotebookApp.open_browser = False
 #    from notebook.auth import passwd; passwd()
 #  
 #  The string should be of the form type:salt:hashed-password.
-#c.NotebookApp.password = ''
+c.NotebookApp.password = 'sha1:b28b25c0298f:562f8f769fb479b44621eb1acdecdf5e2eee826a'
 
 ## Forces users to use a password for the Notebook server. This is useful in a
 #  multi user environment, for instance when everybody in the LAN can access each

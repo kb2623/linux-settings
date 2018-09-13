@@ -180,3 +180,13 @@ Notes:
 TODO:
 
 * Conf copy mode to use system clipboard. See PragProg book.
+
+# SSL
+## Create key
+`openssl genrsa -des3 -out [file.key] 2048`
+
+## Decript key
+`openssl rsa -in [file1.key] -out [file2.key]`
+
+## Create certificat
+`openssl req -x509 -new -nodes -key [file.key] -sha256 -days 1024  -out [file.pem]`
