@@ -37,7 +37,7 @@ alias printer='system-config-printer'
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
 alias lockui='i3lock -c 000000'
 alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
-alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
+alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns '
 
 # ex - archive extractor
 # usage: ex <file>

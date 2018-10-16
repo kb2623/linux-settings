@@ -1,7 +1,6 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-local lain = require("lain")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -182,10 +181,6 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-local separators = lain.util.separators
-local arrowl = separators.arrow_left
-local arrowr = separators.arrow_right
-
 awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
 	set_wallpaper(s)
@@ -225,23 +220,17 @@ awful.screen.connect_for_each_screen(function(s)
 			},
 			{ -- Middle widget
 				layout = wibox.layout.align.horizontal,
-				arrowl("alpha", "alpha"),
 				{
 					layout = wibox.layout.align.horizontal,
 					expand = "outside",
 					s.mytasklist, 
 				},
-				arrowr("alpha", "alpha"),
 			},
 			{ -- Right widgets
 				layout = wibox.layout.fixed.horizontal,
-				arrowl("alpha", beautiful.bg_focus),
 				wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_focus),
-				arrowl(beautiful.bg_focus, "alpha"),
 				wibox.widget.systray(),
-				arrowl("alpha", beautiful.bg_focus),
 				wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_focus),
-				arrowl(beautiful.bg_focus, "alpha"),
 				s.mylayoutbox,
 			},
 	}

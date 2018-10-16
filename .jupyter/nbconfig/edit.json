@@ -2,8 +2,11 @@
   "Editor": {
     "codemirror_options": {
       "indentUnit": 2,
-      "vimMode": false, 
-      "keyMap": "default"
+      "vimMode": true,
+      "keyMap": "vim"
+    },
+    "file_extension_modes": {
+      ".m": "Octave"
     }
   }
-} 
+}
