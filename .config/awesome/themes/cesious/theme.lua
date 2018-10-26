@@ -7,9 +7,10 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local xrdb = xresources.get_current_theme()
 local dpi = xresources.apply_dpi
+local fs = require("gears.filesystem")
 
 theme = {}
-theme.dir = "/usr/share/awesome/themes/cesious"
+theme.dir = fs.get_xdg_config_home() .. "/awesome/themes/cesious"
 
 theme.font          = "sans 11"
 
