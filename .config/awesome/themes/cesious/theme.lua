@@ -3,26 +3,36 @@
     Created by Culinax
 --]]
 
+local theme_assets = require("beautiful.theme_assets")
+local xresources = require("beautiful.xresources")
+local xrdb = xresources.get_current_theme()
+local dpi = xresources.apply_dpi
+
 theme = {}
 theme.dir = "/usr/share/awesome/themes/cesious"
 
-theme.font          = "Noto Sans Regular 10"
+theme.font          = "sans 11"
 
-theme.bg_normal     = "#222D32"
-theme.bg_focus      = "#2C3940"
-theme.bg_urgent     = "#000000"
-theme.bg_minimize   = "#101010"
+theme.bg_normal     = xrdb.color0
+theme.bg_focus      = xrdb.color12
+theme.bg_urgent     = xrdb.color9
+theme.bg_minimize   = xrdb.color8
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#ffffff"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ff0000"
-theme.fg_minimize   = "#ffffff"
+theme.fg_normal     = xrdb.foreground
+theme.fg_focus      = theme.bg_normal
+theme.fg_urgent     = theme.bg_normal
+theme.fg_minimize   = theme.bg_normal
 
-theme.border_width  = 1
 theme.border_normal = "#000000"
 theme.border_focus  = "#16A085"
 theme.border_marked = "#16A085"
+
+theme.useless_gap   = dpi(3)
+theme.border_width  = dpi(2)
+theme.border_normal = xrdb.color8
+theme.border_focus  = theme.bg_focus
+theme.border_marked = xrdb.color10
 
 -- There are other variable sets
 -- overriding the default one when
@@ -74,7 +84,25 @@ theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/titlebar/maximi
 theme.titlebar_maximized_button_normal_active   = theme.dir .. "/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active    = theme.dir .. "/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "/usr/share/backgrounds/awesome-scrabble3.png"
+-- Try to determine if we are running light or dark colorscheme:
+local bg_numberic_value = 0;
+for s in theme.bg_normal:gmatch("[a-fA-F0-9][a-fA-F0-9]") do
+    bg_numberic_value = bg_numberic_value + tonumber("0x"..s);
+end
+local is_dark_bg = (bg_numberic_value < 383)
+
+-- Generate wallpaper:
+local wallpaper_bg = xrdb.color0
+local wallpaper_fg = xrdb.color7
+local wallpaper_alt_fg = xrdb.color12
+if not is_dark_bg then
+    wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
+end
+theme.wallpaper = function(s)
+    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
+end
+
+-- theme.wallpaper = "/usr/share/backgrounds/awesome-scrabble3.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh      = theme.dir .. "/layouts/fairh.png"

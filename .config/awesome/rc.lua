@@ -10,6 +10,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
+local freedesktop = require("freedesktop")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -41,7 +42,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-chosen_theme = "xresources"
+-- chosen_theme = "xresources"
+chosen_theme = "cesious"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
@@ -96,21 +98,37 @@ end
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-	{ "hotkeys", function() return false, hotkeys_popup.show_help end},
-	{ "manual", terminal .. " -e man awesome" },
-	{ "edit config", editor_cmd .. " " .. awesome.conffile },
-	{ "restart", awesome.restart },
-	{ "quit", function() awesome.quit() end}
+    { "hotkeys", function() return false, hotkeys_popup.show_help end },
+    { "manual", terminal .. " -e man awesome" },
+    { "edit config", string.format("%s %s", editor, awesome.conffile) },
+    { "edit theme", string.format("%s %s", editor, ".config/awesome/themes/cesious/theme.lua") },
+    { "restart", awesome.restart }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-			{ "open terminal", terminal }
-		}
-	})
+myexitmenu = {
+    { "log out", function() awesome.quit() end, "/usr/share/icons/Arc-Maia/actions/24@2x/system-log-out.png" },
+    { "suspend", "systemctl suspend", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-suspend.png" },
+    { "hibernate", "systemctl hibernate", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-hibernate.png" },
+    { "reboot", "systemctl reboot", "/usr/share/icons/Arc-Maia/actions/24@2x/view-refresh.png" },
+    { "shutdown", "poweroff", "/usr/share/icons/Arc-Maia/actions/24@2x/system-shutdown.png" }
+}
+
+mymainmenu = freedesktop.menu.build({
+    before = {
+        { "Terminal", terminal, "/usr/share/icons/Moka/32x32/apps/utilities-terminal.png" },
+        { "Browser", browser, "/usr/share/icons/hicolor/24x24/apps/chromium.png" },
+        { "Files", filemanager, "/usr/share/icons/Arc-Maia/places/32/user-home.png" },
+        -- other triads can be put here
+    },
+    after = {
+        { "Awesome", myawesomemenu, "/usr/share/awesome/icons/awesome16.png" },
+        { "Exit", myexitmenu, "/usr/share/icons/Arc-Maia/actions/24@2x/system-restart.png" },
+        -- other triads can be put here
+    }
+})
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-	menu = mymainmenu })
-
+                                     menu = mymainmenu })
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
