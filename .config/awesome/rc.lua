@@ -236,14 +236,7 @@ awful.screen.connect_for_each_screen(function(s)
 				s.mytaglist,
 				s.mypromptbox,
 			},
-			{ -- Middle widget
-				layout = wibox.layout.align.horizontal,
-				{
-					layout = wibox.layout.align.horizontal,
-					expand = "outside",
-					s.mytasklist, 
-				},
-			},
+			s.mytasklist, -- Middle widget
 			{ -- Right widgets
 				layout = wibox.layout.fixed.horizontal,
 				wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_focus),
