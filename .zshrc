@@ -22,4 +22,5 @@ antigen theme agnoster
 antigen apply
 
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
+alias lockui='i3lock -c 000000'
 
