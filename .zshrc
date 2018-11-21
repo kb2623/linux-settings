@@ -20,3 +20,6 @@ antigen theme agnoster
 
 # Tell Antigen that you're done.
 antigen apply
+
+alias keyboard-awesome='setxkbmap -layout \"us,si\"'
+
