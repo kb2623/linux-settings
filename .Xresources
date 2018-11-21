@@ -16,6 +16,9 @@ XTerm*selectToClipboard: true
 XTerm*scrollBar: on
 XTerm*rightScrollBar: true
 XTerm*scrollbar.width: 8
+xterm*VT100.Translations: #override \
+	Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
+	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 
 Xft.dpi: 96
 Xcursor.size:  0
