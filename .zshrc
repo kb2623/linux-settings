@@ -1,4 +1,5 @@
 source /usr/share/zsh/share/antigen.zsh
+source ~/.zshrcadd
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -21,6 +22,4 @@ antigen theme agnoster
 # Tell Antigen that you're done.
 antigen apply
 
-alias keyboard-awesome='setxkbmap -layout \"us,si\"'
-alias lockui='i3lock -c 000000'
 
