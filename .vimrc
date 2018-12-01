@@ -55,3 +55,23 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 let g:tagbar_compact = 1
 let g:tagbar_indent = 1
 let python_highlight_all = 1
+
+let g:tagbar_type_html = {
+			\ 'ctagstype' : 'html',
+			\ 'kinds' : [
+			\ 'i:identifiers',
+			\ 'c:classes',
+			\ ],
+			\ }
+]
+}
+
+let g:tagbar_type_css = {
+			\ 'ctagstype' : 'css',
+			\ 'kinds' : [
+			\ 'i:identifiers',
+			\ 'c:classes',
+			\ ],
+			\ }
+]
+}
