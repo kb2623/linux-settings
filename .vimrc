@@ -63,8 +63,6 @@ let g:tagbar_type_html = {
 			\ 'c:classes',
 			\ ],
 			\ }
-]
-}
 
 let g:tagbar_type_css = {
 			\ 'ctagstype' : 'css',
@@ -73,5 +71,3 @@ let g:tagbar_type_css = {
 			\ 'c:classes',
 			\ ],
 			\ }
-]
-}
