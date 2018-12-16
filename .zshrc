@@ -1,4 +1,4 @@
-source /usr/share/zsh/share/antigen.zsh
+source /usr/share/zsh-antigen/antigen.zsh
 source ~/.zshrcadd
 
 # Load the oh-my-zsh's library.

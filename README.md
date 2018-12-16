@@ -3,7 +3,12 @@ Nastavitve za linux programe.
 
 # Programi
 ```
-zsh xterm universal-ctags-git grml-zsh-config powerline-fonts-git archdroid-icon-theme nvim gvim spacefm
+zsh xterm universal-ctags-git powerline-fonts-git archdroid-icon-theme nvim gvim spacefm
+```
+
+## Install command
+```
+sudo apt install git-antigen powerline tmux gvim git vifm
 ```
 
 # Navodila
