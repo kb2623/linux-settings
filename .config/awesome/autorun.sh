@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
 function run {
-	if ! pgrep $1 ; then
-		$@&
-	fi
+   if (command -v $1 && ! pgrep $1); then
+     $@&
+   fi
 }
+
 
 run nm-applet
 run volumeicon
 run cbaticon
+run thunar --daemon
 
 if xrandr | grep -q 'HDMI-0 connected' ; then
 	sh .screenlayout/startup.sh
