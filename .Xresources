@@ -10,6 +10,7 @@ URxvt*saveLines:                      5000
 URxvt.letterSpace: 0
 
 ! XTerm*faceName: Droid Sans Mono
+XTerm*utf8: 1
 XTerm*faceName: Droid Sans Mono for Powerline
 XTerm*faceSize: 11
 XTerm*termName: xterm-256color
