@@ -1,5 +1,5 @@
 ! URxvt.font: xft:Droid Sans Mono-10
-URxvt.font: xft:Droid Sans Mono for Powerline-10
+URxvt.font: xft:Droid Sans Mono for Powerline:pixelsize=14:minspace=False
 URxvt*termName: rxvt-unicode-256color 
 URxvt.depth: 32
 URxvt*scrollBar:                      true
@@ -10,7 +10,7 @@ URxvt*saveLines:                      5000
 
 ! XTerm*faceName: Droid Sans Mono
 XTerm*faceName: Droid Sans Mono for Powerline
-XTerm*faceSize: 10
+XTerm*faceSize: 11
 XTerm*termName: xterm-256color
 XTerm*selectToClipboard: true
 XTerm*scrollBar: on
