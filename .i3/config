@@ -273,7 +273,7 @@ mode "resize" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id watch -n 1200 feh --randomize --bg-fill ~/Pictures/wp/* 
+exec --no-startup-id watch -n 1200 feh --randomize --bg-scale ~/Pictures/wp/* 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id nitrogen --restore
 # exec --no-startup-id manjaro-hello
