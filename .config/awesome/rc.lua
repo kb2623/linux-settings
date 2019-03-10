@@ -9,11 +9,14 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
-local hotkeys_popup = require("awful.hotkeys_popup").widget
 local freedesktop = require("freedesktop")
+
+local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
+require("awful.hotkeys_popup.keys.vim")
+require(".tmuxHelp")
+require(".zshHelp")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -256,43 +259,49 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+local wmAwesomeG = "WM: awesome"
+local wmClientG = "WM: client"
+local wmTagG = "WM: tag"
+local wmScreenG = "WM: screen"
+local wmLauncherG = "WM: launcher"
+local wmLayoutG = "WM: layout"
 -- {{{ Key bindings
 globalkeys = gears.table.join(
 	awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-		{description="show help", group="awesome"}),
+		{description="show help", group=wmAwesomeG}),
 	awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-		{description = "view previous", group = "tag"}),
+		{description = "view previous", group = wmTagG}),
 	awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-		{description = "view next", group = "tag"}),
+		{description = "view next", group = wmTagG}),
 	awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-		{description = "go back", group = "tag"}),
+		{description = "go back", group = wmTagG}),
 
 	awful.key({ modkey,           }, "j",
 		function ()
 			awful.client.focus.byidx( 1)
 		end,
-		{description = "focus next by index", group = "client"}
+		{description = "focus next by index", group = wmClientG}
 	),
 	awful.key({ modkey,           }, "k",
 		function ()
 			awful.client.focus.byidx(-1)
 		end,
-		{description = "focus previous by index", group = "client"}
+		{description = "focus previous by index", group = wmClientG}
 	),
 	awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-		{description = "show main menu", group = "awesome"}),
+		{description = "show main menu", group = wmAwesomeG}),
 
 	-- Layout manipulation
 	awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
-		{description = "swap with next client by index", group = "client"}),
+		{description = "swap with next client by index", group = wmClientG}),
 	awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
-		{description = "swap with previous client by index", group = "client"}),
+		{description = "swap with previous client by index", group = wmClientG}),
 	awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
-		{description = "focus the next screen", group = "screen"}),
+		{description = "focus the next screen", group = wmScreenG}),
 	awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
-		{description = "focus the previous screen", group = "screen"}),
+		{description = "focus the previous screen", group = wmScreenG}),
 	awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
-		{description = "jump to urgent client", group = "client"}),
+		{description = "jump to urgent client", group = wmClientG}),
 	awful.key({ modkey,           }, "Tab",
 		function ()
 			awful.client.focus.history.previous()
@@ -300,32 +309,32 @@ globalkeys = gears.table.join(
 				client.focus:raise()
 			end
 		end,
-		{description = "go back", group = "client"}),
+		{description = "go back", group = wmClientG}),
 
 	-- Standard program
 	awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-		{description = "open a terminal", group = "launcher"}),
+		{description = "open a terminal", group = wmLauncherG}),
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
-		{description = "reload awesome", group = "awesome"}),
+		{description = "reload awesome", group = wmAwesomeG}),
 	awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-		{description = "quit awesome", group = "awesome"}),
+		{description = "quit awesome", group = wmAwesomeG}),
 
 	awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-		{description = "increase master width factor", group = "layout"}),
+		{description = "increase master width factor", group = wmLayoutG}),
 	awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-		{description = "decrease master width factor", group = "layout"}),
+		{description = "decrease master width factor", group = wmLayoutG}),
 	awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
-		{description = "increase the number of master clients", group = "layout"}),
+		{description = "increase the number of master clients", group = wmLayoutG}),
 	awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
-		{description = "decrease the number of master clients", group = "layout"}),
+		{description = "decrease the number of master clients", group = wmLayoutG}),
 	awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
-		{description = "increase the number of columns", group = "layout"}),
+		{description = "increase the number of columns", group = wmLayoutG}),
 	awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
-		{description = "decrease the number of columns", group = "layout"}),
+		{description = "decrease the number of columns", group = wmLayoutG}),
 	awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-		{description = "select next", group = "layout"}),
+		{description = "select next", group = wmLayoutG}),
 	awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-		{description = "select previous", group = "layout"}),
+		{description = "select previous", group = wmLayoutG}),
 
 	awful.key({ modkey, "Control" }, "n",
 		function ()
@@ -336,11 +345,11 @@ globalkeys = gears.table.join(
 				c:raise()
 			end
 		end,
-		{description = "restore minimized", group = "client"}),
+		{description = "restore minimized", group = wmClientG}),
 
 	-- Prompt
 	awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-		{description = "run prompt", group = "launcher"}),
+		{description = "run prompt", group = wmLauncherG}),
 
 	awful.key({ modkey }, "x",
 		function ()
@@ -351,10 +360,10 @@ globalkeys = gears.table.join(
 				history_path = awful.util.get_cache_dir() .. "/history_eval"
 			}
 		end,
-		{description = "lua execute prompt", group = "awesome"}),
+		{description = "lua execute prompt", group = wmAwesomeG}),
 	-- Menubar
 	awful.key({ modkey }, "p", function () menubar.show() end,
-		{description = "show the menubar", group = "launcher"}),
+		{description = "show the menubar", group = wmLauncherG}),
 	awful.key({ "Shift" }, "Alt_L", function () mykeyboardlayout.next_layout() end,
 		{description = "Change keyboard layout", group = "keyboard"}))
 
@@ -364,42 +373,42 @@ clientkeys = gears.table.join(
 			c.fullscreen = not c.fullscreen
 			c:raise()
 		end,
-		{description = "toggle fullscreen", group = "client"}),
+		{description = "toggle fullscreen", group = wmClientG}),
 	awful.key({ modkey, "Shift"   }, "c", function (c) c:kill() end,
-		{description = "close", group = "client"}),
+		{description = "close", group = wmClientG}),
 	awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
-		{description = "toggle floating", group = "client"}),
+		{description = "toggle floating", group = wmClientG}),
 	awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
-		{description = "move to master", group = "client"}),
+		{description = "move to master", group = wmClientG}),
 	awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-		{description = "move to screen", group = "client"}),
+		{description = "move to other screen", group = wmScreenG}),
 	awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-		{description = "toggle keep on top", group = "client"}),
+		{description = "toggle keep on top", group = wmClientG}),
 	awful.key({ modkey,           }, "n",
 		function (c)
 			-- The client currently has the input focus, so it cannot be
 			-- minimized, since minimized clients can't have the focus.
 			c.minimized = true
 		end ,
-		{description = "minimize", group = "client"}),
+		{description = "minimize", group = wmClientG}),
 	awful.key({ modkey,           }, "m",
 		function (c)
 			c.maximized = not c.maximized
 			c:raise()
 		end ,
-		{description = "(un)maximize", group = "client"}),
+		{description = "(un)maximize", group = wmClientG}),
 	awful.key({ modkey, "Control" }, "m",
 		function (c)
 			c.maximized_vertical = not c.maximized_vertical
 			c:raise()
 		end ,
-		{description = "(un)maximize vertically", group = "client"}),
+		{description = "(un)maximize vertically", group = wmClientG}),
 	awful.key({ modkey, "Shift"   }, "m",
 		function (c)
 			c.maximized_horizontal = not c.maximized_horizontal
 			c:raise()
 		end ,
-		{description = "(un)maximize horizontally", group = "client"})
+		{description = "(un)maximize horizontally", group = wmClientG})
 )
 
 -- Bind all key numbers to tags.
@@ -416,7 +425,7 @@ for i = 1, 9 do
 					tag:view_only()
 				end
 			end,
-			{description = "view tag #"..i, group = "tag"}),
+			{description = "view tag #"..i, group = wmTagG}),
 		-- Toggle tag display.
 		awful.key({ modkey, "Control" }, "#" .. i + 9,
 			function ()
@@ -426,7 +435,7 @@ for i = 1, 9 do
 					awful.tag.viewtoggle(tag)
 				end
 			end,
-			{description = "toggle tag #" .. i, group = "tag"}),
+			{description = "toggle tag #" .. i, group = wmTagG}),
 		-- Move client to tag.
 		awful.key({ modkey, "Shift" }, "#" .. i + 9,
 			function ()
@@ -437,7 +446,7 @@ for i = 1, 9 do
 					end
 				end
 			end,
-			{description = "move focused client to tag #"..i, group = "tag"}),
+			{description = "move focused client to tag #"..i, group = wmTagG}),
 		-- Toggle tag on focused client.
 		awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
 			function ()
@@ -448,7 +457,7 @@ for i = 1, 9 do
 					end
 				end
 			end,
-			{description = "toggle focused client on tag #" .. i, group = "tag"})
+			{description = "toggle focused client on tag #" .. i, group = wmTagG})
 	)
 end
 
