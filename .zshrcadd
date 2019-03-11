@@ -2,4 +2,5 @@
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
 alias lockui='i3lock -c 000000'
 alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
+alias pacmanClean='yaourt -Rs $(yaourt -Qtdq)'
 
