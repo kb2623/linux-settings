@@ -14,9 +14,9 @@ local freedesktop = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
-require(".vimHelp")
 require(".tmuxHelp")
 require(".zshHelp")
+require(".vimHelp")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
