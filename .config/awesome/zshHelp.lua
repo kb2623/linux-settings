@@ -49,8 +49,12 @@ local urxvt_keys = {
 		{
 			modifiers = { "Control" },
 			keys = {
-				k = "Kill whole line",
-				l = "clear screen"
+				u = "Erases whole line",
+				l = "Clear screen",
+				w = "Erases one word in current line",
+				d = "Log out of current serssion",
+				r = "Reverse lookup of previous commands",
+				z = "Stop current commmand"
 			}
 		}
 	}
