@@ -9,7 +9,7 @@ function run {
 
 run nm-applet
 run volumeicon
-run cbaticon
+run cbatticon
 run thunar --daemon
 
 if xrandr | grep -q 'HDMI-0 connected' ; then
