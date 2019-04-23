@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="edge-logo.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient909">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop905" />
+      <stop
+         style="stop-color:#f5f5f5;stop-opacity:1"
+         offset="1"
+         id="stop907" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient821">
+      <stop
+         style="stop-color:#424242;stop-opacity:1"
+         offset="0"
+         id="stop817" />
+      <stop
+         style="stop-color:#1a1a1a;stop-opacity:1"
+         offset="1"
+         id="stop819" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient821"
+       id="radialGradient823"
+       cx="67.73333"
+       cy="229.26665"
+       fx="67.73333"
+       fy="229.26665"
+       r="67.73333"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient4576"
+       inkscape:collect="always">
+      <stop
+         id="stop4572"
+         offset="0"
+         style="stop-color:#212121;stop-opacity:1;" />
+      <stop
+         id="stop4574"
+         offset="1"
+         style="stop-color:#404040;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.2420737,0,0,1.3942078,-0.81734552,-114.32366)"
+       r="2.1927041"
+       fy="291.70592"
+       fx="3.9863224"
+       cy="291.70592"
+       cx="3.9863224"
+       id="radialGradient4578"
+       xlink:href="#linearGradient4576"
+       inkscape:collect="always" />
+    <linearGradient
+       gradientTransform="matrix(1.2420737,0,0,1.2420737,-0.81734552,-69.945269)"
+       gradientUnits="userSpaceOnUse"
+       y2="291.37521"
+       x2="1.0527245"
+       y1="291.49347"
+       x1="6.1790266"
+       id="linearGradient4582"
+       xlink:href="#linearGradient4576"
+       inkscape:collect="always" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient909"
+       id="linearGradient911"
+       x1="79.700218"
+       y1="192.8138"
+       x2="79.700218"
+       y2="166.69357"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter933"
+       x="-0.044858829"
+       width="1.0897177"
+       y="-0.090570049"
+       height="1.1811401">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.5461913"
+         id="feGaussianBlur935" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.51660156"
+     inkscape:cx="184.86319"
+     inkscape:cy="164.45257"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:snap-page="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="775"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-161.53332)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.40281296px;line-height:1.25;font-family:'Linux Libertine Display O';-inkscape-font-specification:'Linux Libertine Display O';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.58128768;filter:url(#filter933)"
+       x="34.204361"
+       y="202.29765"
+       id="text939"><tspan
+         sodipodi:role="line"
+         id="tspan937"
+         x="34.204361"
+         y="202.29765"
+         style="fill:#000000;fill-opacity:1;stroke-width:0.58128768">Edge</tspan></text>
+    <rect
+       style="opacity:0.87400004;fill:url(#radialGradient823);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.149;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect815"
+       width="135.46666"
+       height="135.46666"
+       x="0"
+       y="161.53333" />
+    <g
+       transform="matrix(10.940414,0,0,10.940414,4.4390566,-2944.9693)"
+       id="layer1-3"
+       inkscape:label="Layer 1">
+      <g
+         id="g4505">
+        <path
+           id="path4492"
+           d="m 0.72586664,288.25759 0.18461957,3.72279 0.18554589,3.72381 1.3851573,-0.89427 -0.1041612,-2.09595 -0.105418,-2.10698 1.8771935,0.96271 1.8675532,0.9581 1.3435709,-0.86828 -3.3176161,-1.70061 z"
+           style="opacity:1;fill:#f5f5f5;fill-opacity:1;stroke:#212121;stroke-width:0.2137015;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           inkscape:connector-curvature="0" />
+        <path
+           style="opacity:1;fill:url(#radialGradient4578);fill-opacity:1;stroke:none;stroke-width:0.89007246;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           d="m 1.4104606,289.31791 0.1515867,3.05666 0.1523443,3.05752 1.1373469,-0.73423 -0.085523,-1.72089 -0.086559,-1.73 1.5413016,0.79047 1.5333896,0.78665 1.1031131,-0.71299 -2.7239843,-1.3963 z"
+           id="path4485"
+           inkscape:connector-curvature="0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4580"
+           d="m 1.4104606,289.31791 0.1515867,3.05666 0.1523443,3.05752 1.1373469,-0.73423 -0.085523,-1.72089 -0.086559,-1.73 1.5413016,0.79047 1.5333896,0.78665 1.1031131,-0.71299 -2.7239843,-1.3963 z"
+           style="opacity:1;fill:url(#linearGradient4582);fill-opacity:1;stroke:none;stroke-width:0.89007246;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.40281296px;line-height:1.25;font-family:'Linux Libertine Display O';-inkscape-font-specification:'Linux Libertine Display O';letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient911);fill-opacity:1;stroke:none;stroke-width:0.58128768"
+       x="34.204361"
+       y="196.4769"
+       id="text903"><tspan
+         sodipodi:role="line"
+         id="tspan901"
+         x="34.204361"
+         y="196.4769"
+         style="stroke-width:0.58128768;fill-opacity:1;fill:url(#linearGradient911)">Edge</tspan></text>
+    <text
+       id="text915"
+       y="196.4769"
+       x="34.204361"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:43.40281296px;line-height:1.25;font-family:'Linux Libertine Display O';-inkscape-font-specification:'Linux Libertine Display O';letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient911);fill-opacity:1;stroke:none;stroke-width:0.58128768;filter:url(#filter933)"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.58128768;fill-opacity:1;fill:url(#linearGradient911)"
+         y="196.4769"
+         x="34.204361"
+         id="tspan913"
+         sodipodi:role="line">Edge</tspan></text>
+  </g>
+</svg>
