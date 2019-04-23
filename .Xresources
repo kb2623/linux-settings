@@ -23,7 +23,8 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 
 Xft.dpi: 96
-Xcursor.size:  0
+Xcursor.size: 16
+Xcursor.theme: edge-cursor-small
 Xft.rgba: rgb
 
 UXTerm*renderFont: true
