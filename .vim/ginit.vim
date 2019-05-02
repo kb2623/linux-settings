@@ -1,2 +1,2 @@
-GuiFont Droid Sans Mono for Powerline:h11
 colorscheme spacedark
+call rpcnotify(1, 'Gui', 'Font', 'Fira Code 10')
