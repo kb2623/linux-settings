@@ -10,7 +10,6 @@ function run {
 run nm-applet
 run volumeicon
 run cbatticon
-run pcmanfm --desktop
 
 if xrandr | grep -q 'HDMI-0 connected' ; then
 	sh .screenlayout/startup.sh
