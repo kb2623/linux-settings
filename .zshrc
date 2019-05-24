@@ -1,25 +1,41 @@
-source /usr/share/zsh-antigen/antigen.zsh
-source ~/.zshrcadd
+#!/usr/bin/env zsh
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+if [[ ! -f ~/.zpm/zpm.zsh  ]]; then
+	git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
+fi
+source ~/.zpm/zpm.zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle heroku
-antigen bundle pip
-antigen bundle lein
-antigen bundle command-not-found
+### Core plugins
+zpm zpm-zsh/core-config
+zpm zpm-zsh/check-deps
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
+### 3party plugins
+zpm zpm-zsh/ls
+zpm zpm-zsh/tmux
+zpm zpm-zsh/colors
+zpm zpm-zsh/ssh
+zpm zpm-zsh/dot
+zpm zpm-zsh/dircolors-material
+zpm zpm-zsh/history-substring-search-wrapper
+zpm zsh-users/zsh-completions
 
-# Load the theme.
-# antigen theme robbyrussell
-# antigen theme agnoster
-# antigen theme amuse
-antigen theme bhilburn/powerlevel9k powerlevel9k
+zpm horosgrisa/utils
 
-# Tell Antigen that you're done.
-antigen apply
+zpm load-if-not ssh zpm-zsh/readers zpm-zsh/clipboard
+zpm load-if-not ssh zpm-zsh/autoenv
+
+zpm load-if-not ssh voronkovich/gitignore.plugin.zsh
+zpm load-if-not ssh psprint/history-search-multi-word
+zpm load-if-not ssh zdharma/fast-syntax-highlighting
+zpm load-if-not ssh tarruda/zsh-autosuggestions
+
+### Themes
+zpm load-if ssh zpm-zsh/minimal-theme
+zpm load-if-not ssh  romkatv/powerlevel10k
+
+# colors
+PYGMENTIZE_THEME=material
+
+if [[ -f ~/.zshrcadd  ]]; then
+	source ~/.zshrcadd
+fi
