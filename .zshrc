@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
+#
+case $(uname -a) in
+	*Microsoft*) unsetopt BG_NICE ;;
+esac
 
 if [[ ! -f ~/.zpm/zpm.zsh  ]]; then
 	git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
