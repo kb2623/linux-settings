@@ -2,64 +2,32 @@
 Nastavitve za linux programe.
 
 # Programi
-```
-zsh xterm universal-ctags-git powerline-fonts-git archdroid-icon-theme nvim gvim spacefm
-```
+* `git`
+* `zsh`
+* `tmux`
+* `powerline`
+* `vim` and `neovim`
+* `neofetch`
+* `vifm`
 
 ## Install command
 ```
-sudo apt install git-antigen powerline tmux gvim git vifm
+sudo apt install git zsh tmux powerline vim neovim neofetch vifm
 ```
 
-# Navodila
+# Git Navodila
+## Git global setup
+```
+git config --global user.name "user"
+git config --global user.email "user@mail.com"
+```
+## Git setup
 ```
 git init
 git remote add origin https://github.com/kb2623/linux-settings/blob/master/README.md
 git submodule update --init --recursive
 git pull origin master
 ```
-## Command line instructions
-### Git global setup
-```
-git config --global user.name "user"
-git config --global user.email "user@mail.com"
-```
-### Create a new repository
-```
-git clone https://kb2623@gitlab.com/kb2623/obVaja.git
-cd obVaja
-touch README.md
-git add README.md
-git commit -m "add README"
-git push -u origin master
-```
-### Existing folder
-```
-cd existing_folder
-git init
-git remote add origin https://kb2623@gitlab.com/kb2623/obVaja.git
-git add .
-git commit
-git push -u origin master
-```
-### Existing Git repository
-```
-cd existing_repo
-git remote add origin https://kb2623@gitlab.com/kb2623/obVaja.git
-git push -u origin --all
-git push -u origin --tags
-```
-## Navodila za nastavitev git repozitorija v delujocega direktorija
-```
-cd <localDir>
-git init
-git add -A .
-git pull <url> master
-git commit -m "message"
-git remote add origin <url>
-git push
-```
-
 ## Git ukaz za podmodule
 ```
 git submodule update --init --recursive
