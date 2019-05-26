@@ -2,77 +2,63 @@
 Nastavitve za linux programe.
 
 # Programi
+## CLI
+* `git`
+* `zsh`
+* `vim` and `neovim`
+* `neofetch`
+* `vifm`
+* `powerline`
+
+### Namestitev
 ```
-zsh xterm universal-ctags-git grml-zsh-config powerline-fonts-git archdroid-icon-theme nvim gvim spacefm
+sudo pacman -S git zsh vim neovim neofetch vifm powerline
 ```
 
-# Navodila
+## GUI
+* `kitty` -> Terminal
+* `otf-fira-code` -> Font
+
+### Namestitev
+```
+sudo pacman -S kitty otf-fira-code
+```
+
+# Git navodila
+## Git global setup
+```
+git config --global user.name "user"
+git config --global user.email "user@mail.com"
+```
+
+## Git user home dir
 ```
 git init
 git remote add origin https://github.com/kb2623/linux-settings/blob/master/README.md
 git submodule update --init --recursive
 git pull origin master
 ```
-## Command line instructions
-### Git global setup
-```
-git config --global user.name "user"
-git config --global user.email "user@mail.com"
-```
-### Create a new repository
-```
-git clone https://kb2623@gitlab.com/kb2623/obVaja.git
-cd obVaja
-touch README.md
-git add README.md
-git commit -m "add README"
-git push -u origin master
-```
-### Existing folder
-```
-cd existing_folder
-git init
-git remote add origin https://kb2623@gitlab.com/kb2623/obVaja.git
-git add .
-git commit
-git push -u origin master
-```
-### Existing Git repository
-```
-cd existing_repo
-git remote add origin https://kb2623@gitlab.com/kb2623/obVaja.git
-git push -u origin --all
-git push -u origin --tags
-```
-## Navodila za nastavitev git repozitorija v delujocega direktorija
-```
-cd <localDir>
-git init
-git add -A .
-git pull <url> master
-git commit -m "message"
-git remote add origin <url>
-git push
-```
 
 ## Git ukaz za podmodule
+### Inicializacija in prenos
 ```
 git submodule update --init --recursive
+```
+
+### Prenos inicializiranih
+```
 git submodule update --recursive --remote
-git submodule foreach git pull origin master
 ```
+
+### Prenos master brancha
 ```
-git submodule update --init --recursive
-git submodule foreach --recursive git fetch
 git submodule foreach git merge origin master
 ```
 
 # Dodatne nastavitve
 ## Nvim
 ```
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config} && ln -s ~/.vim $XDG_CONFIG_HOME/nvim && ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ```
 
 ## Firefox
