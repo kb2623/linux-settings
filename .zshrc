@@ -23,8 +23,6 @@ zpm zpm-zsh/dircolors-material
 zpm zpm-zsh/history-substring-search-wrapper
 zpm zsh-users/zsh-completions
 
-zpm horosgrisa/utils
-
 zpm load-if-not ssh zpm-zsh/readers zpm-zsh/clipboard
 zpm load-if-not ssh zpm-zsh/autoenv
 
