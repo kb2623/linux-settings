@@ -23,10 +23,8 @@ zpm zpm-zsh/dircolors-material
 zpm zpm-zsh/history-substring-search-wrapper
 zpm zsh-users/zsh-completions
 
-zpm load-if-not ssh zpm-zsh/readers zpm-zsh/clipboard
 zpm load-if-not ssh zpm-zsh/autoenv
 
-zpm load-if-not ssh voronkovich/gitignore.plugin.zsh
 zpm load-if-not ssh psprint/history-search-multi-word
 zpm load-if-not ssh zdharma/fast-syntax-highlighting
 zpm load-if-not ssh tarruda/zsh-autosuggestions
