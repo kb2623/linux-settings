@@ -29,15 +29,13 @@ git submodule update --init --recursive
 git pull origin master
 ```
 ## Git ukaz za podmodule
+### Inicializacija
+`git submodule update --init --recursive`
+
+### Posodabljanje
 ```
-git submodule update --init --recursive
 git submodule update --recursive --remote
 git submodule foreach git pull origin master
-```
-```
-git submodule update --init --recursive
-git submodule foreach --recursive git fetch
-git submodule foreach git merge origin master
 ```
 
 # Dodatne nastavitve
