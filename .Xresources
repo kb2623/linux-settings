@@ -24,7 +24,7 @@ xterm*VT100.Translations: #override \
 
 Xft.dpi: 96
 Xcursor.size: 16
-Xcursor.theme: Dark-C
+Xcursor.theme: Hack-C
 Xft.rgba: rgb
 
 UXTerm*renderFont: true

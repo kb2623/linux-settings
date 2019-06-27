@@ -63,6 +63,7 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config} && ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 
 ## Firefox
 userChrome.css
+
 ```
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
 
