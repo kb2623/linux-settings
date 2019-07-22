@@ -496,7 +496,7 @@ c.NotebookApp.port = 9999
 #  
 #  Disable if long-running kernels will produce too much output while no
 #  frontends are connected.
-#c.MappingKernelManager.buffer_offline_messages = True
+c.MappingKernelManager.buffer_offline_messages = True
 
 ## Whether to consider culling kernels which are busy. Only effective if
 #  cull_idle_timeout > 0.
