@@ -20,23 +20,22 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/blackburn"
 theme.font                                      = "sans 10.5"
-theme.taglist_font                              = "sans 10"
+theme.taglist_font                              = "sans 10.5"
 
+theme.bg_normal                                 = xrdb.color0
 theme.bg_systray                                = theme.bg_normal
 theme.fg_normal                                 = "#D7D7D7"
 theme.fg_focus                                  = "#F6784F"
-theme.bg_focus                                  = "#060606"
+theme.bg_focus                                  = "#091F2E"
 theme.fg_urgent                                 = "#CC9393"
 theme.bg_urgent                                 = "#2A1F1E"
 
-theme.border_normal                             = "#000000"
-theme.border_focus                              = "#16A085"
-theme.border_marked                             = "#16A085"
-
 theme.useless_gap                               = dpi(2)
 theme.border_width                              = dpi(1)
-theme.border_normal                             = xrdb.color5
-theme.border_focus                              = theme.bg_focus
+theme.border_normal                             = "#000000"
+theme.border_marked                             = "#16A085"
+theme.border_normal                             = theme.bg_focus
+theme.border_focus                              = xrdb.color5
 theme.border_marked                             = xrdb.color10
 
 theme.menu_height                               = dpi(16)

@@ -144,7 +144,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -245,9 +245,9 @@ awful.screen.connect_for_each_screen(function(s)
 			s.mytasklist, -- Middle widget
 			{ -- Right widgets
 				layout = wibox.layout.fixed.horizontal,
-				wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_focus),
+				wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_normal),
 				wibox.widget.systray(),
-				wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_focus),
+				wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_normal),
 				s.mylayoutbox,
 			},
 	}
@@ -592,8 +592,8 @@ client.connect_signal("mouse::enter", function(c)
 	end
 end)
 
--- client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
--- client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
