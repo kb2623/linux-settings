@@ -103,7 +103,7 @@ end
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
+local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e man awesome" },
     { "edit config", string.format("%s %s", editor, awesome.conffile) },
@@ -111,7 +111,7 @@ myawesomemenu = {
     { "restart", awesome.restart }
 }
 
-myexitmenu = {
+local myexitmenu = {
     { "log out", function() awesome.quit() end, "/usr/share/icons/Arc-Maia/actions/24@2x/system-log-out.png" },
     { "suspend", "systemctl suspend", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-suspend.png" },
     { "hibernate", "systemctl hibernate", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-hibernate.png" },
@@ -119,7 +119,7 @@ myexitmenu = {
     { "shutdown", "poweroff", "/usr/share/icons/Arc-Maia/actions/24@2x/system-shutdown.png" }
 }
 
-mymainmenu = freedesktop.menu.build({
+local mymainmenu = freedesktop.menu.build({
     before = {
         { "Terminal", terminal, "/usr/share/icons/Moka/32x32/apps/utilities-terminal.png" },
         { "Browser", browser, "/usr/share/icons/hicolor/24x24/apps/chromium.png" },
@@ -133,20 +133,13 @@ mymainmenu = freedesktop.menu.build({
     }
 })
 
-mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
-                                     menu = mymainmenu })
+local mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon, menu = mymainmenu })
+
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
-
--- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
 	awful.button({ }, 1, function(t) t:view_only() end),
 	awful.button({ modkey }, 1, function(t)
@@ -208,11 +201,8 @@ screen.connect_signal("property::geometry", set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
 	set_wallpaper(s)
-
 	-- Each screen has its own tag table.
-	-- awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
 	awful.tag({ 1, 2, 3, 4, 5 }, s, awful.layout.layouts[1])
-
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
 	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -226,31 +216,14 @@ awful.screen.connect_for_each_screen(function(s)
 	)
 	-- Create a taglist widget
 	s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
-
 	-- Create a tasklist widget
 	s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-
+	-- Menu widget
+	s.mylauncher = mylauncher
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
-
 	-- Add widgets to the wibox
-	s.mywibox:setup {
-			layout = wibox.layout.align.horizontal,
-			{ -- Left widgets
-				layout = wibox.layout.fixed.horizontal,
-				mylauncher,
-				s.mytaglist,
-				s.mypromptbox,
-			},
-			s.mytasklist, -- Middle widget
-			{ -- Right widgets
-				layout = wibox.layout.fixed.horizontal,
-				wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_normal),
-				wibox.widget.systray(),
-				wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), beautiful.bg_normal),
-				s.mylayoutbox,
-			},
-	}
+	beautiful.initBar(s)
 end)
 -- }}}
 

@@ -87,4 +87,30 @@ theme.wallpaper = function(s)
 	return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 end
 
+-- Keyboard map indicator and switcher
+local mykeyboardlayout = awful.widget.keyboardlayout()
+
+-- Create a textclock widget
+local mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
+
+function theme.initBar(s)
+	s.mywibox:setup {
+		layout = wibox.layout.align.horizontal,
+		{ -- Left widgets
+			layout = wibox.layout.fixed.horizontal,
+			s.mylauncher,
+			s.mytaglist,
+			s.mypromptbox,
+		},
+		s.mytasklist, -- Middle widget
+		{ -- Right widgets
+			layout = wibox.layout.fixed.horizontal,
+			wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+			wibox.widget.systray(),
+			wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+			s.mylayoutbox,
+		},
+	}
+end
+
 return theme

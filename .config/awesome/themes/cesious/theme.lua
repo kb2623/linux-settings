@@ -35,16 +35,6 @@ theme.border_normal = xrdb.color8
 theme.border_focus  = theme.bg_focus
 theme.border_marked = xrdb.color10
 
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
--- [taglist|tasklist]_[bg|fg]_[focus|urgent]
--- titlebar_[bg|fg]_[normal|focus]
--- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
--- mouse_finder_[color|timeout|animate_timeout|radius|factor]
--- Example:
---theme.taglist_bg_focus = "#ff0000"
-
 -- Display the taglist squares
 theme.taglist_squares_sel   = theme.dir .. "/taglist/squarefw.png"
 theme.taglist_squares_unsel = theme.dir .. "/taglist/squarew.png"
@@ -125,5 +115,31 @@ theme.awesome_icon = theme.dir .. "/icons/manjaro64.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = "Arc-Maia"
 
+-- Keyboard map indicator and switcher
+local mykeyboardlayout = awful.widget.keyboardlayout()
+
+-- Create a textclock widget
+local mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
+
+function theme.initBar(s)
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            s.mylauncher,
+            s.mytaglist,
+            s.mypromptbox,
+        },
+        s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+            wibox.widget.systray(),
+            wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+            s.mylayoutbox,
+        },
+    }
+end
+
 return theme
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
+-- vim: filetype=lua:expandtab:shiftwidth=3:tabstop=6:softtabstop=3:textwidth=80
