@@ -89,7 +89,6 @@ awful.layout.layouts = {
 -- {{{ Helper functions
 local function client_menu_toggle_fn()
 	local instance = nil
-
 	return function ()
 		if instance and instance.wibox.visible then
 			instance:hide()
@@ -97,6 +96,18 @@ local function client_menu_toggle_fn()
 		else
 			instance = awful.menu.clients({ theme = { width = 250 } })
 		end
+	end
+end
+
+local function set_wallpaper(s)
+	-- Wallpaper
+	if beautiful.wallpaper then
+		local wallpaper = beautiful.wallpaper
+		-- If wallpaper is a function, call it with the screen
+		if type(wallpaper) == "function" then
+			wallpaper = wallpaper(s)
+		end
+		gears.wallpaper.maximized(wallpaper, s, true)
 	end
 end
 -- }}}
@@ -182,18 +193,6 @@ local tasklist_buttons = gears.table.join(
 		awful.client.focus.byidx(-1)
 	end)
 )
-
-local function set_wallpaper(s)
-	-- Wallpaper
-	if beautiful.wallpaper then
-		local wallpaper = beautiful.wallpaper
-		-- If wallpaper is a function, call it with the screen
-		if type(wallpaper) == "function" then
-			wallpaper = wallpaper(s)
-		end
-		gears.wallpaper.maximized(wallpaper, s, true)
-	end
-end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)

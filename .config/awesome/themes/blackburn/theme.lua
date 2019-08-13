@@ -100,7 +100,7 @@ end
 theme.mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-theme.mytextclock = wibox.widget.textclock(" %H:%M  %d.%m.%Y ")
+theme.mytextclock = wibox.widget.textclock("%H:%M  %d.%m.%Y")
 theme.mytextclock.font = theme.font
 
 -- Separators
@@ -125,7 +125,9 @@ function theme.initBar(s)
          wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
          theme.isepRL,
          wibox.widget.systray(),
+         theme.isepRL,
          wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+         theme.isepRL,
          s.mylayoutbox,
       },
    }
