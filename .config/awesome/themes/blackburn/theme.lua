@@ -20,8 +20,11 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/blackburn"
 theme.font                                      = "IBM 3270 Narrow 12"
-theme.taglist_font                              = "IBM 3270 Narrow 12"
-theme.notification_font                         = "IBM 3270 Narrow 12"
+theme.taglist_font                              = theme.font
+theme.notification_font                         = theme.font
+theme.hotkeys_font                              = theme.font
+theme.hotkeys_description_font                  = theme.font
+theme.keyboardlayout_font                       = theme.font
 
 theme.bg_normal                                 = xrdb.color0
 theme.bg_systray                                = theme.bg_normal
