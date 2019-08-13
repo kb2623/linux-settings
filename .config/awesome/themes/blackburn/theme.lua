@@ -19,7 +19,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/blackburn"
-theme.font                                      = "IBM 3270 Narrow 12"
+theme.font                                      = "IBM 3270 Narrow Bold 12"
 theme.taglist_font                              = theme.font
 theme.notification_font                         = theme.font
 theme.hotkeys_font                              = theme.font
@@ -100,14 +100,16 @@ end
 theme.mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-theme.mytextclock = wibox.widget.textclock("%H:%M  %d.%m.%Y")
+theme.mytextclock = wibox.widget.textclock("%H:%M")
 theme.mytextclock.font = theme.font
+theme.mytextdate = wibox.widget.textclock("%d.%m.%Y")
+theme.mytextdate.font = theme.font
 
 -- Separators
-theme.isepLR = wibox.widget.textbox("")
-theme.isepLR.font = theme.font
-theme.isepRL = wibox.widget.textbox("")
-theme.isepRL.font = theme.font
+local markup = lain.util.markup
+local separators = lain.util.separators
+local arrowl = separators.arrow_left
+local arrowr = separators.arrow_right
 
 function theme.initBar(s)
    s.mywibox:setup {
@@ -121,13 +123,14 @@ function theme.initBar(s)
       s.mytasklist, -- Middle widget
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
-         theme.isepRL,
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-         theme.isepRL,
+         arrowl(theme.bg_normal, "#343434"),
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), "#343434"),
+         arrowl("#343434", theme.bg_normal),
          wibox.widget.systray(),
-         theme.isepRL,
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-         theme.isepRL,
+         arrowl(theme.bg_normal, "#343434"),
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 6, 3), "#343434"),
+         arrowl("#343434", theme.bg_normal),
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextdate, layout = wibox.layout.align.horizontal }, 6, 3), theme.bg_normal),
          s.mylayoutbox,
       },
    }
