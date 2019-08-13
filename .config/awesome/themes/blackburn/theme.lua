@@ -100,10 +100,20 @@ end
 theme.mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-theme.mytextclock = wibox.widget.textclock("%H:%M")
+theme.mytextclock = wibox.widget.textclock("%H:%M ")
 theme.mytextclock.font = theme.font
-theme.mytextdate = wibox.widget.textclock("%d.%m.%Y")
+theme.mytextdate = wibox.widget.textclock("%d.%m.%Y ")
 theme.mytextdate.font = theme.font
+
+-- Calendar
+theme.cal = lain.widget.cal({
+   attach_to = { theme.mytextdate },
+   notification_preset = {
+      font = theme.font,
+      fg   = theme.fg_normal,
+      bg   = theme.bg_normal
+   }
+})
 
 -- Separators
 local markup = lain.util.markup
