@@ -1,7 +1,7 @@
 --[[
 
-     Blackburn Awesome WM theme 3.0
-     github.com/lcpz
+        Blackburn Awesome WM theme 3.0
+        github.com/lcpz
 
 --]]
 
@@ -19,8 +19,9 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/blackburn"
-theme.font                                      = "sans 10.5"
-theme.taglist_font                              = "sans 10.5"
+theme.font                                      = "IBM 3270 Narrow 12"
+theme.taglist_font                              = "IBM 3270 Narrow 12"
+theme.notification_font                         = "IBM 3270 Narrow 12"
 
 theme.bg_normal                                 = xrdb.color0
 theme.bg_systray                                = theme.bg_normal
@@ -78,39 +79,46 @@ theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
+-- Icon theme
+theme.icon_theme = "Arc-Maia"
+
+-- Taglist names
 awful.util.tagnames   = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }
 
+-- Wallpaper
 local wallpaper_bg = xrdb.color0
 local wallpaper_fg = xrdb.color7
 local wallpaper_alt_fg = xrdb.color12
 theme.wallpaper = function(s)
-	return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
+   return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 end
 
 -- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
+theme.mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
+theme.mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
+theme.mytextclock.font = theme.font
 
 function theme.initBar(s)
-	s.mywibox:setup {
-		layout = wibox.layout.align.horizontal,
-		{ -- Left widgets
-			layout = wibox.layout.fixed.horizontal,
-			s.mylauncher,
-			s.mytaglist,
-			s.mypromptbox,
-		},
-		s.mytasklist, -- Middle widget
-		{ -- Right widgets
-			layout = wibox.layout.fixed.horizontal,
-			wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-			wibox.widget.systray(),
-			wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-			s.mylayoutbox,
-		},
-	}
+   s.mywibox:setup {
+      layout = wibox.layout.align.horizontal,
+      { -- Left widgets
+         layout = wibox.layout.fixed.horizontal,
+         s.mylauncher,
+         s.mytaglist,
+         s.mypromptbox,
+      },
+      s.mytasklist, -- Middle widget
+      { -- Right widgets
+         layout = wibox.layout.fixed.horizontal,
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+         wibox.widget.systray(),
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+         s.mylayoutbox,
+      },
+   }
 end
 
 return theme
+-- vim: filetype=lua:expandtab:shiftwidth=3:tabstop=6:softtabstop=3:textwidth=80

@@ -340,7 +340,7 @@ globalkeys = gears.table.join(
 	-- Menubar
 	awful.key({ modkey }, "p", function () menubar.show() end,
 		{description = "show the menubar", group = wmLauncherG}),
-	awful.key({ "Shift" }, "Alt_L", function () mykeyboardlayout.next_layout() end,
+	awful.key({ "Shift" }, "Alt_L", function () beautiful.mykeyboardlayout.next_layout() end,
 		{description = "Change keyboard layout", group = "keyboard"}))
 
 clientkeys = gears.table.join(

@@ -12,7 +12,7 @@ local fs = require("gears.filesystem")
 theme = {}
 theme.dir = fs.get_xdg_config_home() .. "/awesome/themes/cesious"
 
-theme.font          = "sans 11"
+theme.font          = "IBM 3270 Narrow 12"
 
 theme.bg_normal     = xrdb.color0
 theme.bg_focus      = xrdb.color12
@@ -40,16 +40,9 @@ theme.taglist_squares_sel   = theme.dir .. "/taglist/squarefw.png"
 theme.taglist_squares_unsel = theme.dir .. "/taglist/squarew.png"
 
 -- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
 theme.menu_submenu_icon = theme.dir .. "/icons/submenu.png"
 theme.menu_height = dpi(16)
 theme.menu_width  = dpi(130)
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
 
 -- Define the image to load
 theme.titlebar_close_button_normal              = theme.dir .. "/titlebar/close_normal.png"
@@ -78,7 +71,7 @@ theme.titlebar_maximized_button_focus_active    = theme.dir .. "/titlebar/maximi
 -- Try to determine if we are running light or dark colorscheme:
 local bg_numberic_value = 0;
 for s in theme.bg_normal:gmatch("[a-fA-F0-9][a-fA-F0-9]") do
-    bg_numberic_value = bg_numberic_value + tonumber("0x"..s);
+   bg_numberic_value = bg_numberic_value + tonumber("0x"..s);
 end
 local is_dark_bg = (bg_numberic_value < 383)
 
@@ -87,10 +80,10 @@ local wallpaper_bg = xrdb.color0
 local wallpaper_fg = xrdb.color7
 local wallpaper_alt_fg = xrdb.color12
 if not is_dark_bg then
-    wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
+   wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
 end
 theme.wallpaper = function(s)
-    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
+   return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 end
 
 -- theme.wallpaper = "/usr/share/backgrounds/awesome-scrabble3.png"
@@ -116,29 +109,30 @@ theme.awesome_icon = theme.dir .. "/icons/manjaro64.png"
 theme.icon_theme = "Arc-Maia"
 
 -- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
+theme.mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
+theme.mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
+theme.mytextclock.font = theme.font
 
 function theme.initBar(s)
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            s.mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            wibox.container.background(wibox.container.margin(wibox.widget { mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-            wibox.widget.systray(),
-            wibox.container.background(wibox.container.margin(wibox.widget { mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-            s.mylayoutbox,
-        },
-    }
+   s.mywibox:setup {
+      layout = wibox.layout.align.horizontal,
+      { -- Left widgets
+         layout = wibox.layout.fixed.horizontal,
+         s.mylauncher,
+         s.mytaglist,
+         s.mypromptbox,
+      },
+      s.mytasklist, -- Middle widget
+      { -- Right widgets
+         layout = wibox.layout.fixed.horizontal,
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+         wibox.widget.systray(),
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
+         s.mylayoutbox,
+      },
+   }
 end
 
 return theme
