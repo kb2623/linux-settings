@@ -1,1 +1,1 @@
-/home/klemen/.vimrc
+../.vimrc

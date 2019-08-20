@@ -1,1 +1,1 @@
-/home/klemen/.vimrc.nopower
+../.vimrc.nopower
