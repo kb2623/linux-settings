@@ -1,0 +1,11 @@
+{
+        "groups": {
+                "background":           {"bg": "black"},
+                "active_window_status": {"bg": "black"},
+                "window_status":        {"bg": "black"},
+                "activity_status":      {"bg": "black"},
+                "bell_status":          {"bg": "black"},
+                "window":               {"bg": "black"},
+                "window:divider":       {"bg": "black"}
+        }
+}
