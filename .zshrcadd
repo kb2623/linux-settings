@@ -5,5 +5,10 @@ alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
 alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
 
+if [ -n "$SSH_CONNECTION" ]; then
+	alias vim='vim -u $HOME/.vimrc.nopower'
+	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
+fi
+
 # Environemnt variables -----------------------------------------------
 export SAL_USE_VCLPLUGIN=gtk3
