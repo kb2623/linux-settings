@@ -31,7 +31,6 @@ set directory=/tmp
 set mouse=a
 
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
 if has("gui_running")
 	" colorscheme gotham256
 	colorscheme spacedark
