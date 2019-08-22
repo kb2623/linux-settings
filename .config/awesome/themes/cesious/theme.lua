@@ -86,7 +86,8 @@ theme.wallpaper = function(s)
    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 end
 
--- theme.wallpaper = "/usr/share/backgrounds/awesome-scrabble3.png"
+-- Additional windows status
+theme.tasklist_plain_task_name = false
 
 -- You can use your own layout icons like this:
 theme.layout_fairh      = theme.dir .. "/layouts/fairh.png"

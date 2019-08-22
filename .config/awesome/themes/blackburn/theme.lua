@@ -88,6 +88,9 @@ theme.icon_theme = "Arc-Maia"
 -- Taglist names
 awful.util.tagnames   = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }
 
+-- Additional windows status
+theme.tasklist_plain_task_name = false
+
 -- Wallpaper
 local wallpaper_bg = xrdb.color0
 local wallpaper_fg = xrdb.color7
