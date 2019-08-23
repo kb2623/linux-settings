@@ -120,10 +120,10 @@ theme.cal = lain.widget.cal({
    }
 })
 
--- RAM
+-- RAM widget
 theme.ramwidget = require("../../widgets/ramwidget")
 
--- CPU
+-- CPU widget
 theme.cpuwidget = require("../../widgets/cpuwidget")
 
 -- Separators
