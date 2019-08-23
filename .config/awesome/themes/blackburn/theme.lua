@@ -120,6 +120,12 @@ theme.cal = lain.widget.cal({
    }
 })
 
+-- RAM
+theme.ramwidget = require("../../widgets/ramwidget")
+
+-- CPU
+theme.cpuwidget = require("../../widgets/cpuwidget")
+
 -- Separators
 local markup = lain.util.markup
 local separators = lain.util.separators
@@ -138,6 +144,10 @@ function theme.initBar(s)
       s.mytasklist, -- Middle widget
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
+         arrowl(theme.bg_normal, "#343434"),
+         wibox.container.background(wibox.container.margin(wibox.widget { theme.ramwidget, layout = wibox.layout.align.horizontal }, 3, 6), "#343434"),
+         arrowl("#343434", theme.bg_normal),
+         theme.cpuwidget,
          arrowl(theme.bg_normal, "#343434"),
          wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), "#343434"),
          arrowl("#343434", theme.bg_normal),
