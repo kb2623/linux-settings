@@ -83,13 +83,15 @@ theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
 -- Icon theme
-theme.icon_theme = "Arc-Maia"
+theme.icon_theme = "oomox-black"
 
 -- Taglist names
 awful.util.tagnames   = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }
 
 -- Additional windows status
 theme.tasklist_plain_task_name = false
+-- Show programs icons
+theme.tasklist_disable_icon = false
 
 -- Wallpaper
 local wallpaper_bg = xrdb.color0
