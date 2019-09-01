@@ -9,10 +9,10 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local xrdb = xresources.get_current_theme()
 local gears = require("gears")
-local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
+local lain  = require("lain")
 
 local os = os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -86,7 +86,7 @@ theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/
 theme.icon_theme = "oomox-black"
 
 -- Taglist names
-awful.util.tagnames   = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }
+theme.tagnames = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }
 
 -- Additional windows status
 theme.tasklist_plain_task_name = false
@@ -101,62 +101,38 @@ theme.wallpaper = function(s)
    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 end
 
--- Keyboard map indicator and switcher
-theme.mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Create a textclock widget
-theme.mytextclock = wibox.widget.textclock("%H:%M ")
-theme.mytextclock.font = theme.font
-theme.mytextdate = wibox.widget.textclock("%d.%m.%Y ")
-theme.mytextdate.font = theme.font
-
--- Calendar
-theme.cal = lain.widget.cal({
-   attach_to = { theme.mytextdate },
-   notification_preset = {
-      font = theme.font,
-      fg   = theme.fg_normal,
-      bg   = theme.bg_normal
-   }
-})
-
--- RAM widget
-theme.ramwidget = require("../../widgets/ramwidget")
-
--- CPU widget
--- theme.cpuwidget = require("../../widgets/cpuwidget")
-
 -- Separators
 local markup = lain.util.markup
 local separators = lain.util.separators
 local arrowl = separators.arrow_left
 local arrowr = separators.arrow_right
+local bg_arrow = "#343434"
 
-function theme.initBar(s)
+function theme.initBar(s, l, m, r)
+   local left = {}
+   for i,v in ipairs(l) do table.insert(left, v) end
+   local mid = {}
+   for i,v in ipairs(m) do table.insert(mid, v) end
+   local right = {}
+   for i,v in ipairs(r) do
+      if i % 2 == 1 then
+         table.insert(right, arrowl(theme.bg_normal, bg_arrow))
+         table.insert(right, wibox.container.background(wibox.container.margin(wibox.widget { v, layout = wibox.layout.align.horizontal }, 3, 6), bg_arrow))
+      else
+         table.insert(right, arrowl(bg_arrow, theme.bg_normal))
+         table.insert(right, v)
+      end
+   end
    s.mywibox:setup {
       layout = wibox.layout.align.horizontal,
       { -- Left widgets
          layout = wibox.layout.fixed.horizontal,
-         s.mylauncher,
-         s.mytaglist,
-         s.mypromptbox,
+         unpack(left),
       },
-      s.mytasklist, -- Middle widget
+      unpack(mid),
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
-         arrowl(theme.bg_normal, "#343434"),
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.ramwidget, layout = wibox.layout.align.horizontal }, 3, 6), "#343434"),
-         arrowl("#343434", theme.bg_normal),
-         -- theme.cpuwidget,
-         arrowl(theme.bg_normal, "#343434"),
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), "#343434"),
-         arrowl("#343434", theme.bg_normal),
-         wibox.widget.systray(),
-         arrowl(theme.bg_normal, "#343434"),
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 6, 3), "#343434"),
-         arrowl("#343434", theme.bg_normal),
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextdate, layout = wibox.layout.align.horizontal }, 6, 3), theme.bg_normal),
-         s.mylayoutbox,
+         unpack(right),
       },
    }
 end

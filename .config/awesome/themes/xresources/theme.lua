@@ -5,6 +5,7 @@
 
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
+local wibox = require("wibox")
 local dpi = xresources.apply_dpi
 local xrdb = xresources.get_current_theme()
 local gfs = require("gears.filesystem")
@@ -127,6 +128,21 @@ if not is_dark_bg then
 end
 theme.wallpaper = function(s)
     return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
+end
+
+function theme.initBar(s, l, m, r)
+   s.mywibox:setup {
+      layout = wibox.layout.align.horizontal,
+      { -- Left widgets
+         layout = wibox.layout.fixed.horizontal,
+         unpack(l),
+      },
+      unpack(m),
+      { -- Right widgets
+         layout = wibox.layout.fixed.horizontal,
+         unpack(r),
+      },
+   }
 end
 
 return theme
