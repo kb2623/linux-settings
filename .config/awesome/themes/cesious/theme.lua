@@ -109,29 +109,29 @@ theme.awesome_icon = theme.dir .. "/icons/manjaro64.png"
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = "Arc-Maia"
 
--- Keyboard map indicator and switcher
-theme.mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Create a textclock widget
-theme.mytextclock = wibox.widget.textclock("%H:%M - %d.%m.%Y")
-theme.mytextclock.font = theme.font
-
-function theme.initBar(s)
+function theme.initBar(s, l, m, r)
+   local left = {}
+   for i,v in ipairs(l) do table.insert(left, v) end
+   local mid = {}
+   for i,v in ipairs(m) do table.insert(mid, v) end
+   local right = {}
+   for i,v in ipairs(r) do
+      if i % 2 == 1 then 
+         table.insert(right, wibox.container.background(wibox.container.margin(wibox.widget { v, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal))
+      else
+         table.insert(right, v)
+      end
+   end
    s.mywibox:setup {
       layout = wibox.layout.align.horizontal,
       { -- Left widgets
          layout = wibox.layout.fixed.horizontal,
-         s.mylauncher,
-         s.mytaglist,
-         s.mypromptbox,
+         unpack(left),
       },
-      s.mytasklist, -- Middle widget
+      unpack(mid),
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mykeyboardlayout, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-         wibox.widget.systray(),
-         wibox.container.background(wibox.container.margin(wibox.widget { theme.mytextclock, layout = wibox.layout.align.horizontal }, 3, 6), theme.bg_normal),
-         s.mylayoutbox,
+         unpack(right),
       },
    }
 end
