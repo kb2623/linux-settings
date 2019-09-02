@@ -199,7 +199,7 @@ local tasklist_buttons = gears.table.join(
 local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock("%H:%M ", 60)
+local mytextclock = wibox.widget.textclock("%H:%M", 60)
 mytextclock.font = beautiful.font
 local mytextdate = wibox.widget.textclock("%d.%m.%Y ", 21600)
 mytextdate.font = beautiful.font
@@ -367,7 +367,7 @@ globalkeys = gears.table.join(
 	-- Menubar
 	awful.key({ modkey }, "p", function () menubar.show() end,
 		{description = "show the menubar", group = wmLauncherG}),
-	awful.key({ "Shift" }, "Alt_L", function () beautiful.mykeyboardlayout.next_layout() end,
+	awful.key({ "Shift" }, "Alt_L", function () mykeyboardlayout.next_layout() end,
 		{description = "Change keyboard layout", group = "keyboard"}))
 
 clientkeys = gears.table.join(
