@@ -7,7 +7,7 @@ set -g status-style bg=black,fg=cyan
 # Left side of status bar
 set -g status-left-style bg=black,fg=green
 set -g status-left-length 40
-set -g status-left "#{?client_prefix,#[bg=colour2],#[bg=colour0]} #S #[fg=white]| #[fg=yellow]#I #[fg=cyan]#P #[fg=white]| "
+set -g status-left "#{?client_prefix,#[bg=colour2],#[bg=colour52]} #S #[fg=white]| #[fg=yellow]#I #[fg=cyan]#P #[fg=white]| "
 
 # Right side of status bar
 set -g status-right-style bg=black,fg=cyan
