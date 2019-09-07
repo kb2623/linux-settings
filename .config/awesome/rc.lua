@@ -10,6 +10,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local freedesktop = require("freedesktop")
+local lain  = require("lain")
 
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable hotkeys help widget for VIM and other apps
@@ -194,6 +195,31 @@ local tasklist_buttons = gears.table.join(
 	end)
 )
 
+-- Keyboard map indicator and switcher
+local mykeyboardlayout = awful.widget.keyboardlayout()
+
+-- Create a textclock widget
+local mytextclock = wibox.widget.textclock("%H:%M", 60)
+mytextclock.font = beautiful.font
+local mytextdate = wibox.widget.textclock("%d.%m.%Y ", 21600)
+mytextdate.font = beautiful.font
+
+-- Calendar
+local cal = lain.widget.cal({
+   attach_to = { mytextdate },
+   notification_preset = {
+      font = beautiful.font,
+      fg   = beautiful.fg_normal,
+      bg   = beautiful.bg_normal
+   }
+})
+
+-- RAM widget
+-- local ramwidget = require("../../widgets/ramwidget")
+
+-- CPU widget
+-- local cpuwidget = require("../../widgets/cpuwidget")
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -201,7 +227,7 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
 	set_wallpaper(s)
 	-- Each screen has its own tag table.
-	awful.tag({ 1, 2, 3, 4, 5 }, s, awful.layout.layouts[1])
+	awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[1])
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
 	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -216,13 +242,15 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Create a taglist widget
 	s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 	-- Create a tasklist widget
-	s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
-	-- Menu widget
-	s.mylauncher = mylauncher
+	s.mytasklist = awful.widget.tasklist{
+		screen = s, 
+		filter = awful.widget.tasklist.filter.currenttags, 
+		buttons = tasklist_buttons,
+	}
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
 	-- Add widgets to the wibox
-	beautiful.initBar(s)
+	beautiful.initBar(s, {mylauncher, s.mytaglist, s.mypromptbox}, {s.mytasklist}, {mykeyboardlayout, wibox.widget.systray(), mytextclock, mytextdate, s.mylayoutbox})
 end)
 -- }}}
 
@@ -339,7 +367,7 @@ globalkeys = gears.table.join(
 	-- Menubar
 	awful.key({ modkey }, "p", function () menubar.show() end,
 		{description = "show the menubar", group = wmLauncherG}),
-	awful.key({ "Shift" }, "Alt_L", function () beautiful.mykeyboardlayout.next_layout() end,
+	awful.key({ "Shift" }, "Alt_L", function () mykeyboardlayout.next_layout() end,
 		{description = "Change keyboard layout", group = "keyboard"}))
 
 clientkeys = gears.table.join(

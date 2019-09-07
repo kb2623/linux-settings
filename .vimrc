@@ -29,6 +29,7 @@ set t_Co=256
 set backupdir=/tmp
 set directory=/tmp
 set mouse=a
+set shell=/bin/zsh
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
@@ -75,3 +76,4 @@ let g:tagbar_type_css = {
 			\ 'c:classes',
 			\ ],
 			\ }
+
