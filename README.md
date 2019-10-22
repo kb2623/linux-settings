@@ -24,7 +24,7 @@ git config --global user.email "user@mail.com"
 ## Git setup
 ```
 git init
-git remote add origin https://github.com/kb2623/linux-settings/blob/master/README.md
+git remote add origin https://github.com/kb2623/linux-settings.git
 git submodule update --init --recursive
 git pull origin master
 ```
