@@ -26,8 +26,8 @@ zpm load-if-not ssh zdharma/fast-syntax-highlighting
 zpm load-if-not ssh tarruda/zsh-autosuggestions
 
 ### Themes
-zpm load-if ssh zpm-zsh/minimal-theme
-zpm load-if-not ssh romkatv/powerlevel10k
+#zpm load-if ssh zpm-zsh/minimal-theme
+zpm load romkatv/powerlevel10k
 
 # colors
 PYGMENTIZE_THEME=material
@@ -37,4 +37,5 @@ if [[ -f ~/.zshrcadd  ]]; then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ ${SSH_CLIENT} ] && [ ! -f ~/.p10k.zsh.ssh ] || source ~/.p10k.zsh.ssh
+[ ! ${SSH_CLIENT} ] && [ ! -f ~/.p10k.zsh ] || source ~/.p10k.zsh
