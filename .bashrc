@@ -6,6 +6,8 @@ xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
 
+set -o vi
+
 shopt -s cdspell
 shopt -s checkwinsize
 shopt -s cmdhist
