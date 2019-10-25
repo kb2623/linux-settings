@@ -1,9 +1,5 @@
 #!/usr/bin/env zsh
 
-case $(uname -a) in
-	*Microsoft*) unsetopt BG_NICE ;;
-esac
-
 if [[ ! -f ~/.zpm/zpm.zsh  ]]; then
 	git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
 fi
@@ -30,8 +26,7 @@ zpm load-if-not ssh zdharma/fast-syntax-highlighting
 zpm load-if-not ssh tarruda/zsh-autosuggestions
 
 ### Themes
-zpm load-if ssh zpm-zsh/minimal-theme
-zpm load-if-not ssh  romkatv/powerlevel10k
+zpm load romkatv/powerlevel10k
 
 # colors
 PYGMENTIZE_THEME=material
@@ -39,3 +34,10 @@ PYGMENTIZE_THEME=material
 if [[ -f ~/.zshrcadd  ]]; then
 	source ~/.zshrcadd
 fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+	source ~/.p10k.ssh.zsh
+else
+	source ~/.p10k.zsh
+fi 
