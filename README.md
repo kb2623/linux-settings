@@ -35,8 +35,8 @@ git config --global user.email "user@mail.com"
 ```
 git init
 git remote add origin https://github.com/kb2623/linux-settings.git 
+git fetch
 git submodule update --init --recursive
-git pull origin master
 ```
 
 ## Git ukaz za podmodule
