@@ -35,8 +35,8 @@ git config --global user.email "user@mail.com"
 ```
 git init
 git remote add origin https://github.com/kb2623/linux-settings.git 
+git fetch
 git submodule update --init --recursive
-git pull origin master
 ```
 
 ## Git ukaz za podmodule
@@ -56,9 +56,9 @@ git submodule foreach git merge origin master
 ```
 
 # Dodatne nastavitve
-## Nvim
+## Neovim
 ```
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config} && ln -s ~/.vim $XDG_CONFIG_HOME/nvim && ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
 ```
 
 ## Firefox
