@@ -56,6 +56,11 @@ git submodule foreach git merge origin master
 ```
 
 # Dodatne nastavitve
+## Neovim
+```
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+```
+
 ## Firefox
 ### How to disable WebRTC in Firefox?
 
