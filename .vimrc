@@ -1,3 +1,8 @@
+if has('nvim')
+	set rtp^=/usr/share/vim/vimfiles/
+	set rtp^=~/.vim/
+endif
+
 call plug#begin()
 
 Plug 'scrooloose/nerdtree'
