@@ -1,35 +1,39 @@
-#!/usr/bin/env zsh
-
-if [[ ! -f ~/.zpm/zpm.zsh  ]]; then
-	git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-source ~/.zpm/zpm.zsh
 
-### Core plugins
-zpm zpm-zsh/core-config
-zpm zpm-zsh/check-deps
+#!/bin/zsh
 
-### 3party plugins
-zpm zpm-zsh/ls
-zpm zpm-zsh/tmux
-zpm zpm-zsh/colors
-zpm zpm-zsh/ssh
-zpm zpm-zsh/dot
-zpm zpm-zsh/dircolors-material
-zpm zpm-zsh/history-substring-search-wrapper
-zpm zsh-users/zsh-completions
+export ZPLUG_HOME=~/.zplug
 
-zpm load-if-not ssh zpm-zsh/autoenv
+if [[ ! -d $ZPLUG_HOME ]]; then
+	git clone https://github.com/zplug/zplug $ZPLUG_HOME
+fi
 
-zpm load-if-not ssh psprint/history-search-multi-word
-zpm load-if-not ssh zdharma/fast-syntax-highlighting
-zpm load-if-not ssh tarruda/zsh-autosuggestions
+source $ZPLUG_HOME/init.zsh
 
-### Themes
-zpm load romkatv/powerlevel10k
+zplug romkatv/powerlevel10k, as:theme, depth:1
+zplug zsh-users/zsh-completions
+zplug zpm-zsh/ls
+zplug zpm-zsh/tmux
+zplug zpm-zsh/colors
+zplug zpm-zsh/ssh
+zplug zpm-zsh/dot
+zplug zpm-zsh/dircolors-material
+zplug zpm-zsh/history-substring-search-wrapper
 
-# colors
-PYGMENTIZE_THEME=material
+zplug load romkatv/powerlevel10k
+zplug load zsh-users/zsh-completions
+zplug load zpm-zsh/ls
+zplug load zpm-zsh/colors
+zplug load zpm-zsh/tmux
+zplug load zpm-zsh/ssh
+zplug load zpm-zsh/dot
+zplug load zpm-zsh/dircolors-material
+zplug load zpm-zsh/history-substring-search-wrapper
 
 if [[ -f ~/.zshrcadd  ]]; then
 	source ~/.zshrcadd
@@ -40,4 +44,4 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	source ~/.p10k.ssh.zsh
 else
 	source ~/.p10k.zsh
-fi 
+fi

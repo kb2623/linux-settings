@@ -13,7 +13,7 @@ fi
 # Enable Vim mode in ZSH
 bindkey -v
 
-autoload -U edit-command-line
+#autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^E' edit-command-line                   # Opens Vim to edit current command line
 bindkey '^R' history-incremental-search-backward # Perform backward search in command line history
