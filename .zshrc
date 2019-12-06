@@ -1,43 +1,67 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
-if [[ ! -f ~/.zpm/zpm.zsh  ]]; then
-	git clone --recursive https://github.com/zpm-zsh/zpm ~/.zpm
-fi
-source ~/.zpm/zpm.zsh
+# Environemnt variables -----------------------------------------------
+export SAL_USE_VCLPLUGIN=gtk3
+export ZPLUG_HOME=~/.zplug
 
-### Core plugins
-zpm zpm-zsh/core-config
-zpm zpm-zsh/check-deps
+# Enable Vim mode in ZSH
+bindkey -v
+zle -N edit-command-line
 
-### 3party plugins
-zpm zpm-zsh/ls
-zpm zpm-zsh/tmux
-zpm zpm-zsh/colors
-zpm zpm-zsh/ssh
-zpm zpm-zsh/dot
-zpm zpm-zsh/dircolors-material
-zpm zpm-zsh/history-substring-search-wrapper
-zpm zsh-users/zsh-completions
-
-zpm load-if-not ssh zpm-zsh/autoenv
-
-zpm load-if-not ssh psprint/history-search-multi-word
-zpm load-if-not ssh zdharma/fast-syntax-highlighting
-zpm load-if-not ssh tarruda/zsh-autosuggestions
-
-### Themes
-zpm load romkatv/powerlevel10k
-
-# colors
-PYGMENTIZE_THEME=material
-
-if [[ -f ~/.zshrcadd  ]]; then
-	source ~/.zshrcadd
+# ZPlug ----------------------------------------------------------------
+## Install zplug in needed
+if [[ ! -d $ZPLUG_HOME ]]; then
+	git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+## Load zplug
+source $ZPLUG_HOME/init.zsh
+
+## zplug plugins
+zplug zsh-users/zsh-completions
+zplug zsh-users/zsh-syntax-highlighting
+zplug zpm-zsh/ls
+zplug zpm-zsh/tmux
+zplug zpm-zsh/colors
+zplug zpm-zsh/ssh
+zplug zpm-zsh/dot
+zplug zpm-zsh/dircolors-material
+zplug zpm-zsh/history-substring-search-wrapper
+zplug romkatv/powerlevel10k, as:theme, depth:1
+
+## Load zplug plugins
+zplug load zsh-users/zsh-completions
+zplug load zsh-users/zsh-syntax-highlighting
+zplug load zpm-zsh/ls
+zplug load zpm-zsh/colors
+zplug load zpm-zsh/tmux
+zplug load zpm-zsh/ssh
+zplug load zpm-zsh/dot
+zplug load zpm-zsh/dircolors-material
+zplug load zpm-zsh/history-substring-search-wrapper
+zplug load romkatv/powerlevel10k
+
+# ALIAS ----------------------------------------------------------------
+alias keyboard-awesome='setxkbmap -layout \"us,si\"'
+alias lockui='i3lock -c 000000'
+alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
+alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
+alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
+if [ -n "$SSH_CONNECTION" ]; then
+	alias vim='vim -u $HOME/.vimrc.nopower'
+	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
+fi
+
+# ALIAS ----------------------------------------------------------------
+bindkey '^E' edit-command-line                   # Opens Vim to edit current command line
+bindkey '^R' history-incremental-search-backward # Perform backward search in command line history
+bindkey '^S' history-incremental-search-forward  # Perform forward search in command line history
+bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
+bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
+
+# Theme ---------------------------------------------------------------
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	source ~/.p10k.ssh.zsh
 else
 	source ~/.p10k.zsh
-fi 
+fi

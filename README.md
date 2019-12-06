@@ -159,3 +159,6 @@ TODO:
 
 ## Create certificat
 `openssl req -x509 -new -nodes -key [file.key] -sha256 -days 1024  -out [file.pem]`
+
+# Windows 10 subsystems
+`compaudit | xargs chmod go-w`
