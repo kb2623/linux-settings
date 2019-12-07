@@ -10,7 +10,7 @@ zle -N edit-command-line
 
 # ZPlug ----------------------------------------------------------------
 ## Install zplug in needed
-if [[ ! -d $ZPLUG_HOME ]]; then
+if [ ! -d $ZPLUG_HOME ]; then
 	git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
 
