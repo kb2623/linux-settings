@@ -61,4 +61,4 @@ bindkey '^P' history-search-backward             # Go back/search in history (au
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
 # Theme ---------------------------------------------------------------
-source ~/.p10k.zsh
+source ~/.config/p10k.zsh
