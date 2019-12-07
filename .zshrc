@@ -18,6 +18,8 @@ fi
 source $ZPLUG_HOME/init.zsh
 
 ## zplug plugins
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-syntax-highlighting
 zplug zpm-zsh/ls
@@ -29,17 +31,16 @@ zplug zpm-zsh/dircolors-material
 zplug zpm-zsh/history-substring-search-wrapper
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
+## Install zplug plugins
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
 ## Load zplug plugins
-zplug load zsh-users/zsh-completions
-zplug load zsh-users/zsh-syntax-highlighting
-zplug load zpm-zsh/ls
-zplug load zpm-zsh/colors
-zplug load zpm-zsh/tmux
-zplug load zpm-zsh/ssh
-zplug load zpm-zsh/dot
-zplug load zpm-zsh/dircolors-material
-zplug load zpm-zsh/history-substring-search-wrapper
-zplug load romkatv/powerlevel10k
+zplug load --verbose
 
 # ALIAS ----------------------------------------------------------------
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
