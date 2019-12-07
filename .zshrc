@@ -61,8 +61,4 @@ bindkey '^P' history-search-backward             # Go back/search in history (au
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
 # Theme ---------------------------------------------------------------
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	source ~/.p10k.ssh.zsh
-else
-	source ~/.p10k.zsh
-fi
+source ~/.p10k.zsh
