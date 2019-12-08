@@ -10,7 +10,7 @@ zle -N edit-command-line
 
 # ZPlug ----------------------------------------------------------------
 ## Install zplug in needed
-if [ ! -d $ZPLUG_HOME ]; then
+if [[ ! -d $ZPLUG_HOME ]]; then
 	git clone https://github.com/zplug/zplug $ZPLUG_HOME
 fi
 
@@ -48,7 +48,7 @@ alias lockui='i3lock -c 000000'
 alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
 alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
-if [ -n $SSH_CONNECTION ]; then
+if [[ -n $SSH_CONNECTION ]]; then
 	alias vim='vim -u $HOME/.vimrc.nopower'
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
 fi

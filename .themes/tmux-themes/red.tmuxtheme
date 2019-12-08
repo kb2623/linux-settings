@@ -9,10 +9,14 @@
 #
 
 # Separators
-sepfl=""
-sepl=""
-sepfr=""
-sepr=""
+sepfl="\ue0b6"
+#sepfl=""
+sepl="\ue0b7"
+#sepl=""
+sepfr="\ue0b4"
+#sepfr=""
+sepr="\ue0b5"
+#sepr=""
 sep="●"
 
 # Status update interval
