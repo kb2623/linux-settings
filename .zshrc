@@ -48,7 +48,7 @@ alias lockui='i3lock -c 000000'
 alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
 alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
-if [ -n "$SSH_CONNECTION" ]; then
+if [ -n $SSH_CONNECTION ]; then
 	alias vim='vim -u $HOME/.vimrc.nopower'
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
 fi
@@ -61,7 +61,8 @@ bindkey '^P' history-search-backward             # Go back/search in history (au
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
 # Theme ---------------------------------------------------------------
-source ~/.themes/p10k.zsh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -n $SSH_CONNECTION ]]; then
+	source ~/.themes/p10k.ssh.zsh
+else
+	source ~/.themes/p10k.zsh
+fi
