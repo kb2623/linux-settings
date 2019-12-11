@@ -47,6 +47,7 @@ alias keyboard-awesome='setxkbmap -layout \"us,si\"'
 alias lockui='i3lock -c 000000'
 alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
 alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
+alias pacmanUpdateMirrors='sudo pacman-mirrors --geoip'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
 if [[ -n $SSH_CONNECTION ]]; then
 	alias vim='vim -u $HOME/.vimrc.nopower'
