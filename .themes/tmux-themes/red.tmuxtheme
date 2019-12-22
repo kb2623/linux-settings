@@ -13,16 +13,16 @@
 #sepfr=""
 #sepr=""
 # Separators
-if-shell '[ ! "$SSH_CLIENT" ] sepfl="\ue0b6"'
-if-shell '[ "$SSH_CLIENT" ] sepfl=""'
-if-shell '[ ! "$SSH_CLIENT" ] sepl="\ue0b7"'
-if-shell '[ "$SSH_CLIENT" ] sepl=""'
-if-shell '[ ! "$SSH_CLIENT" ] sepfr="\ue0b4"'
-if-shell '[ "$SSH_CLIENT" ] sepfr=""'
-if-shell '[ ! "$SSH_CLIENT" ] sepr="\ue0b5"'
-if-shell '[ "$SSH_CLIENT" ] sepr=""'
-if-shell '[ ! "$SSH_CLIENT" ] sep="●"'
-if-shell '[ "$SSH_CLIENT" ] sep=""'
+if-shell -F '[ ! "$SSH_CLIENT" ]' 'sepfl="\ue0b6"'
+if-shell -F '[ "$SSH_CLIENT" ]' 'sepfl=""'
+if-shell -F '[ ! "$SSH_CLIENT" ]' 'sepl="\ue0b7"'
+if-shell -F '[ "$SSH_CLIENT" ]' 'sepl=""'
+if-shell -F '[ ! "$SSH_CLIENT" ]' 'sepfr="\ue0b4"'
+if-shell -F '[ "$SSH_CLIENT" ]' 'sepfr=""'
+if-shell -F '[ ! "$SSH_CLIENT" ]' 'sepr="\ue0b5"'
+if-shell -F '[ "$SSH_CLIENT" ]' 'sepr=""'
+if-shell -F '[ ! "$SSH_CLIENT" ]' 'sep="●"'
+if-shell -F '[ "$SSH_CLIENT" ]' 'sep=""'
 
 # Status update interval
 set -g status-interval 60
