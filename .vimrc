@@ -3,7 +3,7 @@ if has('nvim')
 	set rtp^=~/.vim/
 endif
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
