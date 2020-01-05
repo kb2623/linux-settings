@@ -4,7 +4,7 @@
 export SAL_USE_VCLPLUGIN=gtk3
 export ZPLUG_HOME=~/.zplug
 export JAVA_FONTS=/usr/share/fonts/TTF
-export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
