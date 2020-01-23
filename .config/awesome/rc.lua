@@ -48,9 +48,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
--- chosen_theme = "xresources"
+chosen_theme = "xresources"
 -- chosen_theme = "cesious"
-chosen_theme = "blackburn"
+-- chosen_theme = "blackburn"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
@@ -124,23 +124,23 @@ local myawesomemenu = {
 }
 
 local myexitmenu = {
-    { "log out", function() awesome.quit() end, "/usr/share/icons/Arc-Maia/actions/24@2x/system-log-out.png" },
-    { "suspend", "systemctl suspend", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-suspend.png" },
-    { "hibernate", "systemctl hibernate", "/usr/share/icons/Arc-Maia/actions/24@2x/gnome-session-hibernate.png" },
-    { "reboot", "systemctl reboot", "/usr/share/icons/Arc-Maia/actions/24@2x/view-refresh.png" },
-    { "shutdown", "poweroff", "/usr/share/icons/Arc-Maia/actions/24@2x/system-shutdown.png" }
+    { "log out", function() awesome.quit() end, "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "suspend", "systemctl suspend", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "hibernate", "systemctl hibernate", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "reboot", "systemctl reboot", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "shutdown", "poweroff", "/usr/share/icons/gnome/24x24/actions/reload.png" }
 }
 
 local mymainmenu = freedesktop.menu.build({
     before = {
-        { "Terminal", terminal, "/usr/share/icons/Moka/32x32/apps/utilities-terminal.png" },
-        { "Browser", browser, "/usr/share/icons/hicolor/24x24/apps/chromium.png" },
-        { "Files", filemanager, "/usr/share/icons/Arc-Maia/places/32/user-home.png" },
+        { "Terminal", terminal, "/usr/share/icons/gnome/24x24/actions/reload.png" },
+        { "Browser", browser, "/usr/share/icons/gnome/24x24/actions/reload.png" },
+        { "Files", filemanager, "/usr/share/icons/gnome/24x24/actions/reload.png" },
         -- other triads can be put here
     },
     after = {
         { "Awesome", myawesomemenu, "/usr/share/awesome/icons/awesome16.png" },
-        { "Exit", myexitmenu, "/usr/share/icons/Arc-Maia/actions/24@2x/system-restart.png" },
+        { "Exit", myexitmenu, "/usr/share/icons/gnome/24x24/actions/reload.png" },
         -- other triads can be put here
     }
 })
@@ -196,12 +196,12 @@ local tasklist_buttons = gears.table.join(
 )
 
 -- Keyboard map indicator and switcher
-local mykeyboardlayout = awful.widget.keyboardlayout()
+-- local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock("%H:%M", 60)
+local mytextclock = wibox.widget.textclock(" %H:%M ", 60)
 mytextclock.font = beautiful.font
-local mytextdate = wibox.widget.textclock("%d.%m.%Y ", 21600)
+local mytextdate = wibox.widget.textclock(" %d.%m.%Y ", 21600)
 mytextdate.font = beautiful.font
 
 -- Calendar
@@ -250,7 +250,25 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s })
 	-- Add widgets to the wibox
-	beautiful.initBar(s, {mylauncher, s.mytaglist, s.mypromptbox}, {s.mytasklist}, {mykeyboardlayout, wibox.widget.systray(), mytextclock, mytextdate, s.mylayoutbox})
+	-- beautiful.initBar(s, {mylauncher, s.mytaglist, s.mypromptbox}, {s.mytasklist}, {mykeyboardlayout, wibox.widget.systray(), mytextclock, mytextdate, s.mylayoutbox})
+	s.mywibox:setup {
+      layout = wibox.layout.align.horizontal,
+      { -- Left widgets
+         layout = wibox.layout.fixed.horizontal,
+			mylauncher, 
+			s.mytaglist, 
+			s.mypromptbox,
+      },
+      s.mytasklist,
+      { -- Right widgets
+         layout = wibox.layout.fixed.horizontal,
+			mykeyboardlayout, 
+			wibox.widget.systray(), 
+			mytextclock, 
+			mytextdate,
+			-- s.mylayoutbox,
+      },
+   }
 end)
 -- }}}
 
