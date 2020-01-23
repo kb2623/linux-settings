@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-function run {
-   if (command -v $1 && ! pgrep $1); then
-     $@&
-   fi
+run() {
+	if (command -v $1 && ! pgrep $1); then
+		$@&
+	fi
 }
 
 
