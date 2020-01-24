@@ -124,11 +124,12 @@ local myawesomemenu = {
 }
 
 local myexitmenu = {
-    { "log out", function() awesome.quit() end, "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "suspend", "systemctl suspend", "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "hibernate", "systemctl hibernate", "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "reboot", "systemctl reboot", "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "shutdown", "poweroff", "/usr/share/icons/gnome/24x24/actions/reload.png" }
+    { "Lock", "dm-tool lock", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Log out", function() awesome.quit() end, "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Suspend", "systemctl suspend", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Hibernate", "systemctl hibernate", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Reboot", "systemctl reboot", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Shutdown", "poweroff", "/usr/share/icons/gnome/24x24/actions/reload.png" }
 }
 
 local mymainmenu = freedesktop.menu.build({
