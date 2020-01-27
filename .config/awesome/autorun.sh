@@ -11,7 +11,9 @@ run nm-applet
 run volumeicon
 run cbatticon
 
-if xrandr | grep -q 'HDMI-0 connected' ; then
+if xrandr | grep -q 'HDMI-0 connected'; then
+	sh .screenlayout/startup.sh
+elif xrandr | grep -q 'DP-0 connected'; then
 	sh .screenlayout/startup.sh
 fi
 
