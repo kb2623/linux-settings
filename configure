@@ -2,24 +2,30 @@
 
 # Tole je skripta za pripravo Makefile sripte
 
-# Parameters ------------------------------------------------
+# Parameters --------------------------------------------------------------------------------
 ID=''
 VERSION_ID=''
 THEME_NAME='oomox-black'
 ICONS_NAME='oomox-black'
 
-# Function --------------------------------------------------
+# Function ----------------------------------------------------------------------------------
 print_help() {
 	echo -e 'NAME:'
 	echo -e '\tconfigure - Configure Makefile'
 	echo -e 'USAGE:'
 	echo -e '\tconfigure [OPTIONS]'
 	echo -e 'OPTIONS:'
-	echo -e '\t-h\t--help\t\tPrint this message'
+	echo -e '\t-i  --icons\t\t[NAME]\t\tIcons theme name'
+	echo -e '\t-t  --theme\t\t[NAME]\t\tTheme name'
+	echo -e '\t-d  --dist\t\t[NAME]\t\tDistribution name'
+	echo -e '\t-dv --dist_version\t[NAME]\t\tDistribution version'
+	echo -e '\t-h  --help\t\t \t\tPrint this message'
+	echo -e 'NAME:'
+	echo -e '\tName represented with string'
 }
 
 all() {
-	printf "all: git_init clean_repo"
+	printf "all: depts git_init clean_repo"
 	printf "\n" >> Makefile
 }
 
@@ -64,9 +70,10 @@ clean_repo_arch() {
 }
 
 debian_install() {
+	all
 	printf "update:\n\tapt update && apt upgrade\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc\n" >> Makefile
+	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
 	printf "\n" >> Makefile
 	git_init
 	git_update
@@ -77,9 +84,10 @@ debian_install() {
 }
 
 manjaro_install() {
+	all
 	printf "update:\n\tpacman -Syyuu\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "dpts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc\n" >> Makefile
+	printf "depts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc\n" >> Makefile
 	printf "\n" >> Makefile
 	printf "fonts: update\n\tpamac build nerd-fonts-fira-code awesome-freedesktop-git lain-git\n" >> Makefile
 	printf "\n" >> Makefile
@@ -93,9 +101,13 @@ manjaro_install() {
 	clean_repo_arch
 }
 
-# Main ------------------------------------------------------
+# Main ------------------------------------------------------------------------------------
 while [[ "$#" -gt 0 ]]; do case $1 in
   -h|--help) print_help; exit 0;;
+  -t|--theme) shift; THEME_NAME=$1;;
+  -i|--icons) shift; ICONS_NAME=$1;;
+  -d|--dist) shift; ID=$1;;
+  -dv|--dist_version) shift; VERSION_ID=$1;;
   *) echo "Unknown parameter passed: $1"; exit 1;;
 esac; shift; done
 
