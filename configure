@@ -73,7 +73,7 @@ debian_install() {
 	all
 	printf "update:\n\tapt update && apt upgrade\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
+	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc vifm\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
 	printf "\n" >> Makefile
 	git_init
 	git_update
@@ -87,7 +87,7 @@ manjaro_install() {
 	all
 	printf "update:\n\tpacman -Syyuu\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "depts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc\n" >> Makefile
+	printf "depts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc vifm\n" >> Makefile
 	printf "\n" >> Makefile
 	printf "fonts: update\n\tpamac build nerd-fonts-fira-code awesome-freedesktop-git lain-git\n" >> Makefile
 	printf "\n" >> Makefile
