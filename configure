@@ -66,7 +66,7 @@ clean_repo_arch() {
 debian_install() {
 	printf "update:\n\tapt update && apt upgrade\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine\n" >> Makefile
+	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc\n" >> Makefile
 	printf "\n" >> Makefile
 	git_init
 	git_update
@@ -79,9 +79,9 @@ debian_install() {
 manjaro_install() {
 	printf "update:\n\tpacman -Syyuu\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "dpts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git\n" >> Makefile
+	printf "dpts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "fonts: update\n\tpamac build nerd-fonts-fira-code\n" >> Makefile
+	printf "fonts: update\n\tpamac build nerd-fonts-fira-code awesome-freedesktop-git lain-git\n" >> Makefile
 	printf "\n" >> Makefile
 	git_init
 	git_update
