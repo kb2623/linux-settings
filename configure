@@ -7,6 +7,7 @@ ID=''
 VERSION_ID=''
 THEME_NAME='oomox-black'
 ICONS_NAME='oomox-black'
+CURSOR_NAME='Hack-C'
 
 # Function ----------------------------------------------------------------------------------
 print_help() {
@@ -50,7 +51,7 @@ install_theme() {
 }
 
 install_icons() {
-	printf "install_icons: git_init\n\tcp -r .icons/${ICONS_NAME} /usr/share/icons" >> Makefile
+	printf "install_icons: git_init\n\tcp -r .icons/${ICONS_NAME} /usr/share/icons\n\tcp -r .icons/${CURSOR_NAME} /usr/share/icons" >> Makefile
 	printf "\n" >> Makefile
 }
 
