@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# Tole je skripta za pripravo Makefile sripte
+
+# Parameters ------------------------------------------------
+ID=''
+VERSION_ID=''
+
+# Function --------------------------------------------------
+print_help() {
+	echo -e 'NAME:'
+	echo -e '\tconfigure - Configure Makefile'
+	echo -e 'USAGE:'
+	echo -e '\tconfigure [OPTIONS]'
+	echo -e 'OPTIONS:'
+	echo -e '\t-h\t--help\t\tPrint this message'
+}
+
+git_init() {
+	printf "git_init: depts\n\tgit init .\n\tgit remote add origin https://github.com/kb2623/linux-settings.git\n\tgit fetch\n\tgit submodule update --init --recursive\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+git_update() {
+	printf "git_update: git_init\n\tgit submodule update --recursive --remote\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+neovim_init() {
+	printf "neovim_init:\n\tln -s ~/.vimrc ~/.config/nvim/init.vim\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+install_theme() {
+	printf ""
+	printf "\n" >> Makefile
+}
+
+install_icons() {
+	printf ""
+	printf "\n" >> Makefile
+}
+
+debian_install() {
+	printf "update:\n\tapt update && apt upgrade\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch\n" >> Makefile
+	printf "\n" >> Makefile
+	git_init
+	git_update
+}
+
+manjaro_install() {
+	printf "update:\n\tpacman -Syyuu\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "dpts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "fonts: update\n\tpamac build nerd-fonts-fira-code\n" >> Makefile
+	printf "\n" >> Makefile
+	git_init
+	git_update
+}
+
+# Main ------------------------------------------------------
+while [[ "$#" -gt 0 ]]; do case $1 in
+  -h|--help) print_help; exit 0;;
+  *) echo "Unknown parameter passed: $1"; exit 1;;
+esac; shift; done
+
+if [[ "${ID}" == '' ]]; then
+	source /etc/os-release
+fi
+
+rm -f Makefile && touch Makefile
+
+case "${ID}" in
+	debian) debian_install;;
+	manjaro) manjaro_install;;
+esac
+
+exit 0
