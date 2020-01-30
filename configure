@@ -26,12 +26,12 @@ print_help() {
 }
 
 all() {
-	printf "all: depts git_init clean_repo"
+	printf "all: depts git_init clean_repo\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
 git_init() {
-	printf "git_init: depts\n\tgit init .\n\tgit remote add origin https://github.com/kb2623/linux-settings.git\n\tgit fetch\n\tgit submodule update --init --recursive\n" >> Makefile
+	printf "git_init: depts\n\t-git init .\n\t-git remote add origin https://github.com/kb2623/linux-settings.git\n\tgit fetch\n\t-git submodule update --init --recursive\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
@@ -46,12 +46,12 @@ neovim_init() {
 }
 
 install_theme() {
-	printf "install_theme: git_init\n\tcp -r .themes/${THEME_NAME} /usr/share/themes" >> Makefile
+	printf "install_theme: git_init\n\tsudo cp -r .themes/${THEME_NAME} /usr/share/themes\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
 install_icons() {
-	printf "install_icons: git_init\n\tcp -r .icons/${ICONS_NAME} /usr/share/icons\n\tcp -r .icons/${CURSOR_NAME} /usr/share/icons" >> Makefile
+	printf "install_icons: git_init\n\tsudo cp -r .icons/${ICONS_NAME} /usr/share/icons\n\tsudo cp -r .icons/${CURSOR_NAME} /usr/share/icons\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
@@ -61,20 +61,20 @@ install() {
 }
 
 clean_repo_deb() {
-	printf "clean_repo:\n\tapt autoremove && apt autoclean" >> Makefile
+	printf "clean_repo:\n\tsudo apt autoremove && sudo apt autoclean" >> Makefile
 	printf "\n" >> Makefile
 }
 
 clean_repo_arch() {
-	printf "clean_repo:\n\tpacman -Rs $(pacman -Qtdq)\n"
+	printf "clean_repo:\n\tsudo pacman -Rs $(pacman -Qtdq)\n"
 	printf "\n" >> Makefile
 }
 
 debian_install() {
 	all
-	printf "update:\n\tapt update && apt upgrade\n" >> Makefile
+	printf "update:\n\tsudo apt update && sudo apt upgrade\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "depts: update\n\tapt install tmux vim-gtk awesome awesome-extras zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc vifm\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
+	printf "depts: update\n\tsudo apt install tmux vim-gtk awesome xfonts-terminus zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc vifm\n\trm -rf .config/awesome/lain\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
 	printf "\n" >> Makefile
 	git_init
 	git_update
@@ -86,9 +86,9 @@ debian_install() {
 
 manjaro_install() {
 	all
-	printf "update:\n\tpacman -Syyuu\n" >> Makefile
+	printf "update:\n\tsudo pacman -Syyuu\n" >> Makefile
 	printf "\n" >> Makefile
-	printf "depts: update\n\tpacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc vifm\n" >> Makefile
+	printf "depts: update\n\tsudo pacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc vifm\n" >> Makefile
 	printf "\n" >> Makefile
 	printf "fonts: update\n\tpamac build nerd-fonts-fira-code awesome-freedesktop-git lain-git\n" >> Makefile
 	printf "\n" >> Makefile
@@ -97,7 +97,7 @@ manjaro_install() {
 	install_theme
 	install_icons
 	install
-	printf "update_mirrors:\n\tpacman-mirrors --geoip"
+	printf "update_mirrors:\n\tpacman-mirrors --geoip\n" >> Makefile
 	printf "\n" >> Makefile
 	clean_repo_arch
 }
