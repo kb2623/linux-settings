@@ -54,6 +54,7 @@ alias pacmanClean='pacman -Rs $(pacman -Qtdq)'
 alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias pacmanUpdateMirrors='sudo pacman-mirrors --geoip'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
+alias rcp='rsync -ah --progress'
 if [[ -n $SSH_CONNECTION ]]; then
 	alias vim='vim -u $HOME/.vimrc.nopower'
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
