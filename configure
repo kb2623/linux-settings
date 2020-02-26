@@ -84,6 +84,14 @@ debian_install() {
 	clean_repo_deb
 }
 
+
+raspbian_install() {
+	debian_install
+	printf "\n" >> Makefile
+	printf "install_docker:\n\tcurl -sSL https://get.docker.com | sh\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
 manjaro_install() {
 	all
 	printf "update:\n\tsudo pacman -Syyuu\n" >> Makefile
@@ -121,6 +129,7 @@ rm -f Makefile && touch Makefile
 case "${ID}" in
 	debian) debian_install;;
 	manjaro) manjaro_install;;
+	raspbian) raspbian_install;;
 esac
 
 exit 0
