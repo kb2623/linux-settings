@@ -37,7 +37,7 @@ git_init() {
 
 git_update() {
 	printf "git_update: git_init\n\tgit submodule update --recursive --remote\n" >> Makefile
-	printf "\n\n" >> Makefile
+	printf "\n" >> Makefile
 }
 
 clean() {
@@ -48,7 +48,7 @@ clean() {
 }
 
 neovim_init() {
-	printf "neovim_init:\n\tln -s ~/.vimrc ~/.config/nvim/init.vim\ntln -s ~/.vimrc.nopower ~/.config/nvim/sshinit.vim\n" >> Makefile
+	printf "neovim_init:\n\tln -s ~/.vimrc ~/.config/nvim/init.vim\n\tln -s ~/.vimrc.nopower ~/.config/nvim/sshinit.vim\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
@@ -68,7 +68,7 @@ install() {
 }
 
 clean_repo_deb() {
-	printf "clean_repo:\n\tsudo apt autoremove && sudo apt autoclean" >> Makefile
+	printf "clean_repo:\n\tsudo apt autoremove && sudo apt autoclean\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
@@ -85,6 +85,7 @@ debian_install() {
 	printf "\n" >> Makefile
 	git_init
 	git_update
+	neovim_init
 	install_theme
 	install_icons
 	install
@@ -100,6 +101,7 @@ ubuntu_install() {
 	printf "\n" >> Makefile
 	git_init
 	git_update
+	neovim_init
 	install_theme
 	install_icons
 	install
@@ -124,6 +126,7 @@ manjaro_install() {
 	printf "\n" >> Makefile
 	git_init
 	git_update
+	neovim_init
 	install_theme
 	install_icons
 	install
