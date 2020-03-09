@@ -84,6 +84,19 @@ debian_install() {
 	clean_repo_deb
 }
 
+ubuntu_install() {
+	all
+	printf "update:\n\tsudo apt-get update && sudo apt-get upgrade\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "depts: update\n\tsudo apt-get install tmux vim-gtk awesome xfonts-terminus fonts-firacode zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc vifm htop papirus-icon-theme\n\trm -rf .config/awesome/lain\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
+	printf "\n" >> Makefile
+	git_init
+	git_update
+	install_theme
+	install_icons
+	install
+	clean_repo_deb
+}
 
 raspbian_install() {
 	debian_install
@@ -130,6 +143,7 @@ case "${ID}" in
 	debian) debian_install;;
 	manjaro) manjaro_install;;
 	raspbian) raspbian_install;;
+	ubuntu) ubuntu_install;;
 esac
 
 exit 0
