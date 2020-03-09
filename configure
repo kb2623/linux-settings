@@ -37,14 +37,14 @@ git_init() {
 
 git_update() {
 	printf "git_update: git_init\n\tgit submodule update --recursive --remote\n" >> Makefile
-	printf "\n" >> Makefile
+	printf "\n\n" >> Makefile
 }
 
-git_clean() {
+clean() {
 	printf "clean:\n" >> Makefile
 	printf "\trm -rf .git .i3 .icons .jupyter .themes .vim .vnc .config/awesome .config/cmus .config/dunst .config/kitty .config/openbox .config/vifm .config/pureline .config/powerline\n" >> Makefile
 	printf "\trm -f .Xresources .bashrc .dmenurc .gitignore .gitmodules .ideavimrc .profile .xtmux.conf .vimrc .vimrc.nopower .xprofile .zshrc LICENSE README.md configure\n" >> Makefile
-	printf "\n" >> Makefile
+	printf "\n\n" >> Makefile
 }
 
 neovim_init() {
@@ -89,7 +89,7 @@ debian_install() {
 	install_icons
 	install
 	clean_repo_deb
-	git_clean
+	clean
 }
 
 ubuntu_install() {
@@ -104,7 +104,7 @@ ubuntu_install() {
 	install_icons
 	install
 	clean_repo_deb
-	git_clean
+	clean
 }
 
 raspbian_install() {
@@ -130,7 +130,7 @@ manjaro_install() {
 	printf "update_mirrors:\n\tpacman-mirrors --geoip\n" >> Makefile
 	printf "\n" >> Makefile
 	clean_repo_arch
-	git_clean
+	clean
 }
 
 # Main ------------------------------------------------------------------------------------
