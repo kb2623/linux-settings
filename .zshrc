@@ -33,7 +33,6 @@ zplug zpm-zsh/colors
 zplug zpm-zsh/ssh
 zplug zpm-zsh/dot
 zplug zpm-zsh/dircolors-material
-zplug zpm-zsh/history-substring-search-wrapper
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
 ## Install zplug plugins
