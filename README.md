@@ -1,62 +1,57 @@
 # linux-settings
+
 Nastavitve za linux programe.
 
-# Programi
-## CLI
-* `git`
-* `zsh`
-* `vim` and `neovim`
-* `neofetch`
-* `vifm`
-* `powerline`
+# Installation
 
-### Namestitev
-```
-sudo pacman -S git zsh vim neovim neofetch vifm powerline
-```
-
-## GUI
-* `kitty` -> Terminal
-* `otf-fira-code` -> Font
-
-### Namestitev
-```
-sudo pacman -S kitty otf-fira-code
+```bash
+wget https://raw.githubusercontent.com/kb2623/linux-settings/master/configure
+bash configure
+make
 ```
 
 # Git navodila
+
 ## Git global setup
-```
+
+```bash
 git config --global user.name "user"
 git config --global user.email "user@mail.com"
 ```
 
 ## Git user home dir
-```
+
+```bash
 git init
 git remote add origin https://github.com/kb2623/linux-settings.git 
+git fetch
 git submodule update --init --recursive
-git pull origin master
 ```
 
 ## Git ukaz za podmodule
+
 ### Inicializacija in prenos
-```
+
+```bash
 git submodule update --init --recursive
 ```
 
 ### Prenos inicializiranih
-```
+
+```bash
 git submodule update --recursive --remote
 ```
 
 ### Prenos master brancha
-```
+
+```bash
 git submodule foreach git merge origin master
 ```
 
 # Dodatne nastavitve
+
 ## Firefox
+
 ### How to disable WebRTC in Firefox?
 
 In short: Set `media.peerconnection.enabled` to `false` in `about:config`.
@@ -76,6 +71,7 @@ In short: Set `media.peerconnection.enabled` to `false` in `about:config`.
 Now you can be 100% sure WebRTC is disabled.
 
 ### Privacy Related "about:config" Tweaks
+
 * `privacy.firstparty.isolate = true` -> A result of the Tor Uplift effort, this preference isolates all browser identifier sources (e.g. cookies) to the first party domain, with the goal of preventing tracking across different domains. (Don't do this if you are using the Firefox Addon "Cookie AutoDelete" with Firefox v58 or below.)
 * `privacy.resistFingerprinting = true` -> A result of the Tor Uplift effort, this preference makes Firefox more resistant to browser fingerprinting.
 * `privacy.trackingprotection.fingerprinting.enabled = true` -> Blocks Fingerprinting
@@ -124,7 +120,8 @@ Now you can be 100% sure WebRTC is disabled.
 `extensions.blocklist.url = https://blocklists.settings.services.mozilla.com/v1/blocklist/3/%20/%20/`. Limit the amount of identifiable information sent when requesting the Mozilla harmful extension blocklist. 
 
 ### userChrome.css
-```
+
+```css
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
 
 #TabsToolbar { height:25px!important; margin-top:-1px!important; margin-bottom:1px!important; }
@@ -151,70 +148,92 @@ As configured in [my dotfiles](https://github.com/henrik/dotfiles/blob/master/tm
 
 start new:
 
-    tmux
+```bash
+tmux
+```
 
 start new with session name:
 
-    tmux new -s myname
+```bash
+tmux new -s myname
+```
 
 attach:
 
-    tmux a  #  (or at, or attach)
+```bash
+tmux a  #  (or at, or attach)
+```
 
 attach to named:
 
-    tmux a -t myname
+```bash
+tmux a -t myname
+```
 
 list sessions:
 
-    tmux ls
+```bash
+tmux ls
+```
 
 kill session:
 
-    tmux kill-session -t myname
+```bash
+tmux kill-session -t myname
+```
 
 In tmux, hit the prefix `ctrl+b` and then:
 
 ## Sessions
 
-    :new<CR>  new session
-    s  list sessions
-    $  name session
+```text
+:new<CR>  new session
+s  list sessions
+$  name session
+```
 
 ## Windows (tabs)
 
-    c           new window
-    ,           name window
-    w           list windows
-    f           find window
-    &           kill window
-    .           move window - prompted for a new number
-    :movew<CR>  move window to the next unused number
+```text
+c           new window
+,           name window
+w           list windows
+f           find window
+&           kill window
+.           move window - prompted for a new number
+:movew<CR>  move window to the next unused number
+```
 
 ## Panes (splits)
 
-    |  horizontal split
-    -  vertical split
-    
-    o  swap panes
-    q  show pane numbers
-    x  kill pane
-    ⍽  space - toggle between layouts
+```text
+|  horizontal split
+-  vertical split
+
+o  swap panes
+q  show pane numbers
+x  kill pane
+⍽  space - toggle between layouts
+```
 
 ## Window/pane surgery
 
-    :joinp -s :2<CR>  move window 2 into a new pane in the current window
-    :joinp -t :1<CR>  move the current pane into a new pane in window 1
+```text
+:joinp -s :2<CR>  move window 2 into a new pane in the current window
+:joinp -t :1<CR>  move the current pane into a new pane in window 1
+```
 
 * [Move window to pane](http://unix.stackexchange.com/questions/14300/tmux-move-window-to-pane)
 * [How to reorder windows](http://superuser.com/questions/343572/tmux-how-do-i-reorder-my-windows)
 
 ## Misc
 
-    d  detach
-    t  big clock
-    ?  list shortcuts
-    :  prompt
+```text
+d  detach
+t  big clock
+?  list shortcuts
+:  prompt
+```
 
 Resources:
 
@@ -229,11 +248,21 @@ TODO:
 * Conf copy mode to use system clipboard. See PragProg book.
 
 # SSL
+
 ## Create key
-`openssl genrsa -des3 -out [file.key] 2048`
+
+```bash
+openssl genrsa -des3 -out [file.key] 2048
+```
 
 ## Decript key
-`openssl rsa -in [file1.key] -out [file2.key]`
+
+```bash
+openssl rsa -in [file1.key] -out [file2.key]
+```
 
 ## Create certificat
-`openssl req -x509 -new -nodes -key [file.key] -sha256 -days 1024  -out [file.pem]`
+
+```bash
+openssl req -x509 -new -nodes -key [file.key] -sha256 -days 1024  -out [file.pem]
+```

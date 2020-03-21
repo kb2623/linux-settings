@@ -3,7 +3,7 @@ if has('nvim')
 	set rtp^=~/.vim/
 endif
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -15,6 +15,7 @@ Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 Plug 'whatyouhide/vim-gotham'
 Plug 'flazz/vim-colorschemes'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -35,6 +36,7 @@ set backupdir=/tmp
 set directory=/tmp
 set mouse=a
 set shell=/bin/zsh
+set encoding=UTF-8
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1

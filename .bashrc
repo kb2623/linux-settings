@@ -17,15 +17,17 @@ shopt -s extglob
 shopt -s histappend
 shopt -s hostcomplete
 
+# Environemnt variables -----------------------------------------------
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 export JAVA_FONTS=/usr/share/fonts/TTF
-_JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
 
+# ALIAS ----------------------------------------------------------------
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
@@ -44,31 +46,34 @@ alias printer='system-config-printer'
 alias lockui='i3lock -c 000000'
 alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
 alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
-
+alias rcp='rsync -ah --progress'
 
 # ex - archive extractor
 # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
+ex() {
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)   tar xjf $1   ;;
+			*.tar.gz)    tar xzf $1   ;;
+			*.bz2)       bunzip2 $1   ;;
+			*.rar)       unrar x $1     ;;
+			*.gz)        gunzip $1    ;;
+			*.tar)       tar xf $1    ;;
+			*.tbz2)      tar xjf $1   ;;
+			*.tgz)       tar xzf $1   ;;
+			*.zip)       unzip $1     ;;
+			*.Z)         uncompress $1;;
+			*.7z)        7z x $1      ;;
+			*)           echo "'$1' cannot be extracted via ex()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
 }
 
 # prompt
-PS1='┌[\[\e[32m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]]-[\[\e[33m\]\w\[\e[m\]]\\$\n└> '
+if [ "$TERM" != "linux" ]; then
+	source ~/.config/pureline/pureline ~/.config/pureline/configs/powerline_full_256col.conf
+else
+	PS1='┌[\[\e[32m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]]-[\[\e[33m\]\w\[\e[m\]]\\$\n└> '
+fi

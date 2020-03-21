@@ -1,0 +1,162 @@
+#!/bin/bash
+
+# Tole je skripta za pripravo Makefile sripte
+
+# Parameters --------------------------------------------------------------------------------
+ID=''
+VERSION_ID=''
+THEME_NAME='oomox-black'
+ICONS_NAME='oomox-black'
+CURSOR_NAME='Hack-C'
+
+# Function ----------------------------------------------------------------------------------
+print_help() {
+	echo -e 'NAME:'
+	echo -e '\tconfigure - Configure Makefile'
+	echo -e 'USAGE:'
+	echo -e '\tconfigure [OPTIONS]'
+	echo -e 'OPTIONS:'
+	echo -e '\t-i  --icons\t\t[NAME]\t\tIcons theme name'
+	echo -e '\t-t  --theme\t\t[NAME]\t\tTheme name'
+	echo -e '\t-d  --dist\t\t[NAME]\t\tDistribution name'
+	echo -e '\t-dv --dist_version\t[NAME]\t\tDistribution version'
+	echo -e '\t-h  --help\t\t \t\tPrint this message'
+	echo -e 'NAME:'
+	echo -e '\tName represented with string'
+}
+
+all() {
+	printf "all: depts git_init clean_repo\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+git_init() {
+	printf "git_init: depts\n\t-git init .\n\t-git remote add origin https://github.com/kb2623/linux-settings.git\n\tgit fetch\n\t-git submodule update --init --recursive\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+git_update() {
+	printf "git_update: git_init\n\tgit submodule update --recursive --remote\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+clean() {
+	printf "clean:\n" >> Makefile
+	printf "\trm -rf .git .i3 .icons .jupyter .themes .vim .vnc .config/awesome .config/cmus .config/dunst .config/kitty .config/openbox .config/vifm .config/pureline .config/powerline\n" >> Makefile
+	printf "\trm -f .Xresources .bashrc .dmenurc .gitignore .gitmodules .ideavimrc .profile .xtmux.conf .vimrc .vimrc.nopower .xprofile .zshrc LICENSE README.md configure\n" >> Makefile
+	printf "\n\n" >> Makefile
+}
+
+neovim_init() {
+	printf "neovim_init:\n\tln -s ~/.vimrc ~/.config/nvim/init.vim\n\tln -s ~/.vimrc.nopower ~/.config/nvim/sshinit.vim\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+install_theme() {
+	printf "install_theme: git_init\n\tsudo cp -r .themes/${THEME_NAME} /usr/share/themes\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+install_icons() {
+	printf "install_icons: git_init\n\tsudo cp -r .icons/${ICONS_NAME} /usr/share/icons\n\tsudo cp -r .icons/${CURSOR_NAME} /usr/share/icons\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+install() {
+	printf "install: install_theme install_icons\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+clean_repo_deb() {
+	printf "clean_repo:\n\tsudo apt autoremove && sudo apt autoclean\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+clean_repo_arch() {
+	printf "clean_repo:\n\tsudo pacman -Rs $(pacman -Qtdq)\n"
+	printf "\n" >> Makefile
+}
+
+debian_install() {
+	all
+	printf "update:\n\tsudo apt update && sudo apt upgrade\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "depts: update\n\tsudo apt install tmux vim-gtk awesome xfonts-terminus fonts-firacode zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc vifm htop papirus-icon-theme\n\trm -rf .config/awesome/lain\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
+	printf "\n" >> Makefile
+	git_init
+	git_update
+	neovim_init
+	install_theme
+	install_icons
+	install
+	clean_repo_deb
+	clean
+}
+
+ubuntu_install() {
+	all
+	printf "update:\n\tsudo apt-get update && sudo apt-get upgrade\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "depts: update\n\tsudo apt-get install tmux vim-gtk awesome xfonts-terminus fonts-firacode zsh git neovim neofetch gtk2-engines-murrine keepassxc vifm htop papirus-icon-theme\n\trm -rf .config/awesome/lain\n\tgit clone https://github.com/lcpz/lain.git .config/awesome/lain\n" >> Makefile
+	printf "\n" >> Makefile
+	git_init
+	git_update
+	neovim_init
+	install_theme
+	install_icons
+	install
+	clean_repo_deb
+	clean
+}
+
+raspbian_install() {
+	debian_install
+	printf "\n" >> Makefile
+	printf "install_docker:\n\tcurl -sSL https://get.docker.com | sh\n" >> Makefile
+	printf "\n" >> Makefile
+}
+
+manjaro_install() {
+	all
+	printf "update:\n\tsudo pacman -Syyuu\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "depts: update\n\tsudo pacman -S tmux neovim neofetch awesome zsh gvim git python-pipenv ctags keepassxc vifm htop papirus-icon-theme\n" >> Makefile
+	printf "\n" >> Makefile
+	printf "fonts: update\n\tpamac build nerd-fonts-fira-code awesome-freedesktop-git lain-git\n" >> Makefile
+	printf "\n" >> Makefile
+	git_init
+	git_update
+	neovim_init
+	install_theme
+	install_icons
+	install
+	printf "update_mirrors:\n\tpacman-mirrors --geoip\n" >> Makefile
+	printf "\n" >> Makefile
+	clean_repo_arch
+	clean
+}
+
+# Main ------------------------------------------------------------------------------------
+while [[ "$#" -gt 0 ]]; do case $1 in
+  -h|--help) print_help; exit 0;;
+  -t|--theme) shift; THEME_NAME=$1;;
+  -i|--icons) shift; ICONS_NAME=$1;;
+  -d|--dist) shift; ID=$1;;
+  -dv|--dist_version) shift; VERSION_ID=$1;;
+  *) echo "Unknown parameter passed: $1"; exit 1;;
+esac; shift; done
+
+if [[ "${ID}" == '' ]]; then
+	source /etc/os-release
+fi
+
+rm -f Makefile && touch Makefile
+
+case "${ID}" in
+	debian) debian_install;;
+	manjaro) manjaro_install;;
+	raspbian) raspbian_install;;
+	ubuntu) ubuntu_install;;
+esac
+
+exit 0

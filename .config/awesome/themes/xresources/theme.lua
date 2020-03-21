@@ -15,7 +15,7 @@ local themes_path = gfs.get_themes_dir()
 local theme = dofile(themes_path.."default/theme.lua")
 -- load vector assets' generators for this theme
 
-theme.font          = "sans 11"
+theme.font          = "Terminus Bold 10"
 
 theme.bg_normal     = xrdb.color0
 theme.bg_focus      = xrdb.color12
@@ -29,7 +29,7 @@ theme.fg_urgent     = theme.bg_normal
 theme.fg_minimize   = theme.bg_normal
 
 theme.useless_gap   = dpi(3)
-theme.border_width  = dpi(2)
+theme.border_width  = dpi(1)
 theme.border_normal = xrdb.color8
 theme.border_focus  = theme.bg_focus
 theme.border_marked = xrdb.color10
@@ -53,7 +53,7 @@ theme.tooltip_bg = theme.bg_normal
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(16)
-theme.menu_width  = dpi(100)
+theme.menu_width  = dpi(150)
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -131,6 +131,7 @@ theme.wallpaper = function(s)
 end
 
 function theme.initBar(s, l, m, r)
+	--[[
    s.mywibox:setup {
       layout = wibox.layout.align.horizontal,
       { -- Left widgets
@@ -143,6 +144,7 @@ function theme.initBar(s, l, m, r)
          unpack(r),
       },
    }
+	--]]
 end
 
 return theme
