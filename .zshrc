@@ -36,15 +36,14 @@ zplug zpm-zsh/dircolors-material
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
 ## Install zplug plugins
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+# zplug check returns true if all packages are installed
+# Therefore, when it returns false, run zplug install
+if ! zplug check; then
+	zplug install
 fi
 
 ## Load zplug plugins
-zplug load --verbose
+zplug load
 
 # ALIAS ----------------------------------------------------------------
 alias keyboard-awesome='setxkbmap -layout \"us,si\"'
