@@ -8,6 +8,7 @@ VERSION_ID=''
 THEME_NAME='oomox-black'
 ICONS_NAME='oomox-black'
 CURSOR_NAME='Hack-C'
+GIT_BRANCH='master' 
 
 # Function ----------------------------------------------------------------------------------
 print_help() {
@@ -31,7 +32,7 @@ all() {
 }
 
 git_init() {
-	printf "git_init: depts\n\t-git init .\n\t-git remote add origin https://github.com/kb2623/linux-settings.git\n\tgit fetch\n\t-git submodule update --init --recursive\n" >> Makefile
+	printf "git_init: clean depts\n\t-git init .\n\t-git remote add origin https://github.com/kb2623/linux-settings.git\n\t-git fetch\n\t-git pull origin ${GIT_BRANCH}\n\t-git submodule update --init --recursive\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
@@ -48,7 +49,7 @@ clean() {
 }
 
 neovim_init() {
-	printf "neovim_init:\n\tln -s ~/.vimrc ~/.config/nvim/init.vim\n\tln -s ~/.vimrc.nopower ~/.config/nvim/sshinit.vim\n" >> Makefile
+	printf "neovim_init:\n\tmkdir -p ~/.config/nvim\n\tln -s ~/.vimrc ~/.config/nvim/init.vim\n\tln -s ~/.vimrc.nopower ~/.config/nvim/sshinit.vim\n" >> Makefile
 	printf "\n" >> Makefile
 }
 
