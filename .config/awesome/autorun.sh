@@ -6,10 +6,10 @@ run() {
 	fi
 }
 
-
 run nm-applet
 run volumeicon
 run cbatticon
+run blueman-applet
 
 if xrandr | grep -q 'HDMI-0 connected'; then
 	sh .screenlayout/startup.sh
