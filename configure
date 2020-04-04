@@ -53,18 +53,18 @@ git_update() {
 
 clean() {
 	printf "clean:\n" >> Makefile
-	printf "\trm -rf .git .i3 .icons .jupyter .themes .vim .vnc .config/awesome .config/cmus .config/dunst .config/kitty .config/openbox .config/vifm .config/pureline .config/powerline\n" >> Makefile
+	printf "\trm -rf .git .i3 .icons .jupyter .themes .vim .vnc .config/awesome .config/cmus .config/dunst .config/kitty .config/openbox .config/vifm .config/pureline .config/powerline .config/nvim\n" >> Makefile
 	printf "\trm -f .Xresources .bashrc .dmenurc .gitignore .gitmodules .ideavimrc .profile .xtmux.conf .vimrc .vimrc.nopower .xprofile .zshrc LICENSE README.md configure\n" >> Makefile
 	newline_makefile
 }
 
 install_theme() {
-	printf "install_theme: git_init\n\tsudo cp -r .themes/${THEME_NAME} /usr/share/themes\n" >> Makefile
+	printf "install_theme:\n\tsudo cp -r .themes/${THEME_NAME} /usr/share/themes\n" >> Makefile
 	newline_makefile
 }
 
 install_icons() {
-	printf "install_icons: git_init\n\tsudo cp -r .icons/${ICONS_NAME} /usr/share/icons\n\tsudo cp -r .icons/${CURSOR_NAME} /usr/share/icons\n" >> Makefile
+	printf "install_icons:\n\tsudo cp -r .icons/${ICONS_NAME} /usr/share/icons\n\tsudo cp -r .icons/${CURSOR_NAME} /usr/share/icons\n" >> Makefile
 	newline_makefile
 }
 
