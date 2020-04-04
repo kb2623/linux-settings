@@ -16,6 +16,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'whatyouhide/vim-gotham'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
