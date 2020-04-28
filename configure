@@ -87,7 +87,7 @@ debian_install() {
 	all
 	printf "update:\n\tsudo apt update && sudo apt upgrade\n" >> Makefile
 	newline_makefile
-	printf "depts: update\n\tsudo apt install tmux vim-gtk awesome xfonts-terminus fonts-firacode zsh git neovim neofetch gtk2-engines-murrine pipenv universal-ctags keepassxc vifm htop papirus-icon-theme\n" >> Makefile
+	printf "depts: update\n\tsudo apt install tmux vim-gtk awesome xfonts-terminus fonts-firacode zsh git neovim neofetch ibus-gtk3 gtk2-engines-murrine pipenv universal-ctags keepassxc vifm htop papirus-icon-theme\n" >> Makefile
 	newline_makefile
 	git_init
 	git_update
