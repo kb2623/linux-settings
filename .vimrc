@@ -41,6 +41,7 @@ set encoding=UTF-8
 
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
+
 if has("gui_running")
 	" colorscheme gotham256
 	colorscheme spacedark
@@ -50,12 +51,14 @@ if has("gui_running")
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Regular\ 10
+		set guifont=FiraCode\ Nerd\ Font\ Mono\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
 	set guicursor+=n-v-c:blinkon0
 	hi NonText guifg=bg
+elseif exists('g:vscode')
+	set guicursor+=n-v-c:blinkon0
 else
 	let g:airline_theme='base16_google'
 endif
