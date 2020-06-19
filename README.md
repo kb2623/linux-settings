@@ -142,6 +142,77 @@ Now you can be 100% sure WebRTC is disabled.
 }
 ```
 
+# Accessing vncserver via SSH tunnels
+
+For servers offering SSH connection, an advantage of this method is that it is not necessary to open any other port than the already opened SSH port to the outside, since the VNC traffic is tunneled through the SSH port.
+
+## On the server
+
+On the server side, `vncserver` or `x0vncserver` must be run.
+
+When running either one of these, it is recommended to use the -localhost switch way since it allows connections from the localhost only and by analogy, only from users ssh'ed and authenticated on the box. For example run a command such as:
+
+```
+$ vncserver -localhost
+```
+
+or for x0vncserver:
+
+```
+$ x0vncserver -localhost -SecurityTypes none
+```
+
+## On the client
+
+The VNC server has been setup on the remote machine to only accept local connections. Now, the client must open a secure shell with the remote machine (`10.1.10.2` in this example) and create a tunnel from the client port, for instance `9901`, to the remote server `5901` port.
+
+```
+$ ssh 10.1.10.2 -L 9901:localhost:5901
+```
+
+Once connected via SSH, leave this shell window open since it is acting as the secured tunnel with the server. Alternatively, directly run SSH in the background using the `-f` option. On the client side, to connect via this encrypted tunnel, point the `vncviewer` to the forwarded client port on the **localhost**.
+
+```
+$ vncviewer localhost:9901
+```
+
+What happens in practice is that the vncviewer connects locally to port 9901 which is tunneled to the server's localhost port 5901. The connection is established to the right port within the secure shell.
+
+### Tip
+
+It is possible, with a one-liner, to keep the port forwarding active during the connection and close it right after:
+
+```
+$ ssh -fL 9901:localhost:5901 10.1.10.2 sleep 10; vncviewer localhost:9901
+```
+
+What it does is that the `-f` switch will make `ssh` go in the background, it will still be alive executing `sleep 10`. `vncviewer` is then executed and ssh remains open in the background as long as `vncviewer` makes use of the tunnel. ssh will close once the tunnel is dropped which is the wanted behavior.
+
+## Connecting to a vncserver from Android devices over SSH
+
+To connect to a VNC server over SSH using an Android device as a client, consider having the following setup: 
+
+* SSH running on the server
+* `vncserver` running on server (with `-localhost` flag for security)
+* SSH client on the Android device: **ConnectBot** is a popular choice and will be used in this guide as an example
+* VNC client on the Android device: **androidVNC** used here
+
+In **ConnectBot**, connect to the desired machine. Tap the options key, select Port Forwards and add a port:
+
+```
+Type: Local
+Source port: 5901
+Destination: 127.0.0.1:5901
+```
+
+In **androidVNC** connect to the VNC port, this is the local address following the SSH connection:
+
+```
+Password: the vncserver password
+Address: 127.0.0.1
+Port: 5901
+```
+
 # tmux cheatsheet
 
 As configured in [my dotfiles](https://github.com/henrik/dotfiles/blob/master/tmux.conf).
