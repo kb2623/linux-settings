@@ -58,16 +58,26 @@ if [[ -n $SSH_CONNECTION ]]; then
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
 fi
 
-# ALIAS ----------------------------------------------------------------
+# BIND ------------------------------------------------------------------
 bindkey '^E' edit-command-line                   # Opens Vim to edit current command line
 bindkey '^R' history-incremental-search-backward # Perform backward search in command line history
 bindkey '^S' history-incremental-search-forward  # Perform forward search in command line history
 bindkey '^P' history-search-backward             # Go back/search in history (autocomplete)
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
-# Theme ---------------------------------------------------------------
+# THEME -----------------------------------------------------------------
 if [[ -n $SSH_CONNECTION ]]; then
 	source ~/.themes/p10k.ssh.zsh
 else
 	source ~/.themes/p10k.zsh
 fi
+
+# FUNCTIONS -------------------------------------------------------------
+vnc.ssh () {
+	if (( $# == 0 )); then
+		return 1
+	fi
+	ssh -f $1 sleep 10
+	vncviewer localhost:1
+	return 0
+}
