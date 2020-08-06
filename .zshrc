@@ -74,10 +74,14 @@ fi
 
 # FUNCTIONS -------------------------------------------------------------
 vnc.ssh () {
+	# Purpose: 
+	#   Connect to a vnc server working on localhost over SSH tunnel 
+	# Arguments:
+	#   $1 -> String representing hostname or user@hostname
 	if (( $# == 0 )); then
 		return 1
 	fi
 	ssh -f $1 sleep 10
-	vncviewer localhost:1
-	return 0
+	out=$(vncviewer localhost:1)
+	return $out
 }
