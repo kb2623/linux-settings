@@ -263,7 +263,7 @@ awful.screen.connect_for_each_screen(function(s)
       s.mytasklist,
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
-			mykeyboardlayout, 
+			-- mykeyboardlayout, 
 			wibox.widget.systray(), 
 			mytextclock, 
 			mytextdate,
@@ -385,9 +385,8 @@ globalkeys = gears.table.join(
 		{description = "lua execute prompt", group = wmAwesomeG}),
 	-- Menubar
 	awful.key({ modkey }, "p", function () menubar.show() end,
-		{description = "show the menubar", group = wmLauncherG}),
-	awful.key({ "Shift" }, "Alt_L", function () mykeyboardlayout.next_layout() end,
-		{description = "Change keyboard layout", group = "keyboard"}))
+		{description = "show the menubar", group = wmLauncherG})
+)
 
 clientkeys = gears.table.join(
 	awful.key({ modkey,           }, "f",
