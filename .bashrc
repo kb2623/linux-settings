@@ -48,8 +48,11 @@ alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
 alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
 alias rcp='rsync -ah --progress'
 
+# Functions ------------------------------------------------------------
 # ex - archive extractor
-# usage: ex <file>
+# Usage: ex <file>
+# Args:
+#	$1 -> File
 ex() {
 	if [ -f $1 ] ; then
 		case $1 in
@@ -71,7 +74,24 @@ ex() {
 	fi
 }
 
-# prompt
+# vnc.ssh - VNC viewer over SSH tunnel
+# Usage: vnc.ssh <ssh_addr> [<port>]
+# Args:
+#	$1 -> String representing hostname or user@hostname
+#	$2 -> Port to farward
+vnc.ssh () {
+	port=5901
+	if (( $# == 0 )); then
+		return 1
+	elif (( $# == 2 )); then
+		port=$2
+	fi
+	ssh -L ${port}:localhost:5901 $1 -f sleep 10
+	out=$(vncviewer localhost:1)
+	return ${out}
+}
+
+# prompt ----------------------------------------------------------------
 if [ "$TERM" != "linux" ]; then
 	source ~/.config/pureline/pureline ~/.config/pureline/configs/powerline_full_256col.conf
 else
