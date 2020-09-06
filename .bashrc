@@ -30,7 +30,8 @@ export ANDROID_HOME=/home/klemen/programs/Android/
 # ALIAS ----------------------------------------------------------------
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -a --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias lla='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias grep='grep --color=tty -d skip'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
@@ -48,8 +49,11 @@ alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
 alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
 alias rcp='rsync -ah --progress'
 
+# Functions ------------------------------------------------------------
 # ex - archive extractor
-# usage: ex <file>
+# Usage: ex <file>
+# Args:
+#	$1 -> File
 ex() {
 	if [ -f $1 ] ; then
 		case $1 in
@@ -71,7 +75,24 @@ ex() {
 	fi
 }
 
-# prompt
+# vnc.ssh - VNC viewer over SSH tunnel
+# Usage: vnc.ssh <ssh_addr> [<port>]
+# Args:
+#	$1 -> String representing hostname or user@hostname
+#	$2 -> Port to farward
+vnc.ssh () {
+	port=5901
+	if (( $# == 0 )); then
+		return 1
+	elif (( $# == 2 )); then
+		port=$2
+	fi
+	ssh -L ${port}:localhost:5901 $1 -f sleep 10
+	out=$(vncviewer localhost:1)
+	return ${out}
+}
+
+# prompt ----------------------------------------------------------------
 if [ "$TERM" != "linux" ]; then
 	source ~/.config/pureline/pureline ~/.config/pureline/configs/powerline_full_256col.conf
 else
