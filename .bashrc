@@ -93,7 +93,7 @@ vnc.ssh () {
 }
 
 # prompt ----------------------------------------------------------------
-if [ "$TERM" != "linux" ]; then
+if [[ -v "$PURE_LINE_ON" ]]; then
 	source ~/.config/pureline/pureline ~/.config/pureline/configs/powerline_full_256col.conf
 else
 	PS1='┌[\[\e[32m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]]-[\[\e[33m\]\w\[\e[m\]]\\$\n└> '
