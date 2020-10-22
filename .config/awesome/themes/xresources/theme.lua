@@ -15,7 +15,7 @@ local themes_path = gfs.get_themes_dir()
 local theme = dofile(themes_path.."default/theme.lua")
 -- load vector assets' generators for this theme
 
-theme.font          = "Exo Regular 10"
+theme.font          = "Fira Code Bold 10"
 
 theme.bg_normal     = xrdb.color0
 theme.bg_focus      = xrdb.color12
@@ -131,20 +131,24 @@ theme.wallpaper = function(s)
 end
 
 function theme.initBar(s, l, m, r)
-	--[[
-   s.mywibox:setup {
-      layout = wibox.layout.align.horizontal,
-      { -- Left widgets
-         layout = wibox.layout.fixed.horizontal,
-         unpack(l),
-      },
-      unpack(m),
-      { -- Right widgets
-         layout = wibox.layout.fixed.horizontal,
-         unpack(r),
-      },
-   }
-	--]]
+    local left = {}
+    for i,v in ipairs(l) do table.insert(left, v) end
+    local mid = {}
+    for i,v in ipairs(m) do table.insert(mid, v) end
+    local right = {}
+    for i,v in ipairs(r) do table.insert(right, v) end
+    s.mywibox:setup {
+        layout = wibox.layout.align.horizontal,
+        { -- Left widgets
+            layout = wibox.layout.fixed.horizontal,
+            unpack(left),
+        },
+        unpack(mid),
+        { -- Right widgets
+            layout = wibox.layout.fixed.horizontal,
+            unpack(right),
+        },
+    }
 end
 
 return theme
