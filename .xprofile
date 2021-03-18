@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # ~/.xprofile
 #
@@ -10,6 +11,15 @@
 # Environment variables
 #
 
-export QT_QPA_PLATFORMTHEME="qt5ct"
+[[ "$XDG_CURRENT_DESKTOP" == "KDE" ]] || export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Java runtime options
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+
+# Libreoffice options
+export SAL_USE_VCLPLUGIN=gtk3
+
+# VIM runtime
+export GNVIM_RUNTIME_PATH="~/.vim"
 
 [[ -f ~/.extend.xprofile ]] && . ~/.extend.xprofile
