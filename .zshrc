@@ -28,7 +28,6 @@ zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug zsh-users/zsh-completions
 zplug zsh-users/zsh-syntax-highlighting
 zplug zpm-zsh/ls
-zplug zpm-zsh/tmux
 zplug zpm-zsh/colors
 zplug zpm-zsh/ssh
 zplug zpm-zsh/dot
@@ -53,7 +52,7 @@ alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias pacmanUpdateMirrors='sudo pacman-mirrors --geoip'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
 alias rcp='rsync -ah --progress'
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION || $TERM = "linux" ]]; then
 	alias vim='vim -u $HOME/.vimrc.nopower'
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
 fi
@@ -66,7 +65,7 @@ bindkey '^P' history-search-backward             # Go back/search in history (au
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
 # THEME -----------------------------------------------------------------
-if [[ -n $SSH_CONNECTION ]]; then
+if [ -n $SSH_CONNECTION ]; then
 	source ~/.themes/p10k.ssh.zsh
 else
 	source ~/.themes/p10k.zsh
