@@ -22,4 +22,11 @@ export SAL_USE_VCLPLUGIN=gtk3
 # VIM runtime
 export GNVIM_RUNTIME_PATH="~/.vim"
 
+# GTK3 font scale
+export GDK_DPI_SCALE=1
+export GDK_SCALE=1
+
+# QT scale
+export QT_SCALE_FACTOR=1
+
 [[ -f ~/.extend.xprofile ]] && . ~/.extend.xprofile
