@@ -21,8 +21,6 @@ shopt -s hostcomplete
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
-export JAVA_FONTS=/usr/share/fonts/TTF
-export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
@@ -36,17 +34,8 @@ alias grep='grep --color=tty -d skip'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
-alias np='nano PKGBUILD'
-alias fixit='sudo rm -f /var/lib/pacman/db.lck'
 alias update='yaourt -Syua'
-alias con='nano $HOME/.i3/config'
-alias comp='nano $HOME/.config/compton.conf'
-alias inst='sudo pacman -S'
-alias mirrors='sudo pacman-mirrors -g'
-alias printer='system-config-printer'
 alias lockui='i3lock -c 000000'
-alias pacmanCleanPkg='pacman -Qqdt | sudo pacman -Rns -'
-alias yaourtCleanPkg='yaourt -Qqdt | yaourt -Rns -'
 alias rcp='rsync -ah --progress'
 
 # Functions ------------------------------------------------------------

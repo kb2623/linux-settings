@@ -1,10 +1,8 @@
 #!/bin/zsh
 
 # Environemnt variables -----------------------------------------------
-export SAL_USE_VCLPLUGIN=gtk3
 export ZPLUG_HOME=~/.zplug
 export JAVA_FONTS=/usr/share/fonts/TTF
-export _JAVA_OPTIONS='-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
@@ -52,7 +50,7 @@ alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias pacmanUpdateMirrors='sudo pacman-mirrors --geoip'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
 alias rcp='rsync -ah --progress'
-if [[ -n $SSH_CONNECTION || $TERM = "linux" ]]; then
+if [[ -n $SSH_CONNECTION || "$TERM" = "linux" ]]; then
 	alias vim='vim -u $HOME/.vimrc.nopower'
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
 fi
@@ -67,6 +65,8 @@ bindkey '^N' history-search-forward              # Go forward/search in history 
 # THEME -----------------------------------------------------------------
 if [ -n $SSH_CONNECTION ]; then
 	source ~/.themes/p10k.ssh.zsh
+elif [ "$TERM" = "linux" ]; then
+	source ~/.themes/p10k.tty.zsh
 else
 	source ~/.themes/p10k.zsh
 fi

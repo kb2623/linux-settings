@@ -29,4 +29,7 @@ export GDK_SCALE=1
 # QT scale
 export QT_SCALE_FACTOR=1
 
+# Java fonts
+export JAVA_FONTS=/usr/share/fonts/TTF
+
 [[ -f ~/.extend.xprofile ]] && . ~/.extend.xprofile
