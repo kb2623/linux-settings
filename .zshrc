@@ -2,7 +2,6 @@
 
 # Environemnt variables -----------------------------------------------
 export ZPLUG_HOME=~/.zplug
-export JAVA_FONTS=/usr/share/fonts/TTF
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
