@@ -34,7 +34,7 @@ zplug romkatv/powerlevel10k, as:theme, depth:1
 ## Install zplug plugins
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
-if ! zplug check; then
+if ! zplug checki; then
 	zplug install
 fi
 
@@ -62,9 +62,9 @@ bindkey '^P' history-search-backward             # Go back/search in history (au
 bindkey '^N' history-search-forward              # Go forward/search in history (autocomplete)
 
 # THEME -----------------------------------------------------------------
-if [ -n $SSH_CONNECTION ]; then
+if [[ -n $SSH_CONNECTION ]]; then
 	source ~/.themes/p10k.ssh.zsh
-elif [ "$TERM" = "linux" ]; then
+elif [[ "$TERM" = "linux" ]]; then
 	source ~/.themes/p10k.tty.zsh
 else
 	source ~/.themes/p10k.zsh
