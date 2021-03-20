@@ -34,7 +34,7 @@ zplug romkatv/powerlevel10k, as:theme, depth:1
 ## Install zplug plugins
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
-if ! zplug checki; then
+if ! zplug check; then
 	zplug install
 fi
 
@@ -50,7 +50,8 @@ alias pacmanUpdateMirrors='sudo pacman-mirrors --geoip'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
 alias rcp='rsync -ah --progress'
 if [[ -n $SSH_CONNECTION || "$TERM" = "linux" ]]; then
-	alias vim='vim -u $HOME/.vimrc.nopower'
+	alias vi='nvim -u $HOME/.config/nvim/sshinit.vim'
+	alias vim='nvim -u $HOME/.config/nvim/sshinit.vim'
 	alias nvim='nvim -u $HOME/.config/nvim/sshinit.vim'
 fi
 
