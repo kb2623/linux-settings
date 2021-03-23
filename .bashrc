@@ -82,7 +82,7 @@ vnc.ssh () {
 }
 
 # prompt ----------------------------------------------------------------
-if [[ "$TERM" != "linux" || -n $SSH_CONNECTION ]]; then
+if [[ "$TERM" != "linux" ]]; then
 	source ~/.config/pureline/pureline ~/.config/pureline/configs/powerline_full_256col.conf
 elif [[ -n $SSH_CONNECTION ]]; then
 	source ~/.config/pureline/pureline ~/.config/pureline/configs/powerline_full_8col.conf
