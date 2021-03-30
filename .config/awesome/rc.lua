@@ -197,7 +197,7 @@ local tasklist_buttons = gears.table.join(
 )
 
 -- Keyboard map indicator and switcher
--- local mykeyboardlayout = awful.widget.keyboardlayout()
+local mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock(" %H:%M ", 60)
@@ -264,6 +264,7 @@ awful.screen.connect_for_each_screen(function(s)
       { -- Right widgets
          layout = wibox.layout.fixed.horizontal,
 			wibox.widget.systray(), 
+			mykeyboardlayout,
 			mytextclock, 
 			mytextdate,
 			s.mylayoutbox,
