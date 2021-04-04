@@ -57,6 +57,10 @@ if has("gui_running")
 	endif
 	set guicursor+=n-v-c:blinkon0
 	hi NonText guifg=bg
+	" Copy and paste
+	vmap <C-c> "+yi
+	vmap <C-v> c<ESC>"+p
+	imap <C-v> <ESC>"+pa
 elseif exists('g:vscode')
 	set guicursor+=n-v-c:blinkon0
 else
