@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# Profile -------------------------------------------------------------
+[ -f ~/.profile ] && source ~/.profile
+
 # Environemnt variables -----------------------------------------------
 export ZPLUG_HOME=~/.zplug
 export EDITOR=/usr/bin/vim

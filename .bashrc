@@ -17,6 +17,9 @@ shopt -s extglob
 shopt -s histappend
 shopt -s hostcomplete
 
+# Profile -------------------------------------------------------------
+[ -f ~/.profile ] && source ~/.profile
+
 # Environemnt variables -----------------------------------------------
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
