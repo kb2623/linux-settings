@@ -24,7 +24,7 @@ shopt -s hostcomplete
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
 

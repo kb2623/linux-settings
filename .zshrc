@@ -5,7 +5,7 @@
 
 # Environemnt variables -----------------------------------------------
 export ZPLUG_HOME=~/.zplug
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
 
