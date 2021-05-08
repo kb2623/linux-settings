@@ -6,7 +6,7 @@ Xft.antialias: 1
 Xft.hintstyle: hintslight
 
 ! URxvt.font: xft:Droid Sans Mono-10
-URxvt.font: xft:Droid Sans Mono for Powerline:pixelsize=14:minspace=False
+URxvt.font: xft:FantasqueSansMono Nerd Font:pixelsize=14:minspace=False
 URxvt*termName: rxvt-unicode-256color 
 URxvt.depth: 32
 URxvt*scrollBar:                      true
@@ -18,7 +18,7 @@ URxvt.letterSpace: 0
 
 ! XTerm*faceName: Droid Sans Mono
 XTerm*utf8: 1
-XTerm*faceName: Droid Sans Mono for Powerline
+XTerm*faceName: FantasqueSansMono Nerd Font
 XTerm*faceSize: 11
 XTerm*termName: xterm-256color
 XTerm*selectToClipboard: true
