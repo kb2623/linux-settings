@@ -51,7 +51,7 @@ if has("gui_running")
 	set guioptions-=r
 	set guioptions-=L
 	if has("unix")
-		set guifont=FiraCode\ Nerd\ Font\ Mono\ 10
+		set guifont=FantasqueSansMono\ Nerd\ Font\ Mono\ 10
 	else
 		set guifont=Sauce_Code_Powerline:h7:cEASTEUROPE
 	endif
