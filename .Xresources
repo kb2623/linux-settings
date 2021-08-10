@@ -34,34 +34,26 @@ Xcursor.theme: Hack-C
 
 UXTerm*renderFont: true
 
-*.foreground:   #98d1ce
-*.background:   #000000
 *.cursorColor:  #98d1ce
 
-! *.color0:       #0a0f14
-*.color0:       #000000
-*.color8:       #10151b
-
-*.color1:       #c33027
-*.color9:       #d26939
-
-*.color2:       #26a98b
-*.color10:      #245361
-
-*.color3:       #edb54b
-*.color11:      #245361
-
-*.color4:       #195465
-*.color12:      #245361
-
-*.color5:       #4e5165
-*.color13:      #888ba5
-
-*.color6:       #33859d
-*.color14:      #599caa
-
-*.color7:       #98d1ce
-*.color15:      #d3ebe9
+*.background: #000000
+*.foreground: #00cc00
+*.color0:    #000000
+*.color1:    #55ff55
+*.color2:    #00cc00
+*.color3:    #00cc00
+*.color4:    #005500
+*.color5:    #55ff55
+*.color6:    #00cc00
+*.color7:    #00cc00
+*.color8:    #000000
+*.color9:    #55ff55
+*.color10:    #55ff55
+*.color11:    #55ff55
+*.color12:    #005500
+*.color13:    #55ff55
+*.color14:    #55ff55
+*.color15:    #00cc00
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:                  true
