@@ -14,8 +14,8 @@ local themes_path = gfs.get_themes_dir()
 -- inherit default theme
 local theme = dofile(themes_path.."default/theme.lua")
 
-theme.confdir       = os.getenv("HOME") .. "/.config/awesome/themes/matrix"
-theme.wallpaper     = theme.confdir .. "/matrix_debian.png"
+theme.confdir       = os.getenv("HOME") .. "/.config/awesome/themes/razer"
+theme.wallpaper     = theme.confdir .. "/wall.png"
 theme.font          = "FantasqueSansMono Nerd Font Bold 10"
 
 theme.bg_normal     = xrdb.color0
