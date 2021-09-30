@@ -48,7 +48,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-chosen_theme = "razer"
+chosen_theme = "xresources"
 -- chosen_theme = "cesious"
 -- chosen_theme = "blackburn"
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
