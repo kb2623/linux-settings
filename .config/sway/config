@@ -65,7 +65,7 @@ default_border pixel 2
 
 input * {
 	xkb_layout "us,si"
-	xkb_options grp:win_space_toggle
+	xkb_options grp:alt_space_toggle
 }
 
 ### Key bindings
