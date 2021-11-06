@@ -25,7 +25,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/sway/debianwall.jpeg fill
 #
 # Example configuration:
 #
@@ -222,10 +222,10 @@ bar {
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'oomox-black'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-    gsettings set $gnome-schema cursor-theme 'Hack-C'
-    gsettings set $gnome-schema font-name 'Oxanium 10'
+    gsettings set org.gnome.desktop.interface gtk-theme 'oomox-black'
+    gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Hack-C'
+    gsettings set org.gnome.desktop.interface font-name 'Oxanium 10'
 }
 
 include /etc/sway/config.d/*
