@@ -28,6 +28,9 @@ vim.o.encoding = "UTF-8"
 
 vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml"
 vim.g.tagbar_compact = true
+vim.g.tagbar_indent = 1
+vim.g.airline_powerline_fonts = true
+vim.g.airline_theme = 'base16_spacemacs'
 
 local function map(mode, lhs, rhs, opts)
 	local options = {noremap = true}
