@@ -21,4 +21,4 @@ sysxprofile=/etc/.xprofile
 # X11 resources
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources &
 
-awesome
+i3

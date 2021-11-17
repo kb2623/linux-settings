@@ -2,7 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod1
+set $mod Mod4
 
 # Hide borders
 hide_edge_borders none
@@ -164,6 +164,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
+
+# Hide title bar
+default_border pixel 1
+default_floating_border pixel 1
 
 # Open specific applications in floating mode
 for_window [title="i3_help"] floating enable sticky enable border normal
