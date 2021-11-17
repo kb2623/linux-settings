@@ -68,6 +68,15 @@ input * {
 	xkb_options grp:alt_space_toggle
 }
 
+input type:touchpad {
+    left_handed enabled
+    tap enabled
+    natural_scroll disabled
+    dwt enabled
+    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
+}
+
 ### Key bindings
 #
 # Basics:
