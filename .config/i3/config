@@ -228,9 +228,6 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-# Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
-
 # Keyboard settings
 exec --no-startup-id setxkbmap us,si -option 'grp:alt_space_toggle'
 
@@ -244,29 +241,12 @@ exec --no-startup-id ~/.screenlayout/startup.sh
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	status_command i3status
 	position top
-
-	## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	#	tray_output primary
-	#	tray_output eDP1
-
-	bindsym button4 nop
-	bindsym button5 nop
+   strip_workspace_numbers yes
+   font pango:Economica, FontAwesome 15
+   separator_symbol "⋆"
+	status_command i3status
 	font xft:Droid Sans Mono 10
-	strip_workspace_numbers yes
-
-	colors {
-		background #000000
-		statusline #F9FAF9
-		separator  #454947
-
-		# 						 border  backgr. text
-		focused_workspace  #d26937 #000000 #edb443
-		active_workspace   #595B5B #0c1014 #2aa889
-		inactive_workspace #595B5B #091f2e #2aa889
-		urgent_workspace   #d26937 #c23127 #c23127
-	}
 }
 
 # Theme colors
