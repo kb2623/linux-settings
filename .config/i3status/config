@@ -1,13 +1,14 @@
 general {
-	interval = 5
-	colors 			= true
-	color_good      = '#88b090'
-	color_degraded  = '#ccdc90'
-	color_bad       = '#e89393'
+	output_format	= "i3bar"
+	interval			= 60
+	colors			= true
+	color_good		= '#88b090'
+	color_degraded	= '#ccdc90'
+	color_bad		= '#e89393'
+   separator		= "⋆"
 }
 
 order += "ethernet eno1"
-order += "read_file uptime"
 order += "tztime local"
 
 ethernet eno1 {
@@ -15,11 +16,6 @@ ethernet eno1 {
 	format_down = "E: down"
 }
 
-read_file uptime {
-	path = "/proc/uptime"
-}
-
 tztime local {
-	format = "%Y-%m-%d %H:%M:%S"
-	hide_if_equals_localtime = true
+	format = "%Y-%m-%d %H:%M"
 }
