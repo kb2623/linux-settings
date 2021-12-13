@@ -218,6 +218,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Set swaywm theme:
+set $my_cursor Hack-c
+font pango:FantasqueSansMono Nerd Font 10
+titlebar_padding 1
+seat seat0 xcursor_theme $my_cursor
+
 #
 # Status Bar:
 #
@@ -231,17 +237,13 @@ bar {
     }
 }
 
-set $gnome-schema org.gnome.desktop.interface
-
+# Set GTK theme:
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'oomox-black'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-    gsettings set org.gnome.desktop.interface cursor-theme 'Hack-C'
+    gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
     gsettings set org.gnome.desktop.interface font-name 'Oxanium 10'
 }
-
-font pango:FantasqueSansMono Nerd Font 10
-titlebar_padding 1
 
 include /etc/sway/config.d/*
 
