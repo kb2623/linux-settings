@@ -8,6 +8,7 @@ export ZPLUG_HOME=~/.zplug
 export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 # Enable Vim mode in ZSH
 bindkey -v
