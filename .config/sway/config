@@ -11,7 +11,7 @@ set $right l
 set $term kitty
 
 ### Your preferred application launcher
-set $menu 'rofi -modi run, drun, window  -show drun'
+set $menu 'wofi --show run'
 
 include /etc/sway/config-vars.d/*
 
