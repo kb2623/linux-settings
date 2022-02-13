@@ -37,6 +37,8 @@ output HDMI-A-1 pos 1920 0 res 1920x1080
 input * {
 	xkb_layout "us,si"
 	xkb_options grp:alt_space_toggle
+	accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
 }
 
 input type:touchpad {
@@ -44,8 +46,6 @@ input type:touchpad {
     tap enabled
     natural_scroll disabled
     dwt enabled
-    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
-    pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
 }
 
 ### Key bindings
