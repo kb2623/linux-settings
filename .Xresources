@@ -30,7 +30,7 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 
 Xcursor.size: 16
-Xcursor.theme: Hack-C
+Xcursor.theme: Dark-C
 
 UXTerm*renderFont: true
 

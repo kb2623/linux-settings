@@ -9,6 +9,7 @@ export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
 export QT_QPA_PLATFORMTHEME=qt5ct
+export NNN_PLUG='m:nmount'
 
 # Enable Vim mode in ZSH
 bindkey -v
