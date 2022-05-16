@@ -194,7 +194,7 @@ exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'oomox-black'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
-    gsettings set org.gnome.desktop.interface font-name 'Oxanium 10'
+    gsettings set org.gnome.desktop.interface font-name 'Oxanium Light 10'
 }
 
 ### Status Bar:
