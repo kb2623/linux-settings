@@ -140,7 +140,7 @@ require('nvim-tree').setup {
 	},
 }
 
-
+vim.opt.mouse = "a"
 
 vim.o.number = true
 vim.o.ruler = true
