@@ -27,7 +27,7 @@ export HISTCONTROL=ignoreboth
 export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
-export NNN_PLUG='m:nmount'
+export NNN_PLUG='m:nmount;a:mtpmount'
 
 # ALIAS ----------------------------------------------------------------
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
