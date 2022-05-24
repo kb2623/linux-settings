@@ -54,6 +54,8 @@ alias yaourtClean='yaourt -Rs $(yaourt -Qtdq)'
 alias pacmanUpdateMirrors='sudo pacman-mirrors --geoip'
 alias nvimqt='nvim-qt --no-ext-tabline &> /dev/null &'
 alias rcp='rsync -ah --progress'
+alias vim='nvim'
+alias vi='nvim'
 
 # BIND ------------------------------------------------------------------
 bindkey '^E' edit-command-line                   # Opens Vim to edit current command line

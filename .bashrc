@@ -41,6 +41,8 @@ alias free='free -m'                      # show sizes in MB
 alias update='yaourt -Syua'
 alias lockui='i3lock -c 000000'
 alias rcp='rsync -ah --progress'
+alias vim='nvim'
+alias vi='nvim'
 
 # Functions ------------------------------------------------------------
 # ex - archive extractor

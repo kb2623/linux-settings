@@ -113,6 +113,17 @@ local function set_wallpaper(s)
 end
 -- }}}
 
+-- {{{ Quit menu
+local confirmQuitmenu = awful.menu({
+	items = {
+		{"Exit AwesomeWM?", function () do end end},
+		{"NO", function () do end end},
+		{"YES", function() awesome.quit() end}
+	}
+})
+
+-- }}}
+
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 local myawesomemenu = {
@@ -124,12 +135,12 @@ local myawesomemenu = {
 }
 
 local myexitmenu = {
-    { "Lock", "dm-tool lock", "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "Log out", function() awesome.quit() end, "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "Suspend", "systemctl suspend", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Lock",      "i3lock -c 000000", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Exit",      function() awesome.quit() end, "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Suspend",   "systemctl suspend", "/usr/share/icons/gnome/24x24/actions/reload.png" },
     { "Hibernate", "systemctl hibernate", "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "Reboot", "systemctl reboot", "/usr/share/icons/gnome/24x24/actions/reload.png" },
-    { "Shutdown", "poweroff", "/usr/share/icons/gnome/24x24/actions/reload.png" }
+    { "Reboot",    "systemctl reboot", "/usr/share/icons/gnome/24x24/actions/reload.png" },
+    { "Shutdown",  "systemctl poweroff", "/usr/share/icons/gnome/24x24/actions/reload.png" }
 }
 
 local mymainmenu = freedesktop.menu.build({
@@ -338,8 +349,8 @@ globalkeys = gears.table.join(
 		{description = "open a terminal", group = wmLauncherG}),
 	awful.key({ modkey, "Control" }, "r", awesome.restart,
 		{description = "reload awesome", group = wmAwesomeG}),
-	awful.key({ modkey, "Shift"   }, "q", awesome.quit,
-		{description = "quit awesome", group = wmAwesomeG}),
+	awful.key({ modkey, "Shift"   }, "q", function () confirmQuitmenu:show() end,
+		{description = "Confirm Awesome wm exit", group = wmAwesomeG}),
 
 	awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
 		{description = "increase master width factor", group = wmLayoutG}),
