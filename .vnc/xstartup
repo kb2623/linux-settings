@@ -8,4 +8,4 @@ OS=`uname -s`
 [ -f $HOME/.profile ] && . $HOME/.profile
 [ -f $HOME/.Xresources ] && xrdb -merge $HOME/.Xresources
 
-i3
+awesome

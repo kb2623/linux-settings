@@ -10,6 +10,8 @@ export BROWSER=/usr/bin/firefox
 export ANDROID_HOME=/home/klemen/programs/Android/
 export QT_QPA_PLATFORMTHEME=qt5ct
 export NNN_PLUG='m:nmount;a:mtpmount'
+export SAL_USE_VCLPLUGIN=qt5
+export SAL_VCL_QT5_USE_CAIRO=1
 
 # Enable Vim mode in ZSH
 bindkey -v
