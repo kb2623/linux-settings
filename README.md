@@ -337,3 +337,13 @@ openssl rsa -in [file1.key] -out [file2.key]
 ```bash
 openssl req -x509 -new -nodes -key [file.key] -sha256 -days 1024  -out [file.pem]
 ```
+
+# Kitty
+
+## xterm-kitty: unknown terminal type
+
+n order to copy over a terminfo file to your remote host’s `~/.terminfo` folder, run the following:
+
+```
+kitty +kitten ssh "your.remote.server"
+```
