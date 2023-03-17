@@ -1,3 +1,5 @@
 @import 'colors.css';
 
-decoration {box-shadow: none;}
+decoration {
+	box-shadow: none;
+}
