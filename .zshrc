@@ -4,6 +4,7 @@
 [ -f ~/.profile ] && source ~/.profile
 
 # Environemnt variables -----------------------------------------------
+export PATH=/usr/local/go/bin:$PATH
 export ZPLUG_HOME=~/.zplug
 export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox

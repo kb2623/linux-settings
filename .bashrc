@@ -16,11 +16,12 @@ shopt -s expand_aliases
 shopt -s extglob
 shopt -s histappend
 shopt -s hostcomplete
-
+#
 # Profile -------------------------------------------------------------
 [ -f ~/.profile ] && source ~/.profile
 
 # Environemnt variables -----------------------------------------------
+export PATH=/usr/local/go/bin:$PATH
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
