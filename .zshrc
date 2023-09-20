@@ -36,7 +36,7 @@ zplug zpm-zsh/ls
 zplug zpm-zsh/colors
 zplug zpm-zsh/ssh
 zplug zpm-zsh/dot
-zplug zpm-zsh/material-colors
+zplug zpm-zsh/dircolors-neutral
 zplug romkatv/powerlevel10k, as:theme, depth:1
 
 ## Install zplug plugins
