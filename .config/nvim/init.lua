@@ -166,3 +166,46 @@ end
 
 map("n", "<F7>", "<cmd>NvimTreeToggle<cr>")
 map("n", "<F8>", "<cmd>TagbarToggle<cr>")
+
+-- Put anything you want to happen only in Neovide here
+if vim.g.neovide then
+	-- Font
+	vim.o.guifont = "FantasqueSansM Nerd Font:h13"
+	-- Line spacing
+	vim.opt.linespace = 0
+	-- Scale
+	vim.g.neovide_scale_factor = 1.0
+	-- Padding
+	vim.g.neovide_padding_top = 0
+	vim.g.neovide_padding_bottom = 0
+	vim.g.neovide_padding_right = 0
+	vim.g.neovide_padding_left = 0
+	-- Theme (light, dark, auto)
+	vim.g.neovide_theme = 'dark'
+	-- Refresh Rate
+	vim.g.neovide_refresh_rate = 60
+	-- Idle refresh rate
+	vim.g.neovide_refresh_rate_idle = 5
+	-- No idel
+	vim.g.neovide_no_idle = false
+	-- Profiler
+	vim.g.neovide_profiler = false
+	-- Animation Length
+	vim.g.neovide_cursor_animation_length = 0.15
+	-- Animation Trail Size
+	vim.g.neovide_cursor_trail_size = 0.7
+	-- Antialiasing
+	vim.g.neovide_cursor_antialiasing = true
+	-- Cursor Particles (railgun, torpedo, pixiedust, sonicboom, ripple, wireframe)
+	vim.g.neovide_cursor_vfx_mode = "railgun"
+	-- Particle Lifetime
+	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
+	-- Particle Density
+	vim.g.neovide_cursor_vfx_particle_density = 7.0
+	-- Particle Speed
+	vim.g.neovide_cursor_vfx_particle_speed = 9.0
+	-- Particles Phase
+	vim.g.neovide_cursor_vfx_particle_pahase = 1.3
+	-- Particles Curl
+	vim.g.neovide_cursor_vfx_particle_curl = 0.9
+end
