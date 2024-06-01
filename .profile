@@ -9,3 +9,4 @@ export SAL_USE_VCLPLUGIN=kf5
 export SAL_VCL_QT5_USE_CAIRO=1
 
 [ -f ~/.extend.profile ] && . ~/.extend.profile
+. "$HOME/.cargo/env"

@@ -98,3 +98,4 @@ elif [[ "$TERM" = "linux" ]]; then
 else
 	PS1='[\[\e[32m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]]-[\[\e[33m\]\w\[\e[m\]]\\$\n> '
 fi
+. "$HOME/.cargo/env"

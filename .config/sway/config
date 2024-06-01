@@ -16,9 +16,9 @@ set $menu 'wofi --show run'
 include /etc/sway/config-vars.d/*
 
 ### Output configuration
-output * bg /usr/share/backgrounds/sway/debianwall.jpeg fill
-output DP-3 pos 0 0 res 1920x1200
-output HDMI-A-1 pos 1920 0 res 1920x1080
+output * bg ~/Pictures/wallpapers/pxfuel.jpg fill
+output DP-3 pos 0 0 mode 1920x1080@120Hz
+output DP-2 pos 1920 0 mode 1920x1080@120Hz
 
 ### Idle configuration
 #
@@ -176,14 +176,11 @@ bindsym $mod+r mode "resize"
 ### Set swaywm theme:
 
 # Set cursor
-set $my_cursor "Hack-C"
+set $my_cursor "Bibata-Original-Classic"
 seat seat0 xcursor_theme $my_cursor
 
 # Set font
 font pango:FantasqueSansMono Nerd Font 10
-
-# Set padding
-titlebar_padding 1
 
 # Windows borders
 default_border none
@@ -191,7 +188,7 @@ default_border pixel 2
 
 # Set GTK theme:
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme 'oomox-black'
+    gsettings set org.gnome.desktop.interface gtk-theme 'BlackAndWhite'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
     gsettings set org.gnome.desktop.interface font-name 'Oxanium Light 10'
@@ -199,7 +196,7 @@ exec_always {
 
 ### Status Bar:
 bar {
-	 swaybar_command waybar
+	 swaybar_command waybar -c ~/.config/sway/waybar_config -s ~/.config/waybar/style.css
     colors {
         statusline #050505
         background #000000

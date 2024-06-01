@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+
+<!--
+This is a very simple config file with many options missing. For a complete
+set of options with comments, see docs/rc.xml.all
+-->
+
+<labwc_config>
+
+	<theme>
+		<name>Nightmare</name>
+		<cornerRadius>3</cornerRadius>
+		<keepBorder>yes</keepBorder>
+		<dropShadows>no</dropShadows>
+		<font name="sans" size="10" />
+	</theme>
+
+	<desktops number="2">
+		<names>
+			<name>One</name>
+			<name>Two</name>
+		</names>
+	</desktops>
+
+	<keyboard>
+		<default />
+		<keybind key="W-Return">
+			<action name="Execute" command="kitty" />
+		</keybind>
+		<keybind key="W-l">
+			<action name="GoToDesktop"><to>right</to></action>
+		</keybind>
+		<keybind key="W-h">
+			<action name="GoToDesktop"><to>left</to></action>
+		</keybind>
+		<keybind key="W-j">
+			<action name="NextWindow"></action>
+		</keybind>
+		<keybind key="W-k">
+			<action name="PreviousWindow"></action>
+		</keybind>
+		<keybind key="W-A-F1">
+			<action name="GoToDesktop"><to>1</to></action>
+		</keybind>
+		<keybind key="W-A-F2">
+			<action name="GoToDesktop"><to>2</to></action>
+		</keybind>
+		<keybind key="W-r">
+			<action name="Execute" command="wofi --show run" />
+		</keybind>
+	</keyboard>
+
+	<mouse>
+		<default />
+		<!-- Show a custom menu on desktop right click -->
+		<context name="Root">
+			<mousebind button="Right" action="Press">
+				<action name="ShowMenu" menu="some-custom-menu" />
+			</mousebind>
+		</context>
+	</mouse>
+
+</labwc_config>
