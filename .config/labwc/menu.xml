@@ -49,20 +49,17 @@
   <item label="Terminal">
     <action name="Execute" command="kitty" />
   </item>
-  <item label="Files">
-    <action name="Execute" command="thunar" />
-  </item>
-  <item label="Mail">
-    <action name="Execute" command="thunderbird" />
-  </item>
   <item label="Run">
-    <action name="Execute" command="wofi --show run" />
+    <action name="Execute" command="bemenu-run" />
   </item>
-  <item label="Exit">
-    <action name="Exit" />
+  <item label="Audio">
+    <action name="Execute" command="pavucontrol" />
   </item>
-  <item label="Poweroff">
-    <action name="Execute" command="systemctl -i poweroff" />
+  <item label="Network">
+	  <action name="Execute" command="nm-connection-editor" />
+  </item>
+  <item label="Bluetooth">
+	  <action name="Execute" command="blueman-manager" />
   </item>
 </menu>
 
@@ -70,8 +67,14 @@
   <item label="Reconfigure">
     <action name="Reconfigure" />
   </item>
+  <item label='Lock'>
+	  <action name="Execute" command="swaylock -f -c 000000" />
+  </item>
   <item label="Exit">
     <action name="Exit" />
+  </item>
+  <item label="Poweroff">
+    <action name="Execute" command="systemctl -i poweroff" />
   </item>
 </menu>
 
