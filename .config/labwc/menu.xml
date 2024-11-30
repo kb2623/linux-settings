@@ -1,81 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <openbox_menu>
-<!-- Note: for localization support of menu items "client-menu" has to be removed here -->
-<menu id="client-menu">
-  <item label="Minimize">
-    <action name="Iconify" />
-  </item>
-  <item label="Maximize">
-    <action name="ToggleMaximize" />
-  </item>
-  <item label="Fullscreen">
-    <action name="ToggleFullscreen" />
-  </item>
-  <item label="Roll up/down">
-    <action name="ToggleShade" />
-  </item>
-  <item label="Decorations">
-    <action name="ToggleDecorations" />
-  </item>
-  <item label="Always on Top">
-    <action name="ToggleAlwaysOnTop" />
-  </item>
-  <!--
-    Any menu with the id "workspaces" will be hidden
-    if there is only a single workspace available.
-  -->
-  <menu id="workspaces" label="Workspace">
-    <item label="Move left">
-      <action name="SendToDesktop" to="left" />
-    </item>
-    <item label="Move right">
-      <action name="SendToDesktop" to="right" />
-    </item>
-    <separator />
-    <item label="Always on Visible Workspace">
-      <action name="ToggleOmnipresent" />
-    </item>
-  </menu>
-  <item label="Close">
-    <action name="Close" />
-  </item>
-</menu>
+	<!-- Note: for localization support of menu items "client-menu" has to be removed here -->
+	<menu id="client-menu">
+		<item label="Minimize">
+			<action name="Iconify" />
+		</item>
+		<item label="Maximize">
+			<action name="ToggleMaximize" />
+		</item>
+		<item label="Fullscreen">
+			<action name="ToggleFullscreen" />
+		</item>
+		<item label="Roll up/down">
+			<action name="ToggleShade" />
+		</item>
+		<item label="Decorations">
+			<action name="ToggleDecorations" />
+		</item>
+		<item label="Always on Top">
+			<action name="ToggleAlwaysOnTop" />
+		</item>
+		<!--
+			Any menu with the id "workspaces" will be hidden
+			if there is only a single workspace available.
+		-->
+		<menu id="workspaces" label="Workspace">
+			<item label="Move left">
+				<action name="SendToDesktop" to="left" />
+			</item>
+			<item label="Move right">
+				<action name="SendToDesktop" to="right" />
+			</item>
+			<separator />
+			<item label="Always on Visible Workspace">
+				<action name="ToggleOmnipresent" />
+			</item>
+		</menu>
+		<item label="Close">
+			<action name="Close" />
+		</item>
+	</menu>
 
-<menu id="root-menu">
-  <item label="Web browser">
-    <action name="Execute" command="firefox" />
-  </item>
-  <item label="Terminal">
-    <action name="Execute" command="kitty" />
-  </item>
-  <item label="Run">
-    <action name="Execute" command="bemenu-run" />
-  </item>
-  <item label="Audio">
-    <action name="Execute" command="pavucontrol" />
-  </item>
-  <item label="Network">
-	  <action name="Execute" command="nm-connection-editor" />
-  </item>
-  <item label="Bluetooth">
-	  <action name="Execute" command="blueman-manager" />
-  </item>
-</menu>
+	<menu id="root-menu">
+		<item label="Web browser">
+			<action name="Execute" command="firefox" />
+		</item>
+		<item label="Terminal">
+			<action name="Execute" command="kitty" />
+		</item>
+		<item label="Run">
+			<action name="Execute" command="bemenu-run" />
+		</item>
+		<menu id="settings-menu" label="Settings">
+			<item label="Audio">
+				<action name="Execute" command="pavucontrol" />
+			</item>
+			<item label="Network">
+				<action name="Execute" command="nm-connection-editor" />
+			</item>
+			<item label="Bluetooth">
+				<action name="Execute" command="blueman-manager" />
+			</item>
+		</menu>
+	</menu>
 
-<menu id="some-custom-menu">
-  <item label="Reconfigure">
-    <action name="Reconfigure" />
-  </item>
-  <item label='Lock'>
-	  <action name="Execute" command="swaylock -f -c 000000" />
-  </item>
-  <item label="Exit">
-    <action name="Exit" />
-  </item>
-  <item label="Poweroff">
-    <action name="Execute" command="systemctl -i poweroff" />
-  </item>
-</menu>
+	<menu id="some-custom-menu">
+		<item label="Reconfigure">
+			<action name="Reconfigure" />
+		</item>
+		<separator label="Session" />
+		<item label='Lock'>
+			<action name="Execute" command="swaylock -f -c 000000" />
+		</item>
+		<item label="Exit">
+			<action name="Exit" />
+		</item>
+		<item label="Poweroff">
+			<action name="Execute" command="systemctl -i poweroff" />
+		</item>
+	</menu>
 
 </openbox_menu>
