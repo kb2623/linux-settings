@@ -62,6 +62,9 @@
 			<item label="Bluetooth">
 				<action name="Execute" command="blueman-manager" />
 			</item>
+			<item label="Displays">
+				<action name="Execute" command="wdisplays" />
+			</item>
 		</menu>
 	</menu>
 
