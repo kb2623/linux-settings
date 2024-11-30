@@ -58,6 +58,26 @@ set of options with comments, see docs/rc.xml.all
 				<action name="ShowMenu" menu="some-custom-menu" />
 			</mousebind>
 		</context>
+
+		<!-- time is in ms -->
+		<doubleClickTime>500</doubleClickTime>
+
+		<context name="Frame">
+			<mousebind button="W-Left" action="Press">
+				<action name="Focus" />
+				<action name="Raise" />
+			</mousebind>
+			<mousebind button="W-Left" action="Drag">
+				<action name="Move" />
+			</mousebind>
+			<mousebind button="W-Right" action="Press">
+				<action name="Focus" />
+				<action name="Raise" />
+			</mousebind>
+			<mousebind button="W-Right" action="Drag">
+				<action name="Resize" />
+			</mousebind>
+		</context>
 	</mouse>
 
 </labwc_config>
