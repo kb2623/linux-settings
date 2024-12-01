@@ -1,45 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <openbox_menu>
-	<!-- Note: for localization support of menu items "client-menu" has to be removed here -->
 	<menu id="client-menu">
-		<item label="Minimize">
-			<action name="Iconify" />
-		</item>
-		<item label="Maximize">
-			<action name="ToggleMaximize" />
-		</item>
-		<item label="Fullscreen">
-			<action name="ToggleFullscreen" />
-		</item>
-		<item label="Roll up/down">
-			<action name="ToggleShade" />
-		</item>
-		<item label="Decorations">
-			<action name="ToggleDecorations" />
-		</item>
-		<item label="Always on Top">
-			<action name="ToggleAlwaysOnTop" />
-		</item>
-		<!--
-			Any menu with the id "workspaces" will be hidden
-			if there is only a single workspace available.
-		-->
 		<menu id="workspaces" label="Workspace">
-			<item label="Move left">
-				<action name="SendToDesktop" to="left" />
+			<item label="1">
+				<action name="SendToDesktop" to="1" follow="no" />
 			</item>
-			<item label="Move right">
-				<action name="SendToDesktop" to="right" />
+			<item label="2">
+				<action name="SendToDesktop" to="2" follow="no" />
 			</item>
-			<separator />
-			<item label="Always on Visible Workspace">
-				<action name="ToggleOmnipresent" />
+			<item label="3">
+				<action name="SendToDesktop" to="3" follow="no" />
+			</item>
+			<item label="4">
+				<action name="SendToDesktop" to="4" follow="no" />
 			</item>
 		</menu>
-		<item label="Close">
-			<action name="Close" />
-		</item>
+		<menu id="window" label="Window">
+			<item label="Minimize">
+				<action name="Iconify" />
+			</item>
+			<item label="Maximize">
+				<action name="ToggleMaximize" />
+			</item>
+			<item label="Close">
+				<action name="Close" />
+			</item>
+			<item label="Fullscreen">
+				<action name="ToggleFullscreen" />
+			</item>
+			<item label="Roll up/down">
+				<action name="ToggleShade" />
+			</item>
+			<item label="Decorations">
+				<action name="ToggleDecorations" />
+			</item>
+			<item label="Always on Top">
+				<action name="ToggleAlwaysOnTop" />
+			</item>
+		</menu>
 	</menu>
 
 	<menu id="root-menu">
@@ -70,6 +69,20 @@
 
 	<menu id="some-custom-menu">
 		<separator label="LabWC" />
+		<menu id="workspace-go" label="Workspace">
+			<item label="1">
+				<action name="GoToDesktop" to="1" />
+			</item>
+			<item label="2">
+				<action name="GoToDesktop" to="2" />
+			</item>
+			<item label="3">
+				<action name="GoToDesktop" to="3" />
+			</item>
+			<item label="4">
+				<action name="GoToDesktop" to="4" />
+			</item>
+		</menu>
 		<item label="Reconfigure">
 			<action name="Reconfigure" />
 		</item>

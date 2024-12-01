@@ -17,8 +17,10 @@ set of options with comments, see docs/rc.xml.all
 
 	<desktops number="2">
 		<names>
-			<name>One</name>
-			<name>Two</name>
+			<name>1</name>
+			<name>2</name>
+			<name>3</name>
+			<name>4</name>
 		</names>
 	</desktops>
 
@@ -46,7 +48,7 @@ set of options with comments, see docs/rc.xml.all
 			<action name="GoToDesktop"><to>2</to></action>
 		</keybind>
 		<keybind key="W-r">
-			<action name="Execute" command="wofi --show run" />
+			<action name="Execute" command="bemenu-run" />
 		</keybind>
 	</keyboard>
 
