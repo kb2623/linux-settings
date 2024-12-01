@@ -56,6 +56,9 @@ set of options with comments, see docs/rc.xml.all
 		<keybind key="W-r">
 			<action name="Execute" command="bemenu-run" />
 		</keybind>
+		<keybind key="W-Prior">
+			<action name="ToggleMaximize" />
+		</keybind>
 	</keyboard>
 
 	<mouse>
