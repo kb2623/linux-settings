@@ -47,6 +47,12 @@ set of options with comments, see docs/rc.xml.all
 		<keybind key="W-A-F2">
 			<action name="GoToDesktop"><to>2</to></action>
 		</keybind>
+		<keybind key="W-A-F3">
+			<action name="GoToDesktop"><to>3</to></action>
+		</keybind>
+		<keybind key="W-A-F4">
+			<action name="GoToDesktop"><to>4</to></action>
+		</keybind>
 		<keybind key="W-r">
 			<action name="Execute" command="bemenu-run" />
 		</keybind>
