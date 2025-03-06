@@ -29,8 +29,6 @@ xterm*VT100.Translations: #override \
 	Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
 	Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 
-Xcursor.size: 16
-Xcursor.theme: Dark-C
 
 UXTerm*renderFont: true
 
@@ -222,3 +220,6 @@ UXTerm*renderFont: true
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+Xcursor.theme: Bibata-Original-Classic
+Xcursor.size: 16

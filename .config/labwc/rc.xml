@@ -12,7 +12,7 @@ set of options with comments, see docs/rc.xml.all
 		<cornerRadius>3</cornerRadius>
 		<keepBorder>yes</keepBorder>
 		<dropShadows>no</dropShadows>
-		<font name="sans" size="10" />
+		<font name="Roboto" size="10" />
 	</theme>
 
 	<desktops number="2">
@@ -23,6 +23,12 @@ set of options with comments, see docs/rc.xml.all
 			<name>4</name>
 		</names>
 	</desktops>
+
+	<libinput>
+		<device category="default">
+			<pointerSpeed>-0.7</pointerSpeed>
+		</device>
+	</libinput>
 
 	<keyboard>
 		<default />
@@ -54,7 +60,7 @@ set of options with comments, see docs/rc.xml.all
 			<action name="GoToDesktop"><to>4</to></action>
 		</keybind>
 		<keybind key="W-r">
-			<action name="Execute" command="bemenu-run" />
+			<action name="Execute" command="wmenu-run" />
 		</keybind>
 		<keybind key="W-Prior">
 			<action name="ToggleMaximize" />

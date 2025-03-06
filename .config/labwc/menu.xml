@@ -48,6 +48,9 @@
 		<item label="Terminal">
 			<action name="Execute" command="kitty" />
 		</item>
+		<item label="Files">
+			<action name="Execute" command="pcmanfm-qt" />
+		</item>
 		<item label="Run">
 			<action name="Execute" command="bemenu-run" />
 		</item>

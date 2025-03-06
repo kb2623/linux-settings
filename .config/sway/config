@@ -11,7 +11,7 @@ set $right l
 set $term kitty
 
 ### Your preferred application launcher
-set $menu 'wofi --show run'
+set $menu 'wmenu-run'
 
 include /etc/sway/config-vars.d/*
 
@@ -196,7 +196,9 @@ exec_always {
 
 ### Status Bar:
 bar {
-	 swaybar_command waybar -c ~/.config/sway/waybar_config -s ~/.config/waybar/style.css
+	 # swaybar_command waybar -c ~/.config/sway/waybar_config -s ~/.config/waybar/style.css
+	 position top
+	 font pango:FantasqueSansMono Nerd Font 10
     colors {
         statusline #050505
         background #000000

@@ -19,7 +19,8 @@
 
 # XKB_DEFAULT_LAYOUT=se
 XKB_DEFAULT_LAYOUT=us,si
-XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
+XKB_DEFAULT_OPTIONS=grp:shifts_toggle
+# XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 # XKB_DEFAULT_OPTIONS=grp:shift_caps_toggle
 
 ##
@@ -37,7 +38,7 @@ XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 
 XCURSOR_THEME=Bibata-Original-Classic
 # XCURSOR_THEME=capitaine-cursors
-# XCURSOR_SIZE=24
+XCURSOR_SIZE=23
 
 ##
 ## Disable hardware cursors. Most users would not want to do this, but if you
@@ -83,3 +84,13 @@ XCURSOR_THEME=Bibata-Original-Classic
 
 # LABWC_FALLBACK_OUTPUT=NOOP-fallback
 
+##
+## To run Qt applications on Wayland it may be necessary to install a 
+## specific qt6-wayland package from the distribution repositories. 
+## For examples on Arch Linux, install qt6-wayland.
+##
+
+QT_QPA_PLATFORM=wayland
+QT_QPA_PLATFORMTHEME=qt6ct:qt5ct
+
+MOZ_ENABLE_WAYLAND=1
